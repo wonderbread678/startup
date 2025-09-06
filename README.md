@@ -32,7 +32,7 @@ Have you ever wanted a simple, conveneient way to not only rate what you read, b
 
 ![Design image](placeholder.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This would be the design flow of the website:
 
 ```mermaid
 sequenceDiagram
@@ -41,6 +41,7 @@ sequenceDiagram
     actor List
     actor Profile
     actor DB
+    actor Search
 
 
     User->>Website: Login
@@ -48,6 +49,10 @@ sequenceDiagram
     Website->>List: User creates entry
     List->>Profile: List is updated on profile
     Profile->>DB: Profile is stored
+    Profile-->>List: Set list to public
+    List-->>Website: Visible to all
+    User->>Search: User searches a user ID
+    Search-->>Profile: After searching, user will be taken to profile
 
     
 ```
