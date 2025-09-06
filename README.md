@@ -31,6 +31,8 @@ Have you ever wanted a simple, conveneient way to not only rate what you read, b
 ### Design
 
 ![Design image](images/Entry%20diagram.jpeg)
+![Design image](images/List%20diagram.jpeg)
+![Design image](images/Profile%20diagram.jpeg)
 
 This would be the design flow of the website:
 
