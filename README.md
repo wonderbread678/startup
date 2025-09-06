@@ -30,7 +30,7 @@ Have you ever wanted a simple, conveneient way to not only rate what you read, b
 
 ### Design
 
-![Design image]("C:\Users\wonde\startup\Images\Entry diagram.jpeg")
+![Design image](images/Entry%20diagram.jpeg)
 
 This would be the design flow of the website:
 
