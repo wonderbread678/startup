@@ -38,8 +38,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 sequenceDiagram
     actor User
     actor Website
-    actor Profile
     actor List
+    actor Profile
     actor DB
 
 
