@@ -18,11 +18,11 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
-- [ ] Description of key features
-- [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] Proper use of Markdown
+- [x] A concise and compelling elevator pitch
+- [x] Description of key features
+- [] Description of how you will use each technology
+- [] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -42,10 +42,10 @@ sequenceDiagram
 ```
 
 ### Key features
-
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Able to create an entry for any piece of media and rate it
+- Able to create a list of any one type of media and rank each entry in the list
+- Able to add a numerical rating to each entry, as well as a comment
+- Able to make the list public or private, if you want other's to see your rankings
 
 ### Technologies
 
