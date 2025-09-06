@@ -30,7 +30,7 @@ Have you ever wanted a simple, conveneient way to not only rate what you read, b
 
 ### Design
 
-![Design image](images/Entry%20diagram.jpeg)
+![Design image](https://github.com/wonderbread678/startup/blob/fc37ee399dc55da93b863856a700eaeac3775dfc/Entry%20diagram.jpeg)
 ![Design image](images/List%20diagram.jpeg)
 ![Design image](images/Profile%20diagram.jpeg)
 
