@@ -36,10 +36,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ```mermaid
 sequenceDiagram
-    actor You
+    actor User
     actor Website
-    You->>Website: Login
-    Website->>You: Fail/pass login
+    actor Profile
+    actor List
+    actor DB
+
+
+    User->>Website: Login
+    Website-->>User: Fail to login
+    Website->>List: User creates entry
+    List->>Profile: List is updated on profile
+    Profile->>DB: Profile is stored
+
+    
 ```
 
 ### Key features
