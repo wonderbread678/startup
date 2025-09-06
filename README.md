@@ -26,7 +26,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Have you ever wanted a simple, conveneient way to not only rate what you read, but see what other people think about the same book? Introducing [???], a website where you can upload any and all books, comics, poetry, and more, all to be rated and even commented on by the user. Unlike other rating sites, this gives complete freedom for uploads, allowing for all literature to be included, as well as a personal ranking system, where you can compile a list of all of your favorite media and how they rank amongst others of their type.
+Have you ever wanted a simple, conveneient way to not only rate what you read, but see what other people think about the same book? Introducing Koob, a website where you can upload any and all books, comics, poetry, and more, all to be rated and even commented on by the user. Unlike other rating sites, this gives complete freedom for uploads, allowing for all literature to be included, as well as a personal ranking system, where you can compile a list of all of your favorite media and how they rank amongst others of their type.
 
 ### Design
 
@@ -51,7 +51,8 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
+- **HTML** - The structure of the weebsite will be as follows: Across the very top will be the title of the website. A little below that will be a header, telling which section of the website someone is in (i.e., Upload, List, etc.). Then, a small paragraph outlining what goes on in each link (i.e., the upload section would have something like "Choose a title for your work, as well as a picture, and then give it a ranking and/or a comment!"). HTML will be used to display whatever image the user uploads as part of the entry. Finally, on a bar across the top will be the links created by HTML to take the user to the different sections of the site. Thesse will include "Entry/upload" to make a new entry, "Lists" to show all the lists a user has created and be able to edit them, "Profile" to show the users site information, "Browse", which will show all of the public lists on the site for people to browse and get recommendations from.
+
 - **CSS** - Description here
 - **React** - Description here
 - **Service** - Description here
