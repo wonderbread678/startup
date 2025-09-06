@@ -46,6 +46,7 @@ sequenceDiagram
 
     User->>Website: Login
     Website-->>User: Fail to login
+    User-->>DB: Stores login info
     Website->>List: User creates entry
     List->>Profile: List is updated on profile
     Profile->>DB: Profile is stored
