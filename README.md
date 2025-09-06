@@ -1,4 +1,4 @@
-# Your startup name here
+# Koob
 
 [My Notes](notes.md)
 
