@@ -38,7 +38,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 sequenceDiagram
     actor You
     actor Website
-    You->>Website->>You: Replace this with your design
+    You->>Website: Login
+    Website->>You: Fail/pass login
 ```
 
 ### Key features
