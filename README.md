@@ -53,7 +53,7 @@ I am going to use the required technologies in the following ways.
 
 - **HTML** - The structure of the weebsite will be as follows: Across the very top will be the title of the website. A little below that will be a header, telling which section of the website someone is in (i.e., Upload, List, etc.). Then, a small paragraph outlining what goes on in each link (i.e., the upload section would have something like "Choose a title for your work, as well as a picture, and then give it a ranking and/or a comment!"). HTML will be used to display whatever image the user uploads as part of the entry. Finally, on a bar across the top will be the links created by HTML to take the user to the different sections of the site. Thesse will include "Entry/upload" to make a new entry, "Lists" to show all the lists a user has created and be able to edit them, "Profile" to show the users site information, "Browse", which will show all of the public lists on the site for people to browse and get recommendations from.
 
-- **CSS** - Description here
+- **CSS** - I will use Lucida Console fixed font throughout the website. I will use a dark forest green, white, and a gold-ish yellow. The buttons will be rectangular, with rounded corners. There will be partitions between each of the links, as well as the header and title. This will also allow for me to change the color of the font for the rating itself (which will be 1-10), with each rating being a different color, progressing from red (at 1) up to green (at 10).
 - **React** - Description here
 - **Service** - Description here
 - **DB/Login** - Description here
