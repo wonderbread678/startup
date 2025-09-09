@@ -53,6 +53,7 @@ sequenceDiagram
     Website-->>User: Fail to login
     User-->>DB: Stores login info
     Website->>List: User creates entry
+    Website-->>Website: User is able to start a new entry
     List->>Profile: List is updated on profile
     Profile->>DB: Profile is stored
     Profile-->>List: Set list to public
