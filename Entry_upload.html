@@ -12,7 +12,18 @@
                 <h2>Entry Upload</h2>
                 <p>Upload any piece of media that your heart desires! Just input the title, a rating, and a picture.</p>
                 <hr />
+                <ul style="display: flex; gap: 20px">
+                    <a href="index.html">Home</a>
+                    <div class="vertical bar" style="border-left: 2px solid black"></div>
+                    <a href="Entry_upload.html">Upload</a>
+                    <div class="vertical bar" style="border-left: 2px solid black"></div>
+                    <a href="List.html">List</a>
+                    <div class="vertical bar" style="border-left: 2px solid black"></div>
+                    <a href="Profile.html">Profile</a>
+                </ul>
+                <hr />
             </header>
+
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <span>Choose a photo to upload: </span>
                 <input type="file" id="fileUpload" name="myFile">
