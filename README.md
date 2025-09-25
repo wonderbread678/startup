@@ -104,11 +104,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Proper HTML element usage** - I spent alot of time figuring out the different elements, especially span, ul, ol, selectors, inputs, img, a, and many others.
 - [x] **Links** - I have links going to all of my different pages, all available from every page (except for edit profile, which is only in the profile section).
 - [x] **Text** - All of my pages have text on them, the most being on the About page.
-- [x] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [x] **Images** - I did not complete this part of the deliverable.
-- [x] **Login placeholder** - I did not complete this part of the deliverable.
-- [x] **DB data placeholder** - I did not complete this part of the deliverable.
-- [x] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **3rd party API placeholder** - I have a placeholder for a book recommendation third party generator on the About page
+- [x] **Images** - I have images on the list page (as well as the ability to upload them on the Entry page), an image in the About page, and a profile picture for the Profile page
+- [x] **Login placeholder** - I have a long in placeholder on the index (home) page
+- [x] **DB data placeholder** - List page contains the entries that will be stored on a database (they are hardcoded for now)
+- [x] **WebSocket placeholder** - On the profile page, adding an entry or list will update numbers in the nio, as well as display the lists if the account is Public
 
 ## 🚀 CSS deliverable
 
