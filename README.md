@@ -94,21 +94,21 @@ I am going to use the required technologies in the following ways.
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [x] **Server deployed and accessible with custom domain name** - [My server link](https://startup.koob.click).
 
 ## 🚀 HTML deliverable
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Six different pages: Login (index), Profile, profile editor, entry upload, about, and list page
+- [x] **Proper HTML element usage** - I spent alot of time figuring out the different elements, especially span, ul, ol, selectors, inputs, img, a, and many others.
+- [x] **Links** - I have links going to all of my different pages, all available from every page (except for edit profile, which is only in the profile section).
+- [x] **Text** - All of my pages have text on them, the most being on the About page.
+- [x] **3rd party API placeholder** - I did not complete this part of the deliverable.
+- [x] **Images** - I did not complete this part of the deliverable.
+- [x] **Login placeholder** - I did not complete this part of the deliverable.
+- [x] **DB data placeholder** - I did not complete this part of the deliverable.
+- [x] **WebSocket placeholder** - I did not complete this part of the deliverable.
 
 ## 🚀 CSS deliverable
 
