@@ -6,6 +6,8 @@ body {
 
 #titleBG {
   background-color: #002D04 !important;
+  border: 2px gold solid;
+  padding: 0.3em;
 }
 
 h1 {
@@ -22,7 +24,7 @@ menu {
 
 menu .nav-item {
   padding: 0 0.3em;
-  color:#002D04
+  color:#002D04;
 }
 
 li {
@@ -42,6 +44,8 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  border:2px gold solid;
+  padding: 0.3em;
 }
 
 footer {
