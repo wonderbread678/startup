@@ -11,8 +11,8 @@ body {
 }
 
 h1 {
-    background-color: #00674F !important;
-    color: white;
+    color: #00674F !important;
+    background-color: lightgray;
 }
 
 menu {
@@ -25,6 +25,7 @@ menu {
 .navbar-brand {
   padding-left: 0.3em;
   border-bottom: solid rgb(182, 182, 182) thin;
+  size: 36px;
   color:white;
   background-color: #00674F;
 }
@@ -40,6 +41,7 @@ li {
   padding: 0.25em;
   margin-bottom: 0.5em;
   border: solid 2px gold;  
+  margin-left: 10px;
 }
 
 .form-control {
