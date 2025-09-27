@@ -24,16 +24,15 @@ menu {
 
 .navbar-brand {
   padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
+  border-bottom: solid #00674F thin;
   size: 36px;
-  color:white;
-  background-color: #00674F;
 }
 
 menu .nav-item {
   padding: 0 0.3em;
   color:#00674F;
   background-color: #00674F;
+  margin-top: 0.3em;
 }
 
 li {
