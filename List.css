@@ -1,5 +1,10 @@
 .biggerNumbers li::marker {
-    font-size: 50px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bigNumbers li::marker {
+    font-size: 25px;
     font-weight: bold;
 }
 
