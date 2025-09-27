@@ -4,9 +4,24 @@ li {
 
 #submit {
     background-color:#00674F;
+    margin-top: -90px;
+
 }
 
-.dropdown {
+.dropdown:hover {
     background-color: #00674F;
     color: white;
+}
+
+#newListBlurb {
+    margin-top: -100px;
+}
+
+#newlistbutton {
+    background-color:gold;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -70px;
 }
