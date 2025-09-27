@@ -65,6 +65,6 @@ body {
   color:white;
 }
 
-.text-reset {
-  color: white;
+#gitFooter {
+  float: right;
 }
