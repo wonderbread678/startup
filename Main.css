@@ -37,6 +37,15 @@ menu .nav-item {
   margin-top: 0.3em;
 }
 
+.nav-item {
+  background: #00674F;
+  padding: 0.25em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  border: solid 2px gold;  
+  margin-left: 10px;
+}
+
 .form-control {
   width: 200px;
 }
