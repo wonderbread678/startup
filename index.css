@@ -60,8 +60,8 @@ button {
 }
 
 #loginButton {
-  background-color: gold !important;
-  color:#00674F;
+  background-color: #00674F !important;
+  color:lightgray;
 }
 
 .input {
