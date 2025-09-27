@@ -1,4 +1,20 @@
 .biggerNumbers li::marker {
-    font-size: 100px;
+    font-size: 50px;
     font-weight: bold;
+}
+
+button {
+    padding: 0.5em;
+    margin: 3px;
+}
+
+#edit {
+    background-color:#00674F;
+    color: lightgray;
+}
+
+img {
+    width: 200px; 
+    height: 300px; 
+    padding: 0.5em;
 }
