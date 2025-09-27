@@ -13,13 +13,16 @@ h1 {
     color: white;
 }
 
-.navbar-brand {
-  padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
+menu {
+  display: flex;
+  flex-direction: row !important;
+  background-color: #002D04;
+  list-style: none;
 }
 
 menu .nav-item {
   padding: 0 0.3em;
+  color:#002D04
 }
 
 li {
@@ -39,4 +42,25 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+footer {
+  flex: 0 30px;
+  background-color: #002D04;
+  color: #002D04;
+  border:2px gold solid;
+  padding: 0.3em;
+}
+
+body {
+  background-color: white;
+}
+
+#footerDiv {
+  background-color: #002D04;
+  color:white;
+}
+
+.text-reset {
+  color: white;
 }
