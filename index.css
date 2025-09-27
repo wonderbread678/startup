@@ -59,6 +59,10 @@ button {
   padding: 0.5em;
 }
 
+#loginButton {
+  background-color: gold !important;
+}
+
 .input {
   flex: 1 calc(100vh - 110px);
   display: flex;
@@ -70,7 +74,7 @@ button {
 
 
 footer {
-  flex: 0 30px;
+  flex: 0 100px;
   background-color: #00674F;
   color: #00674F;
   border:2px gold solid;
@@ -78,7 +82,7 @@ footer {
 }
 
 body {
-  background-color:lightgray
+  background-color:lightgray;
 }
 
 #footerDiv {
