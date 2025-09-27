@@ -1,0 +1,72 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 375px;
+} 
+
+main {
+  flex: 1 calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+h1 {
+    color: #00674F !important;
+    background-color: lightgray;
+}
+
+menu {
+  display: flex;
+  flex-direction: row !important;
+  background-color: #00674F;
+  list-style: none;
+}
+
+.navbar-brand {
+  padding-left: 0.3em;
+  border-bottom: solid #00674F thin;
+  size: 36px;
+}
+
+menu .nav-item {
+  padding: 0 0.3em;
+  color:#00674F;
+  background-color: #00674F;
+  margin-top: 0.3em;
+}
+
+.form-control {
+  width: 200px;
+}
+
+.input {
+  flex: 1 calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1px;
+}
+
+footer {
+  flex: 0 100px;
+  background-color: #00674F;
+  color: #00674F;
+  border:2px gold solid;
+  padding: 0.3em;
+}
+
+body {
+  background-color:lightgray;
+}
+
+#footerDiv {
+  background-color: #00674F;
+  color:white;
+}
+
+#gitFooter {
+  float: right;
+}
