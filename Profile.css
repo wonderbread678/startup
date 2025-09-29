@@ -2,6 +2,8 @@
     border: 4px groove gold;
     margin: 2px;
     padding: 1em;
+    width:200px;
+    height:auto;
 }
 
 #bioDetails {
@@ -19,4 +21,8 @@
 
 #blurb {
     margin: 1.5em;
+}
+
+buttons {
+    margin-bottom:2px;
 }
