@@ -7,6 +7,7 @@
         <title>Koob HTML</title>
         <link rel="stylesheet" href="Main.css" />
         <link rel="stylesheet" href="Profile.css" />
+        <link rel="stylesheet" href="List.css"
     </head>
 
     <body>
@@ -34,7 +35,7 @@
         </header>
     </body>
     <main>
-        <h3>~ Tell the world a little bit about yourself! ~</h3>
+        <h3 id="blurb">~ Tell the world a little bit about yourself! ~</h3>
         <div>Profile Picture: </div>
         <img src="https://preview.redd.it/say-something-about-caseoh-thats-not-about-his-weight-v0-pua93f3bijad1.jpeg?auto=webp&s=b4cb8d552ea75d1ce5449482b4de3a7eb63e3c76" alt="profile pic" id="profilePic" style="padding:0.5em;"/>
         <ul id="bioDetails">
@@ -66,11 +67,11 @@
         <hr />
         <h2>Lists:</h2>
         <hr />
-        <ol>
+        <ul class="biggerNumbers list-group">
             <li>
                 <h3> Favorite Manga</h3>
                 <hr />
-                <ol>
+                <ol class="bigNumbers">
                     <li>
                         <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" class="listImage" alt="One Piece" style= "width: 200px; height: 300px" />
                         <ul>
