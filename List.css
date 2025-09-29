@@ -23,3 +23,7 @@ img {
     height: 300px; 
     padding: 0.5em;
 }
+
+ul {
+    list-style-type: none;
+}
