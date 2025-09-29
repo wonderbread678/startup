@@ -8,4 +8,11 @@
     border: 4px groove gold;
     margin: 2px;
     padding: 1em;
+    list-style-type: none;
+}
+
+#profileEdit {
+    background-color:#00674F;
+    color: lightgray;
+    padding: 0.5em;
 }
