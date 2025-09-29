@@ -1,5 +1,11 @@
 #profilePic {
-    border: 2px groove gold;
+    border: 4px groove gold;
+    margin: 2px;
+    padding: 1em;
+}
+
+#bioDetails {
+    border: 4px groove gold;
     margin: 2px;
     padding: 1em;
 }
