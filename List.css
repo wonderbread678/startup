@@ -27,3 +27,13 @@ img {
 ul {
     list-style-type: none;
 }
+
+ol {
+  padding-left: 0;   /* removes the extra indent */
+  margin-left: 0;    /* optional, also removes margin */
+}
+
+li {
+  list-style-position: inside;  /* keeps numbers aligned */
+}
+
