@@ -12,6 +12,13 @@ button {
     padding: 0.5em;
     margin: 3px;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+form, button {
+  display: inline-block;
+  margin-right: 5px; /* optional spacing */
 }
 
 #edit {
