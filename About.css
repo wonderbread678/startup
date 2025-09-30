@@ -4,7 +4,7 @@ img {
     margin: 10px;
 }
 
-div {
+main {
     margin: 10px;
     padding: 1 50px;
     border: 5px #00674F groove;
@@ -15,9 +15,6 @@ div {
     padding-bottom: 50px;
 }
 
-footer {
-  background: #2e5a40;  /* example */
-  color: white;
-  text-align: center;
-  padding: 15px;
+h2 {
+    border-bottom: 5px gold double;
 }
