@@ -114,12 +114,18 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - I used a common CSS file to style these `Main.css`. The views specific things are in `About.css`, 'List.css', 'Entry_upload.css,' 'index.css,' 'Profile.css', 'Profile_edit.css', and 'Create_login.css.'
+
+- [x] **Navigation elements** - Bootstrap navbar, along with css elements to stylize it. There are also certain buttons within some of the pages that will take you to different parts (i.e., the Create Account button, Create list button, etc.)
+
+- [x] **Responsive to window resizing** - Bootstrap and `display:flex'
+
+- [x] **Application elements** - Utilized 'display:flex' to organize the elements of my website, as well as ordered and unordered lists for certain parts of it (the List and Profile sections especially)
+
+- [x] **Application text content** - Text is whatever is asociated with Bootstrap, give sa nice uniform look across the site.
+
+- [x] **Application images** - I have all of the images as they are, some with borders around them to add a bit of flare.
+
 
 ## 🚀 React part 1: Routing deliverable
 
