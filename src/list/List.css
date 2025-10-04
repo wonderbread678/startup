@@ -1,0 +1,47 @@
+.biggerNumbers li::marker {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bigNumbers li::marker {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+button {
+    padding: 0.5em;
+    margin: 3px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+form, button {
+  display: inline-block;
+  margin-right: 5px; /* optional spacing */
+}
+
+#edit {
+    background-color:#00674F;
+    color: lightgray;
+}
+
+img {
+    width: 200px; 
+    height: 300px; 
+    padding: 0.5em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ol {
+  padding-left: 0;   /* removes the extra indent */
+  margin-left: 0;    /* optional, also removes margin */
+}
+
+li {
+  list-style-position: inside;  /* keeps numbers aligned */
+}
+
