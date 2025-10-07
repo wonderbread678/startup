@@ -20,7 +20,7 @@ export default function App() {
             <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
                 <menu className="navbar-nav">
                     <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='login'>Home</NavLink>
+                        <NavLink className="nav-link" style={{color:"white"}} to='login'>Login</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
@@ -40,9 +40,11 @@ export default function App() {
 
         <Routes>
             <Route path='/' element={<Login />} exact />
-            <Route path='/play' element={<Play />} />
-            <Route path='/scores' element={<Scores />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/entry_upload' element={<Entry_upload />} />
+            <Route path='/list' element={<List />} />
             <Route path='/about' element={<About />} />
+            <Route path='/profile' element={<Profile />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
 
