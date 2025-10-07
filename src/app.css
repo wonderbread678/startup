@@ -4,7 +4,7 @@
   min-width: 375px;
 } 
 
-main {
+.main {
   flex: 1 calc(100vh - 110px);
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@ h1 {
     background-color: lightgray;
 }
 
-menu {
+.navbar-nav {
   display: flex;
   flex-direction: row !important;
   background-color: #00674F;

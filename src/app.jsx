@@ -28,7 +28,7 @@ export default function App() {
         </nav>
       </header>
 
-      <main>App components go here</main>
+      <main className="main">App components go here</main>
 
         <footer style={{color: "lightgray"}}>
             <div className="container-fluid" id="footerDiv">
