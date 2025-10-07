@@ -5,7 +5,10 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
 import { Create_login } from './create_login/create_login';
 import { Edit_entry } from './edit_entry/edit_entry';
-import { About } from './about/about';
+import { Entry_upload } from './entry_upload/entry_upload';
+import { List } from './list/list';
+import { Profile } from './profile/profile';
+import { Profile_edit } from './profile_edit/profile_edit';
 
 export default function App() {
   return (
