@@ -4,7 +4,7 @@ import './app.css';
 
 export default function App() {
   return (
-    <div className="body bg-light text-light">
+    <div className="body">
       <header className="container-fluid">
         <nav>
         <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
