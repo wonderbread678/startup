@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function Create_profile() {
+export function Create_login() {
   return (
     <main className="main">
-      <div>Create Profile displayed here</div>
+      <div>Create login displayed here</div>
     </main>
   );
 }
