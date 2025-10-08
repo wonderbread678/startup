@@ -2,13 +2,13 @@ import React from 'react';
 
 export function Edit_entry() {
   return (
-    <main className="main">
+    <main classNameName="main">
         <div>
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <span>Choose a photo to upload: </span>
                 <input type="file" id="fileUpload" name="myFile"></input>
             </form>
-            <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" class="listImage" alt="One Piece" style= "width: 200px; height: 300px" />
+            <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" className="listImage" alt="One Piece" style= "width: 200px; height: 300px" />
             <ul>
                 <li>
                     <label for="title">Title</label>
@@ -21,14 +21,14 @@ export function Edit_entry() {
                 <li>
                     <label for="type">Type</label>
                     <select id="type" name="typeSelect">
-                        <option class="dropdown"> -- </option>
-                        <option class="dropdown">Book</option>
-                        <option selected class="dropdown">Comic/Manga</option>
-                        <option class="dropdown">Poem</option>
-                        <option class="dropdown">E-book</option>
-                        <option class="dropdown">Blog/Online article</option>
-                        <option class="dropdown">Academic paper/Journal</option>
-                        <option class="dropdown">Other</option>
+                        <option className="dropdown"> -- </option>
+                        <option className="dropdown">Book</option>
+                        <option selected className="dropdown">Comic/Manga</option>
+                        <option className="dropdown">Poem</option>
+                        <option className="dropdown">E-book</option>
+                        <option className="dropdown">Blog/Online article</option>
+                        <option className="dropdown">Academic paper/Journal</option>
+                        <option className="dropdown">Other</option>
                     </select>
                 </li>
                 <li>
@@ -53,7 +53,7 @@ export function Edit_entry() {
                 </li>
             </ul>
             <form method="get" action="List.html">
-                <button type="submit" class="btn btn-primary" id="submit" style="margin:10px;">Update Entry</button>
+                <button type="submit" className="btn btn-primary" id="submit" style="margin:10px;">Update Entry</button>
             </form>
         </div>
     </main>
