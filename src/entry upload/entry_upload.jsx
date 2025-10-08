@@ -4,7 +4,7 @@ export function Entry_upload() {
   return (
     <main classNameName="main">
       <div>
-        <form action="/upload" method="post" enctype="multipart/form-data">
+        <form action="/upload" method="post" encType="multipart/form-data">
                 <span>Choose a photo to upload: </span>
                 <input type="file" id="fileUpload" name="myFile"></input>
             </form>
@@ -24,6 +24,7 @@ export function Entry_upload() {
                         <option className="dropdown">Book</option>
                         <option className="dropdown">Comic/Manga</option>
                         <option className="dropdown">Poem</option>
+                        <option className="dropdown">Fanfic</option>
                         <option className="dropdown">E-book</option>
                         <option className="dropdown">Blog/Online article</option>
                         <option className="dropdown">Academic paper/Journal</option>
