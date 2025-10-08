@@ -45,6 +45,9 @@ export default function App() {
             <Route path='/list' element={<List />} />
             <Route path='/about' element={<About />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/create_login' element={<Create_login />} />
+            <Route path='/edit_entry' element={<Edit_entry />} />
+            <Route path='/profile_edit' element={<Profile_edit />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
 
