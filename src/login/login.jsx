@@ -1,9 +1,10 @@
 import React from 'react';
 import './login.css'
+import '../app.css'
 
 export function Login() {
   return (
-    <main classNameName="main">
+    <main className="main">
       <div>
         <div>
             <form method="get" action="List.html">

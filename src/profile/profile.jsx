@@ -1,11 +1,13 @@
 import React from 'react';
+import './profile.css'
+import '../app.css'
 
 export function Profile() {
   return (
     <main className="main">
       <div><h3 id="blurb">~ Tell the world a little bit about yourself! ~</h3>
         <div>Profile Picture: </div>
-        <img src="https://preview.redd.it/say-something-about-caseoh-thats-not-about-his-weight-v0-pua93f3bijad1.jpeg?auto=webp&s=b4cb8d552ea75d1ce5449482b4de3a7eb63e3c76" alt="profile pic" id="profilePic" style="padding:0.5em;"/>
+        <img src="https://preview.redd.it/say-something-about-caseoh-thats-not-about-his-weight-v0-pua93f3bijad1.jpeg?auto=webp&s=b4cb8d552ea75d1ce5449482b4de3a7eb63e3c76" alt="profile pic" id="profilePic" style={{padding:"0.5em"}}/>
         <ul id="bioDetails">
             <li>
                 <div className="bioEntry"><b>Username: </b>caseoh_games</div>
@@ -41,7 +43,7 @@ export function Profile() {
                 <hr />
                 <ol className="bigNumbers">
                     <li>
-                        <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" className="listImage" alt="One Piece" style= "width: 200px; height: 300px" />
+                        <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" className="listImage" alt="One Piece" style= {{width: "200px", height: "300px"}} />
                         <div className="entryTitle"><b>Title:</b> One Piece</div>
                         <div className="entryAuthor"><b>Author:</b> Eiichiro Oda</div>
                         <div className="entryType"><b>Type:</b> Manga</div>
@@ -53,7 +55,7 @@ export function Profile() {
                         <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                     <li>
-                        <img src="https://mangavagabond.com/wp-content/uploads/2025/06/vagabond-01-taschenbuch-takehiko-inoue.webp" className="listImage" alt="Vagabond" style= "width: 200px; height: 300px" />
+                        <img src="https://mangavagabond.com/wp-content/uploads/2025/06/vagabond-01-taschenbuch-takehiko-inoue.webp" className="listImage" alt="Vagabond" style= {{width: "200px", height: "300px"}} />
                         <div className="entryTitle"><b>Title:</b> Vagabond</div>
                         <div className="entryAuthor"><b>Author:</b> Takehiko Inoue</div>
                         <div className="entryType"><b>Type:</b> Manga</div>
@@ -65,7 +67,7 @@ export function Profile() {
                         <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                     <li>
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Kingdom_%28manga%29_1.png/250px-Kingdom_%28manga%29_1.png" className="listImage" alt="Kingdom" style= "width: 200px; height: 300px" />                               
+                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Kingdom_%28manga%29_1.png/250px-Kingdom_%28manga%29_1.png" className="listImage" alt="Kingdom" style= {{width: "200px", height: "300px"}} />                               
                         <div className="entryTitle"><b>Title:</b> Kingdom</div>
                         <div className="entryAuthor"><b>Author:</b> Yasuhisa Hara</div>
                         <div className="entryType"><b>Type:</b> Manga</div>
@@ -83,7 +85,7 @@ export function Profile() {
                 <h3>Favorite Books</h3>
                 <ol>
                   <li>
-                        <img src="https://m.media-amazon.com/images/I/71ZnTIMfLBL._UF1000,1000_QL80_.jpg" className="listImage" alt="Vagabond" style= "width: 200px; height: 300px; padding: 0.5em;" />
+                        <img src="https://m.media-amazon.com/images/I/71ZnTIMfLBL._UF1000,1000_QL80_.jpg" className="listImage" alt="Vagabond" style= {{width: "200px", height: "300px", padding: "0.5em"}} />
                         <div className="entryTitle"><b>Title:</b> The Book of Mormon</div>
                         <div className="entryAuthor"><b>Author:</b> Prophets of the ancient Americas</div>
                         <div className="entryType"><b>Type:</b> Book</div>

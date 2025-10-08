@@ -1,4 +1,6 @@
 import React from 'react';
+import './entry_upload.css'
+import '../app.css'
 
 export function Entry_upload() {
   return (
@@ -10,15 +12,15 @@ export function Entry_upload() {
             </form>
             <ul>
                 <li>
-                    <label for="title">Title</label>
+                    <label htmlFor="title">Title</label>
                     <input type="text" id="title" name="title" placeholder="Title"></input>
                 </li>
                 <li>
-                    <label for="author">Author</label>
+                    <label htmlFor="author">Author</label>
                     <input type="text" id="author" name="author" placeholder="Author"></input>
                 </li>
                 <li>
-                    <label for="type">Type</label>
+                    <label htmlFor="type">Type</label>
                     <select id="type" name="typeSelect">
                         <option selected> -- </option>
                         <option className="dropdown">Book</option>
@@ -32,27 +34,27 @@ export function Entry_upload() {
                     </select>
                 </li>
                 <li>
-                    <label for="range">Rating: </label>
+                    <label htmlFor="range">Rating: </label>
                     <input type="rating" name="rating" id="rating" min="1" max="10" value="1"/>
                 </li>
                 <li>
-                    <label for="list">List</label>
+                    <label htmlFor="list">List</label>
                     <select id="list" name="listSelect">
                         <option selected> -- </option>
                         <option> *Existing list* </option>
                     </select>
                 </li>
                 <li>
-                    <label for="listRank">List Rank: </label>
+                    <label htmlFor="listRank">List Rank: </label>
                     <input type="listRank" name="listRank" id="listRank" value="1" />
                 </li>
                 <li>
-                    <label for="comment">Comment</label>
+                    <label htmlFor="comment">Comment</label>
                     <input type="comment" name="comment" id="comment" placeholder="Optional" />
                 </li>
             </ul>
             <button type="submit" className="btn btn-primary" id="submit">Create Entry</button>
-            <hr style="color:#00674F"/>
+            <hr style={{color:"#00674F"}}/>
             <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
             <button type="submit" className="btn btn-primary" id="newlistbutton">Create New List</button>
         </div>
