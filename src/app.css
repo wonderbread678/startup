@@ -27,6 +27,7 @@ h1 {
   flex-direction: row !important;
   background-color: #00674F;
   list-style: none;
+  border:2px gold solid;
 }
 
 .navbar-brand {
