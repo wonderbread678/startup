@@ -14,7 +14,7 @@ import { About } from './about/about';
 export default function App() {
   return (
     <BrowserRouter>
-        <div>
+        <div className="body">
             <header className="container-fluid">
                 <nav>
                 <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
@@ -50,14 +50,13 @@ export default function App() {
                 <Route path='/profile_edit' element={<Profile_edit />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
-
-            <footer style={{color: "lightgray"}}>
-                <div className="container-fluid" id="footerDiv">
-                    <span className="text-reset">Author: Ethan Nielsen</span>
-                    <a id="gitFooter" className="text-reset" href="https://github.com/wonderbread678/startup">GitHub</a>
-                </div>
-            </footer>
         </div>
+        <footer style={{color: "lightgray"}} className="main">
+            <div className="container-fluid" id="footerDiv">
+                <span className="text-reset">Author: Ethan Nielsen</span>
+                <a id="gitFooter" className="text-reset" href="https://github.com/wonderbread678/startup">GitHub</a>
+            </div>
+        </footer>
     </BrowserRouter>
   );
 }

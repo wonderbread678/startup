@@ -5,7 +5,7 @@ import '../app.css'
 export function List() {
   return (
     <main className="main">
-      <div>
+      <div className="body">
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
             <select htmlFor="listSelection" name="listSelection" style={{marginBottom:"15px", float:"left"}}>
                 <option selected>All</option>
