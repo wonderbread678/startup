@@ -1,4 +1,9 @@
-img {
+.aboutImg {
+    display: flex;
+    width: 800px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
     border: 5px gold groove;
     padding: 0.5em;
     margin: 10px;
