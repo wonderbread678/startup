@@ -14,42 +14,42 @@ import { About } from './about/about';
 export default function App() {
   return (
     <BrowserRouter>
-        <div className="body">
-        <header className="container-fluid">
-            <nav>
-            <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
-                <menu className="navbar-nav">
-                    <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='login'>Login</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='list'>List</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='profile'>Profile</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
-                    </li>
-                </menu>
-            </nav>
-        </header>
+        <div>
+            <header className="container-fluid">
+                <nav>
+                <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
+                    <menu className="navbar-nav">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='login'>Login</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='list'>List</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='profile'>Profile</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
+                        </li>
+                    </menu>
+                </nav>
+            </header>
 
-        <Routes>
-            <Route path='/' element={<Login />} exact />
-            <Route path='/login' element={<Login />} />
-            <Route path='/entry_upload' element={<Entry_upload />} />
-            <Route path='/list' element={<List />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/create_login' element={<Create_login />} />
-            <Route path='/edit_entry' element={<Edit_entry />} />
-            <Route path='/profile_edit' element={<Profile_edit />} />
-            <Route path='*' element={<NotFound />} />
-        </Routes>
+            <Routes>
+                <Route path='/' element={<Login />} exact />
+                <Route path='/login' element={<Login />} />
+                <Route path='/entry_upload' element={<Entry_upload />} />
+                <Route path='/list' element={<List />} />
+                <Route path='/about' element={<About />} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/create_login' element={<Create_login />} />
+                <Route path='/edit_entry' element={<Edit_entry />} />
+                <Route path='/profile_edit' element={<Profile_edit />} />
+                <Route path='*' element={<NotFound />} />
+            </Routes>
 
             <footer style={{color: "lightgray"}}>
                 <div className="container-fluid" id="footerDiv">

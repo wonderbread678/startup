@@ -1,12 +1,11 @@
 import React from 'react';
 import './login.css'
-import '../app.css'
 
 export function Login() {
   return (
     <main className="main">
       <div>
-        <div>
+        <div className="body">
             <form method="get" action="List.html">
                 <h1>Welcome to Koob</h1>
                 <h3>~ The only rating site you'll ever need ~</h3>
