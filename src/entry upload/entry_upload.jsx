@@ -5,7 +5,7 @@ import '../app.css'
 export function Entry_upload() {
   return (
     <main classNameName="main">
-      <div>
+      <div className="body">
         <form action="/upload" method="post" encType="multipart/form-data">
                 <span>Choose a photo to upload: </span>
                 <input type="file" id="fileUpload" name="myFile"></input>

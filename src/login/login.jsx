@@ -4,8 +4,8 @@ import './login.css'
 export function Login() {
   return (
     <main className="main">
-      <div>
-        <div className="body">
+      <div className="body">
+        <div>
             <form method="get" action="List.html">
                 <h1>Welcome to Koob</h1>
                 <h3>~ The only rating site you'll ever need ~</h3>
