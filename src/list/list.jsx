@@ -1,6 +1,7 @@
 import React from 'react';
 import './list.css'
 import '../app.css'
+import { NavLink } from 'react-router-dom';
 
 export function List() {
   return (
@@ -27,7 +28,7 @@ export function List() {
                                 <p><b>Comment:</b> The best manga ever!</p>
                             </div>
                             <form method="get" action="Edit_entry.html">
-                                <button id="edit" className="btn btn-primary" type="submit">Edit</button>
+                                <button id="edit" className="btn btn-primary" type="submit"><NavLink to='/edit_entry'>Edit</NavLink></button>
                             </form>
                             <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                         </li>

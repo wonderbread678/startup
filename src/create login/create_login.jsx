@@ -1,14 +1,15 @@
 import React from 'react';
+import './create_login.css'
 
 export function Create_login() {
   return (
-    <main classNameName="main">
-      <div>
-        <label for="username" className="text" ><b>Username: </b></label>
+    <main className="main">
+      <div className="body">
+        <label htmlFor="username" className="text" style={{border:"4px gold groove", padding:"20px", borderRadius: "10px"}}><b>Username: </b></label>
         <input type="text" id="username" name="username" placeholder="Username"></input>
-        <label for="password" className="text" style="border:4px gold groove; padding:20px; border-radius: 10px;"><b>Password: </b></label>
+        <label htmlFor="password" className="text" style={{border:"4px gold groove", padding:"20px", borderRadius: "10px"}}><b>Password: </b></label>
         <input type="text" id="password" name="password" placeholder="Password"></input>
-        <label for="confirm" className="text" style="border:4px gold groove; padding:20px; border-radius: 10px;"><b>Confirm Password: </b></label>
+        <label htmlFor="confirm" className="text" style={{border:"4px gold groove", padding:"20px", borderRadius: "10px"}}><b>Confirm Password: </b></label>
         <input type="text" id="confirm" name="confirm" placeholder="Password"></input>
         <ul>
             <div>Password Requirements: </div>
@@ -25,7 +26,7 @@ export function Create_login() {
                 At least one number (0-9)
             </li>
         </ul>
-        <button type="submit" className="btn btn-primary" id="submit" style="background-color:#00674F; color:lightgray; margin:10px;">Create Account</button>
+        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", margin:"10px"}}>Create Account</button>
       </div>
     </main>
   );

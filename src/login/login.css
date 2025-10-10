@@ -1,7 +1,17 @@
 #primaryButton {
   background-color: #00674F !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
 }
 
-button {
+.btn {
   margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
 }

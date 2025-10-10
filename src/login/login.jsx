@@ -1,12 +1,13 @@
 import React from 'react';
 import './login.css'
+import { NavLink } from 'react-router-dom';
 
 export function Login() {
   return (
     <main className="main">
       <div className="body">
         <div>
-            <form method="get" action="List.html">
+            {/* <form method="get" action="List.html"> */}
                 <h1>Welcome to Koob</h1>
                 <h3>~ The only rating site you'll ever need ~</h3>
                 <div className="input">
@@ -17,10 +18,10 @@ export function Login() {
                     <span className="inputText">Password: </span>
                     <input type="password" className="form-control" placeholder="Password"></input>
                 </div>
-                <button type="submit" className="btn btn-primary" id="primaryButton">Login</button>
-            </form>
-            <form method="get" action="Create_login.html">
-                <button type="submit" className="btn btn-secondary">Create</button>
+                <button type="submit" className="btn btn-primary" id="primaryButton"><NavLink to='/list'>Login</NavLink></button>
+            {/* </form> */},
+            <form method="get" to="/create_login">
+                <button type="submit" className="btn btn-secondary"><NavLink to='/create_login'>Create</NavLink></button>
             </form>
         </div>
       </div>
