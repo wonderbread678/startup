@@ -28,7 +28,7 @@ export function List() {
                                 <p><b>Comment:</b> The best manga ever!</p>
                             </div>
                             <form method="get" action="Edit_entry.html">
-                                <button id="edit" className="btn btn-primary" type="submit"><NavLink to='/edit_entry'>Edit</NavLink></button>
+                                <button id="edit" className="btn btn-primary" type="submit"><NavLink to='/edit_entry' style={{color:'white'}}>Edit</NavLink></button>
                             </form>
                             <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                         </li>

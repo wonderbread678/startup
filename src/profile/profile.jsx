@@ -32,7 +32,7 @@ export function Profile() {
             </li>
         </ul>
         <form method="get" action="Profile_edit.html">
-            <button type="submit" className="btn btn-primary" id="profileEdit"><NavLink to='/profile_edit'>Edit</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="profileEdit"><NavLink to='/profile_edit' style={{color:'white'}}>Edit</NavLink></button>
         </form>
         <hr />
         <h2>Lists</h2>

@@ -54,10 +54,10 @@ export function Entry_upload() {
                     <input type="comment" name="comment" id="comment" placeholder="Optional" />
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit"><NavLink to='/list'>Create Entry</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="submit"><NavLink to='/list' style={{color:'white'}}>Create Entry</NavLink></button>
             <hr style={{color:"#00674F"}}/>
             <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
-            <button type="submit" className="btn btn-primary" id="newlistbutton"><NavLink to='/create_list'>Create New List</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="newlistbutton"><NavLink to='/create_list' style={{color:'black'}}>Create New List</NavLink></button>
         </div>
     </main>
   );

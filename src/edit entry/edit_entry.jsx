@@ -55,7 +55,7 @@ export function Edit_entry() {
                 </li>
             </ul>
             <form method="get" action="List.html">
-                <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}><NavLink to='./list'>Update Entry</NavLink>U</button>
+                <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}><NavLink to='/list' style={{color:'white'}}>Update Entry</NavLink></button>
             </form>
         </div>
     </main>

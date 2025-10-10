@@ -1,5 +1,5 @@
 import React from 'react';
-import './create_login.css'
+import './Create_login.css'
 import { NavLink } from 'react-router-dom';
 
 export function Create_login() {
@@ -27,7 +27,9 @@ export function Create_login() {
                 At least one number (0-9)
             </li>
         </ul>
-        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", margin:"10px"}}>Create Account</button>
+        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", margin:"10px"}}>
+          <NavLink to='/list' style={{color:'white'}}>Create Account</NavLink>
+        </button>
       </div>
     </main>
   );
