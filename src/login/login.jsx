@@ -19,12 +19,12 @@ export function Login() {
                   <input type="password" className="form-control" placeholder="Password"></input>
               </div>
               <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}}>
-                <NavLink to='/list' className="loginButton">Login</NavLink>
+                <NavLink to='/list' className="loginButton" style={{color:'white'}}>Login</NavLink>
               </button>
           {/* </form> */}
           {/* <form method="get" to="/create_login"> */}
               <button type="submit" className="btn btn-secondary" style={{width:"500px"}}>
-                <NavLink to='/create_login' className="loginButton">Create</NavLink>
+                <NavLink to='/create_login' className="loginButton" style={{color:'white'}}>Create</NavLink>
               </button>
           {/* </form> */}
         </div>
