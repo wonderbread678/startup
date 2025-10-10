@@ -1,5 +1,5 @@
 #primaryButton {
-  background-color: #00674F !important;
+  background-color: #00674F;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,4 +14,11 @@
   align-items: center;
   justify-content: space-around;
   color: white;
+}
+
+#welcomeTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }

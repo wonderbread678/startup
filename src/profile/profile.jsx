@@ -50,8 +50,6 @@ export function Profile() {
                         <div className="entryComment">
                             <p><b>Comment:</b> The best manga ever!</p>
                         </div>
-                        <button id="edit" className="btn btn-primary" type="submit">Edit</button>
-                        <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                     <li>
                         <img src="https://mangavagabond.com/wp-content/uploads/2025/06/vagabond-01-taschenbuch-takehiko-inoue.webp" className="listImage" alt="Vagabond" style= {{width: "200px", height: "300px"}} />
@@ -62,8 +60,6 @@ export function Profile() {
                         <div className="entryComment">
                             <p><b>Comment:</b> Really got me thinking!</p>
                         </div>
-                        <button id="edit" className="btn btn-primary" type="submit">Edit</button>
-                        <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                     <li>
                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Kingdom_%28manga%29_1.png/250px-Kingdom_%28manga%29_1.png" className="listImage" alt="Kingdom" style= {{width: "200px", height: "300px"}} />                               
@@ -74,8 +70,6 @@ export function Profile() {
                         <div className="entryComment">
                             <p><b>Comment:</b> None</p>
                         </div>
-                        <button id="edit" className="btn btn-primary" type="submit">Edit</button>
-                        <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                 </ol>
             </li>
@@ -92,8 +86,6 @@ export function Profile() {
                         <div className="entryComment">
                             <p><b>Comment:</b> Really felt the Spirit while reading!</p>
                         </div>
-                        <button id="edit" className="btn btn-primary" type="submit">Edit</button>
-                        <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                     </li>
                 </ol>
             </li>
