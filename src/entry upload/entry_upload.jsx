@@ -35,7 +35,7 @@ export function Entry_upload() {
                     </select>
                 </li>
                 <li>
-                    <label htmlFor="range">Rating: </label>
+                    <label htmlFor="range">Rating</label>
                     <input type="rating" name="rating" id="rating" min="1" max="10" value="1"/>
                 </li>
                 <li>
@@ -46,7 +46,7 @@ export function Entry_upload() {
                     </select>
                 </li>
                 <li>
-                    <label htmlFor="listRank">List Rank: </label>
+                    <label htmlFor="listRank">List Rank</label>
                     <input type="listRank" name="listRank" id="listRank" value="1" />
                 </li>
                 <li>
@@ -54,9 +54,13 @@ export function Entry_upload() {
                     <input type="comment" name="comment" id="comment" placeholder="Optional" />
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit"><NavLink to='/list' style={{color:'white'}}>Create Entry</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}><NavLink to='/list' style={{color:'white'}}>Create Entry</NavLink></button>
             <hr style={{color:"#00674F"}}/>
-            <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
+            <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
+                <label htmlFor='listTitle'></label>
+                <input type='text' name='listTitle' id='listTitle' placeholder='List Title' style={{marginTop:'10px'}}></input>
+            </div>
             <button type="submit" className="btn btn-primary" id="newlistbutton"><NavLink style={{color:'black'}}>Create New List</NavLink></button>
         </div>
     </main>
