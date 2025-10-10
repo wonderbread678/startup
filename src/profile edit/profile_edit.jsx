@@ -3,7 +3,8 @@ import React from 'react';
 export function Profile_edit() {
   return (
     <main className="main">
-      <div><form action="/upload" method="post" enctype="multipart/form-data">
+      <div>
+        <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}}>
             <span>Choose a profile picture to upload: </span>
             <input type="file" id="fileUpload" name="myFile"></input>
         </form>
@@ -36,9 +37,9 @@ export function Profile_edit() {
                     <option>Private</option>
                 </select>
             </li>
-            <button type="submit" class="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", margin:"10px;"}}>Save</button>
         </ul>
         </div>
+        <button type="submit" class="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", marginTop:'-400px'}}>Save</button>
     </main>
   );
 }
