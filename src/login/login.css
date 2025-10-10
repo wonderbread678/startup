@@ -22,3 +22,12 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.loginButton {
+  width: 100%;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center !important;
+}
+
