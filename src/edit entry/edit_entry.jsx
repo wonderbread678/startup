@@ -54,9 +54,10 @@ export function Edit_entry() {
                     <input type="comment" name="comment" id="comment" placeholder="The best manga ever!" />
                 </li>
             </ul>
-            <form method="get" action="List.html">
-                <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}><NavLink to='/list' style={{color:'white'}}>Update Entry</NavLink></button>
-            </form>
+            {/* <form method="get" action="List.html"> */}
+            <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}><NavLink to='/list' style={{color:'white'}}>Update Entry</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px", backgroundColor:'gray'}}><NavLink to='/list' style={{color:'white'}}>Cancel</NavLink></button>
+            {/* </form> */}
         </div>
     </main>
   );
