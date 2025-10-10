@@ -1,5 +1,6 @@
 import React from 'react';
 import '../app.css'
+import { NavLink } from 'react-router-dom';
 
 export function Edit_entry() {
   return (
@@ -54,7 +55,7 @@ export function Edit_entry() {
                 </li>
             </ul>
             <form method="get" action="List.html">
-                <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}>Update Entry</button>
+                <button type="submit" className="btn btn-primary" id="submit" style={{margin:"10px"}}><NavLink to='./list'>Update Entry</NavLink>U</button>
             </form>
         </div>
     </main>

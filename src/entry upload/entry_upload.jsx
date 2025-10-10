@@ -1,6 +1,7 @@
 import React from 'react';
 import './entry_upload.css'
 import '../app.css'
+import { NavLink } from 'react-router-dom';
 
 export function Entry_upload() {
   return (
@@ -53,10 +54,10 @@ export function Entry_upload() {
                     <input type="comment" name="comment" id="comment" placeholder="Optional" />
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit">Create Entry</button>
+            <button type="submit" className="btn btn-primary" id="submit"><NavLink to='/list'>Create Entry</NavLink></button>
             <hr style={{color:"#00674F"}}/>
             <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
-            <button type="submit" className="btn btn-primary" id="newlistbutton">Create New List</button>
+            <button type="submit" className="btn btn-primary" id="newlistbutton"><NavLink to='/create_list'>Create New List</NavLink></button>
         </div>
     </main>
   );
