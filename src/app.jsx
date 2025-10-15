@@ -10,8 +10,15 @@ import { List } from './list/list';
 import { Profile } from './profile/profile';
 import { Profile_edit } from './profile edit/profile_edit';
 import { About } from './about/about';
+import { AuthState } from './login/authSet';
 
 export default function App() {
+    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+
+
+
   return (
     <BrowserRouter>
         <div className="body">
@@ -22,24 +29,41 @@ export default function App() {
                         <li className="nav-item">
                             <NavLink className="nav-link" style={{color:"white"}} to='login'>Login</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" style={{color:"white"}} to='list'>List</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" style={{color:"white"}} to='profile'>Profile</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
-                        </li>
+                        {authState === AuthState.Authenticated &&(
+                            <li className="nav-item">
+                                <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
+                            </li>
+                        )}
+                        {authState === AuthState.Authenticated &&(
+                            <li className="nav-item">
+                                <NavLink className="nav-link" style={{color:"white"}} to='list'>List</NavLink>
+                            </li>
+                        )}
+                        {authState === AuthState.Authenticated &&(
+                            <li className="nav-item">
+                                <NavLink className="nav-link" style={{color:"white"}} to='profile'>Profile</NavLink>
+                            </li>
+                        )}
+                        {authState === AuthState.Authenticated &&(
+                            <li className="nav-item">
+                                <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
+                            </li>
+                        )}
+
                     </menu>
                 </nav>
             </header>
 
             <Routes>
-                <Route path='/' element={<Login />} exact />
+                <Route path='/' element={
+                    <Login 
+                        userName={userName}
+                        authState={authState}
+                        onAuthChange={(userName, authState) => {
+                            setAuthState(authState);
+                            setUserName(userName);
+                        }}
+                    />} exact />
                 <Route path='/login' element={<Login />} />
                 <Route path='/entry_upload' element={<Entry_upload />} />
                 <Route path='/list' element={<List />} />
