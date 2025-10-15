@@ -11,7 +11,7 @@ export function Authenticated(props){
 
     return (<main className='main'>
         <div className='body'>
-            <h1>Welcome to Koob</h1>
+            <h1>Welcome to Koob Home</h1>
             <h2>{props.userName}</h2>
         </div>
         <button onClick={() => useNavigate('/entry_upload')}>Entry upload</button>

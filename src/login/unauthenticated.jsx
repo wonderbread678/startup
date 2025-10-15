@@ -30,10 +30,10 @@ export function Unauthenticated(props) {
                   <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
               </div>
               <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}} disabled={!userName || !password}>
-                <NavLink to='/list' className="loginButton" style={{color:'white'}}>Login</NavLink>
+                <NavLink to='/list' className="loginButton" style={{color:'white'}} onClick={() => loginUser()}>Login</NavLink>
               </button>
               <button type="submit" className="btn btn-secondary" style={{width:"500px"}} disabled={!userName || !password}>
-                <NavLink to='/create_login' className="loginButton" style={{color:'white'}}>Create</NavLink>
+                <NavLink to='/create_login' className="loginButton" style={{color:'white'}} onClick={() => createUser()}>Create</NavLink>
               </button>
         </div>
       </div>
