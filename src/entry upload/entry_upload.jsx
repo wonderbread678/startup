@@ -12,6 +12,7 @@ export function Entry_upload() {
     const [comment, setComment] = React.useState('');
     const [image, setImage] = React.useState(null);
     const [listName, setListName] = React.useState('');
+    const [lists, setLists] = React.useState(['--'])
 
     const newEntry ={
         title,
@@ -26,13 +27,28 @@ export function Entry_upload() {
     };
 
     function handleCreateList(){
-        console.log('creating list');
-        setListName('') 
+        if (!list.includes(listName)){
+            setLists([...lists, listName]);
+            setListName(''); 
+        }
+        else {
+            console.log('list already exists')
+        }    
     }
     
     const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(newEntry);
+        e.preventDefault();
+        console.log(newEntry);
+
+        setTitle('');
+        setAuthor('');
+        setType('');
+        setRating(1);
+        setList(lists[0]);
+        setListRank(1);
+        setComment('');
+        setImage(null);
+        setListName('');
     };
 
 
@@ -73,7 +89,7 @@ export function Entry_upload() {
                     <label htmlFor="list">List</label>
                     <select id="list" name="listSelect" value={list} onChange={(e) => setList(e.target.value)} required>
                         <option> -- </option>
-                        <option> *Existing list* </option>
+                        {lists.map((listName, index) => (<option key={index}>{listName}</option>))}
                     </select>
                 </li>
                 <li>
