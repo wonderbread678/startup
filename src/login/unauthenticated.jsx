@@ -33,11 +33,11 @@ export function Unauthenticated(props) {
                 <span className="inputText">Password: </span>
                 <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
             </div>
-            <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}} disabled={!userName || !password}>
-            <NavLink to='/login' className="loginButton" style={{color:'white'}} onClick={() => loginUser()}>Login</NavLink>
+            <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}} onClick={() => loginUser()} disabled={!userName || !password}>
+            {/* <NavLink to='/login' className="loginButton" style={{color:'white'}} onClick={() => loginUser()}>Login</NavLink> */}
             </button>
-            <button type="submit" className="btn btn-secondary" style={{width:"500px"}} disabled={!userName || !password}>
-            <NavLink to='/login' className="loginButton" style={{color:'white'}} onClick={() => createUser()}>Create</NavLink>
+            <button type="submit" className="btn btn-secondary" style={{width:"500px"}} onClick={() => createUser()} disabled={!userName || !password}>
+            {/* <NavLink to='/login' className="loginButton" style={{color:'white'}} onClick={() => createUser()}>Create</NavLink> */}
             </button>
         </div>
       </div>

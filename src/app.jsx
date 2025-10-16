@@ -27,7 +27,7 @@ export default function App() {
                 <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
                     <menu className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link" style={{color:"white"}} to='login'>Login</NavLink>
+                            <NavLink className="nav-link" style={{color:"white"}} to='/'>Login</NavLink>
                         </li>
                         {authState === AuthState.Authenticated &&(
                             <li className="nav-item">
@@ -60,11 +60,11 @@ export default function App() {
                         userName={userName}
                         authState={authState}
                         onAuthChange={(userName, authState) => {
-                            setAuthState(authState);
+                            console.log(`im setting the authstate to ${authState.name}`)
                             setUserName(userName);
+                            setAuthState(authState);
                         }}
                     />} exact />
-                <Route path='/login' element={<Login />} />
                 <Route path='/entry_upload' element={<Entry_upload />} />
                 <Route path='/list' element={<List />} />
                 <Route path='/about' element={<About />} />
