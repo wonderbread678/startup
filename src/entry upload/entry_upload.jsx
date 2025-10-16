@@ -29,11 +29,17 @@ export function Entry_upload() {
         console.log('creating list');
         setListName('') 
     }
+    
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(newEntry);
+    };
+
 
   return (
     <main className="main">
       <div className="body">
-        <form action="/upload" method="post" encType="multipart/form-data">
+        <form onSubmit={handleSubmit} encType="multipart/form-data">
             <span>Choose a photo to upload: </span>
             <input type="file" id="fileUpload" name="myFile" onChange={(e) => setImage(e.target.files[0])} required></input>
             <ul>
@@ -81,6 +87,7 @@ export function Entry_upload() {
             </ul>
             <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}>Create Entry</button>
             <hr style={{color:"#00674F"}}/>
+            </form>
             
             <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                 <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
@@ -88,7 +95,6 @@ export function Entry_upload() {
                 <input type='text' name='listTitle' id='listTitle' placeholder='List Title' style={{marginTop:'10px'}} value={listName} onChange={(e) => setListName(e.target.value)}></input>
             </div>
             <button type="button" className="btn btn-primary" id="newlistbutton" onClick={handleCreateList}>Create New List</button>
-            </form>
         </div>
     </main>
   );
