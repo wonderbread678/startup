@@ -4,6 +4,17 @@ import '../app.css'
 import { NavLink } from 'react-router-dom';
 
 export function Entry_upload() {
+    const [title, setTitle] = React.useState();
+    const [author, setAuthor] = React.useState();
+    const [type, setType] = React.useState();
+    const [rating, setRating] = React.useState();
+    const [list, setList] = React.useState();
+    const [listRank, setListRank] = React.useState();
+    const [comment, setComment] = React.useState();
+    const [image, setImage] = React.useState();
+    const [listName, setListName] = React.useState();
+
+
   return (
     <main classNameName="main">
       <div className="body">
