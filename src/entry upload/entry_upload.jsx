@@ -1,7 +1,6 @@
 import React from 'react';
 import './entry_upload.css'
 import '../app.css'
-import { NavLink } from 'react-router-dom';
 
 export function Entry_upload() {
     const [title, setTitle] = React.useState();
@@ -14,26 +13,37 @@ export function Entry_upload() {
     const [image, setImage] = React.useState();
     const [listName, setListName] = React.useState();
 
+    const newEntry ={
+        title,
+        author,
+        type,
+        rating,
+        list,
+        listRank,
+        comment,
+        image,
+        listName
+    };
 
   return (
-    <main classNameName="main">
+    <main className="main">
       <div className="body">
         <form action="/upload" method="post" encType="multipart/form-data">
-                <span>Choose a photo to upload: </span>
-                <input type="file" id="fileUpload" name="myFile" onChange={(e) => setImage(e.target.value[0])}></input>
-            </form>
+            <span>Choose a photo to upload: </span>
+            <input type="file" id="fileUpload" name="myFile" onChange={(e) => setImage(e.target.files[0])} required></input>
+        </form>
             <ul>
                 <li>
                     <label htmlFor="title">Title</label>
-                    <input type="text" id="title" name="title" placeholder="Title" onChange={(e) => setTitle(e.target.value)}></input>
+                    <input type="text" id="title" name="title" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required></input>
                 </li>
                 <li>
                     <label htmlFor="author">Author</label>
-                    <input type="text" id="author" name="author" placeholder="Author" onChange={(e) => setAuthor(e.target.value)}></input>
+                    <input type="text" id="author" name="author" placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} required></input>
                 </li>
                 <li>
                     <label htmlFor="type">Type</label>
-                    <select id="type" name="typeSelect" onChange={(e) => setType(e.target.value)}>
+                    <select id="type" name="typeSelect" value={type} onChange={(e) => setType(e.target.value)} required>
                         <option selected> -- </option>
                         <option className="dropdown">Book</option>
                         <option className="dropdown">Comic/Manga</option>
@@ -47,32 +57,33 @@ export function Entry_upload() {
                 </li>
                 <li>
                     <label htmlFor="range">Rating</label>
-                    <input type="rating" name="rating" id="rating" min="1" max="10" value="1" onChange={(e) => setRating(e.target.value)}/>
+                    <input type="rating" name="rating" id="rating" min="1" max="10" value={rating} onChange={(e) => setRating(e.target.value)} required/>
                 </li>
                 <li>
                     <label htmlFor="list">List</label>
-                    <select id="list" name="listSelect" onChange={(e) => setList(e.target.value)}>
+                    <select id="list" name="listSelect" value={list} onChange={(e) => setList(e.target.value)} required>
                         <option selected> -- </option>
                         <option> *Existing list* </option>
                     </select>
                 </li>
                 <li>
                     <label htmlFor="listRank">List Rank</label>
-                    <input type="listRank" name="listRank" id="listRank" value="1" onChange={(e) => setListRank(e.target.value)}/>
+                    <input type="listRank" name="listRank" id="listRank" value={listRank} onChange={(e) => setListRank(e.target.value)} required/>
                 </li>
                 <li>
                     <label htmlFor="comment">Comment</label>
-                    <input type="comment" name="comment" id="comment" placeholder="Optional" onChange={(e) => setComment(e.target.value)}/>
+                    <input type="comment" name="comment" id="comment" placeholder="Optional" value={comment} onChange={(e) => setComment(e.target.value)}/>
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}><NavLink to='/list' style={{color:'white'}}>Create Entry</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}>Create Entry</button>
             <hr style={{color:"#00674F"}}/>
+            
             <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
                 <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
                 <label htmlFor='listTitle'></label>
-                <input type='text' name='listTitle' id='listTitle' placeholder='List Title' style={{marginTop:'10px'}} onChange={(e) => setListName(e.target.value)}></input>
+                <input type='text' name='listTitle' id='listTitle' placeholder='List Title' style={{marginTop:'10px'}} value={listName} onChange={(e) => setListName(e.target.value)}></input>
             </div>
-            <button type="submit" className="btn btn-primary" id="newlistbutton"><NavLink style={{color:'black'}}>Create New List</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="newlistbutton">Create New List</button>
         </div>
     </main>
   );
