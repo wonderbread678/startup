@@ -1,19 +1,16 @@
 import React from 'react';
 import './list.css'
 import '../app.css'
-import { NavLink } from 'react-router-dom';
 
 export function List(props) {
 
-    const [entries, setEntries]=React.useState(props.entries || [])
-    const [category, setCategory]=React.useState('All')
+    const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
+    const [category, setCategory]=React.useState('All');
 
-    function entryItem(newEntry){
-        setEntries([...entries, newEntry])
-    }
+    const filteredEntries = category === 'All' ? entries : entries.filter(entry => entry.list === category);
 
-    function listCategory(){
-
+    function listCategory(selectedCategory){
+        setCategory(selectedCategory);
     }
 
     function handleCategory(){
@@ -33,10 +30,8 @@ export function List(props) {
     <main className="main">
       <div className="body">
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select htmlFor="listSelection" name="listSelection" style={{marginBottom:"15px", float:"left"}}>
-                <option selected>All</option>
-                <option>Favorite Manga</option>
-                <option>Favorite Books</option>
+            <select id="listSelection" style={{marginBottom:"15px", float:"left"}} onChange={(e) => listCategory(e.target.value)}>
+                <option>All</option>
             </select>
             <ul className="biggerNumbers list-group">
                 <li>
@@ -53,7 +48,7 @@ export function List(props) {
                                 <p><b>Comment:</b> The best manga ever!</p>
                             </div>
                             <form method="get" action="Edit_entry.html">
-                                <button id="edit" className="btn btn-primary" type="submit"><NavLink to='/edit_entry' style={{color:'white'}}>Edit</NavLink></button>
+                                <button id="edit" className="btn btn-primary" type="submit">Edit</button>
                             </form>
                             <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                         </li>
