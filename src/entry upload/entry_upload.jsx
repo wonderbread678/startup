@@ -28,8 +28,10 @@ export function Entry_upload() {
 
     function handleCreateList(){
         if (!list.includes(listName)){
-            setLists([...lists, listName]);
+            updatedLists = [...lists, listName]
+            setLists(updatedLists);
             setListName(''); 
+            localStorage.setItem("lists", JSON.stringify(updatedLists));
         }
         else {
             console.log('list already exists');

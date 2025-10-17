@@ -9,12 +9,10 @@ export function List(props) {
 
     const filteredEntries = category === 'All' ? entries : entries.filter(entry => entry.list === category);
 
-    function listCategory(selectedCategory){
+    const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
+
+    function handleCategory(selectedCategory){
         setCategory(selectedCategory);
-    }
-
-    function handleCategory(){
-
     }
     
     function handleEdit(){
@@ -30,8 +28,11 @@ export function List(props) {
     <main className="main">
       <div className="body">
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select id="listSelection" style={{marginBottom:"15px", float:"left"}} onChange={(e) => listCategory(e.target.value)}>
+            <select id="listSelection" style={{marginBottom:"15px", float:"left"}} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
+                {savedLists.map((listName, index) => (
+                    <option key={index} value={listName}>{listName}</option>
+                ))}
             </select>
             <ul className="biggerNumbers list-group">
                 <li>
