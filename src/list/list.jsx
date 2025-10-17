@@ -37,18 +37,17 @@ export function List(props) {
             <ul className="biggerNumbers list-group">
             {filteredEntries.map((entry, index) => (
                 <li key={(index)}>
-                    {/* <h3> Favorite Manga</h3> */}
                     <h3>{entry.listName}</h3>
                     <hr />
                     <ol className="bigNumbers">
                         <li>
-                            <img src={entry.image} className="listImage" alt="One Piece" style= {{width: "200px", height: "300px"}} />
+                            <img src={entry.image} className="listImage" style= {{width: "200px", height: "300px"}} />
                             <div className="entryTitle"><b>Title:</b> {entry.title}</div>
                             <div className="entryAuthor"><b>Author:</b> {entry.author}</div>
                             <div className="entryType"><b>Type:</b> {entry.type}</div>
-                            <div className="entryRating"><b>Rating:</b> 10</div>
+                            <div className="entryRating"><b>Rating:</b> {entry.rating}</div>
                             <div className="entryComment">
-                                <p><b>Comment:</b> The best manga ever!</p>
+                                <p><b>Comment:</b> {entry.comment}</p>
                             </div>
                             <form method="get" action="Edit_entry.html">
                                 <button id="edit" className="btn btn-primary" type="submit">Edit</button>
