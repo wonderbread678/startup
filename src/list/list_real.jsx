@@ -3,6 +3,8 @@ import './list.css'
 
 export function List(props){
 
+    const [entries, setEntries]=React.useState([])
+
     function entryItem(){
 
     }
@@ -20,7 +22,7 @@ export function List(props){
     }
 
     function handleDelete(){
-        
+
     }
 
     return(
