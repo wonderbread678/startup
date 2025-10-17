@@ -37,7 +37,7 @@ export function List(props) {
             <ul className="biggerNumbers list-group">
             {filteredEntries.map((entry, index) => (
                 <li key={(index)}>
-                    <h3>{entry.listName}</h3>
+                    <h3>{entry.list}</h3>
                     <hr />
                     <ol className="bigNumbers">
                         <li>

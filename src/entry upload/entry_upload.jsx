@@ -40,7 +40,15 @@ export function Entry_upload() {
             console.log('list already exists');
         }    
     }
-    
+        const handleImage = (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = () => {setImage(reader.result)};
+            reader.readAsDataURL(file);
+        }
+        
     const handleSubmit = (e) => {
         e.preventDefault();
         const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
@@ -67,7 +75,7 @@ export function Entry_upload() {
       <div className="body">
         <form onSubmit={handleSubmit} encType="multipart/form-data">
             <span>Choose a photo to upload: </span>
-            <input type="file" id="fileUpload" name="myFile" onChange={(e) => setImage(e.target.files[0])} required></input>
+            <input type="file" id="fileUpload" name="myFile" onChange={handleImage} required></input>
             <ul>
                 <li>
                     <label htmlFor="title">Title</label>
