@@ -12,7 +12,10 @@ export function Entry_upload() {
     const [comment, setComment] = React.useState('');
     const [image, setImage] = React.useState(null);
     const [listName, setListName] = React.useState('');
-    const [lists, setLists] = React.useState(['--'])
+    const [lists, setLists] = React.useState(() => {
+        return JSON.parse(localStorage.getItem("lists") || '["--"]');
+    });
+
 
     const newEntry ={
         title,
@@ -28,10 +31,10 @@ export function Entry_upload() {
 
     function handleCreateList(){
         if (!list.includes(listName)){
-            updatedLists = [...lists, listName]
+            const updatedLists = [...lists, listName]
             setLists(updatedLists);
-            setListName(''); 
             localStorage.setItem("lists", JSON.stringify(updatedLists));
+            setListName(''); 
         }
         else {
             console.log('list already exists');

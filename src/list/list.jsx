@@ -35,15 +35,17 @@ export function List(props) {
                 ))}
             </select>
             <ul className="biggerNumbers list-group">
-                <li>
-                    <h3> Favorite Manga</h3>
+            {filteredEntries.map((entry, index) => (
+                <li key={(index)}>
+                    {/* <h3> Favorite Manga</h3> */}
+                    <h3>{entry.listName}</h3>
                     <hr />
                     <ol className="bigNumbers">
                         <li>
-                            <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" className="listImage" alt="One Piece" style= {{width: "200px", height: "300px"}} />
-                            <div className="entryTitle"><b>Title:</b> One Piece</div>
-                            <div className="entryAuthor"><b>Author:</b> Eiichiro Oda</div>
-                            <div className="entryType"><b>Type:</b> Manga</div>
+                            <img src={entry.image} className="listImage" alt="One Piece" style= {{width: "200px", height: "300px"}} />
+                            <div className="entryTitle"><b>Title:</b> {entry.title}</div>
+                            <div className="entryAuthor"><b>Author:</b> {entry.author}</div>
+                            <div className="entryType"><b>Type:</b> {entry.type}</div>
                             <div className="entryRating"><b>Rating:</b> 10</div>
                             <div className="entryComment">
                                 <p><b>Comment:</b> The best manga ever!</p>
@@ -55,6 +57,7 @@ export function List(props) {
                         </li>
                     </ol>
                 </li>
+                ))} 
             </ul>
         </div>
     </main>
