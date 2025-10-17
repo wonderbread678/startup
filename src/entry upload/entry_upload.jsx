@@ -32,12 +32,17 @@ export function Entry_upload() {
             setListName(''); 
         }
         else {
-            console.log('list already exists')
+            console.log('list already exists');
         }    
     }
     
     const handleSubmit = (e) => {
         e.preventDefault();
+        const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
+
+        const updatedEntries = [...savedEntries, newEntry];
+        
+        localStorage.setItem("entries", JSON.stringify(updatedEntries));
         console.log(newEntry);
 
         setTitle('');

@@ -3,19 +3,20 @@ import './list.css'
 import '../app.css'
 import { NavLink } from 'react-router-dom';
 
-export function List() {
+export function List(props) {
 
-    const [entries, setEntries]=React.useState([])
+    const [entries, setEntries]=React.useState(props.entries || [])
+    const [category, setCategory]=React.useState('All')
 
-    function entryItem(){
+    function entryItem(newEntry){
+        setEntries([...entries, newEntry])
+    }
+
+    function listCategory(){
 
     }
 
-    function listCatagory(){
-
-    }
-
-    function handleCatagory(){
+    function handleCategory(){
 
     }
     
