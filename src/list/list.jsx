@@ -35,7 +35,7 @@ export function List(props) {
     };
 
     const handleDelete = (deletedEntry) => {
-        const updatedEntries = entries.filter((entry) => entry.title !== deletedEntry.title);
+        const updatedEntries = entries.filter((entry) => entry.id !== deletedEntry.id);
         setEntries(updatedEntries);
         localStorage.setItem("entries", JSON.stringify(updatedEntries));
     };

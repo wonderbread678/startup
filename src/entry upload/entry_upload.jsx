@@ -42,6 +42,7 @@ export function Entry_upload() {
         e.preventDefault();
 
         const newEntry ={
+            id: Date.now(),
             title,
             author,
             type,
