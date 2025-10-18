@@ -16,18 +16,7 @@ export function Entry_upload() {
         return JSON.parse(localStorage.getItem("lists") || '["--"]');
     });
 
-
-    const newEntry ={
-        title,
-        author,
-        type,
-        rating,
-        list,
-        listRank,
-        comment,
-        image,
-        listName
-    };
+    const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
 
     function handleCreateList(){
         if (!list.includes(listName)){
@@ -51,6 +40,19 @@ export function Entry_upload() {
         
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const newEntry ={
+            title,
+            author,
+            type,
+            rating,
+            list,
+            listRank,
+            comment,
+            image: image || handleImage(DEFAULT_IMAGE),
+            listName
+        };
+
         const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
 
         const updatedEntries = [...savedEntries, newEntry];
@@ -75,7 +77,7 @@ export function Entry_upload() {
       <div className="body">
         <form onSubmit={handleSubmit} encType="multipart/form-data">
             <span>Choose a photo to upload: </span>
-            <input type="file" id="fileUpload" name="myFile" onChange={handleImage} required></input>
+            <input type="file" id="fileUpload" name="myFile" onChange={handleImage}></input>
             <ul>
                 <li>
                     <label htmlFor="title">Title</label>
