@@ -23,6 +23,10 @@ export function List(props) {
         return groups;
     }, {});
 
+    Object.keys(groupedEntries).forEach(listName => {
+        groupedEntries[listName].sort((a,b) => a.listRank - b.listRank);
+    });
+
      const filteredEntries = category === 'All' ? groupedEntries : { [category]: groupedEntries[category] || []};
 
     
@@ -31,9 +35,9 @@ export function List(props) {
     };
 
     const handleDelete = (deletedEntry) => {
-        const updatedEntries = entries.filter((entry) => entry.title !== deletedEntry);
+        const updatedEntries = entries.filter((entry) => entry.title !== deletedEntry.title);
         setEntries(updatedEntries);
-        localStorage.setItem(entries, JSON.stringify(updatedEntries));
+        localStorage.setItem("entries", JSON.stringify(updatedEntries));
     };
 
 
