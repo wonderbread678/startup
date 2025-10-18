@@ -49,7 +49,7 @@ export function Entry_upload() {
             list,
             listRank,
             comment,
-            image: image || handleImage(DEFAULT_IMAGE),
+            image: image || DEFAULT_IMAGE,
             listName
         };
 
