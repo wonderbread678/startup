@@ -7,13 +7,25 @@ export function List(props) {
     const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
     const [category, setCategory]=React.useState('All');
 
-    const filteredEntries = category === 'All' ? entries : entries.filter(entry => entry.list === category);
 
     const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
 
     function handleCategory(selectedCategory){
         setCategory(selectedCategory);
     }
+
+    // Group entries by their list name
+    const groupedEntries = entries.reduce((groups, entry) => {
+        const listName = entry.list || "Uncategorized"; // fallback if no list assigned
+        if (!groups[listName]) {
+            groups[listName] = [];
+        }
+        groups[listName].push(entry);
+        return groups;
+    }, {});
+
+     const filteredEntries = category === 'All' ? groupedEntries : { [category]: groupedEntries[category] || []};
+
     
     function handleEdit(){
 
@@ -35,12 +47,13 @@ export function List(props) {
                 ))}
             </select>
             <ul className="biggerNumbers list-group">
-            {filteredEntries.map((entry, index) => (
-                <li key={(index)}>
-                    <h3>{entry.list}</h3>
+            {Object.entries(filteredEntries).map(([listName, entries]) => (
+                <li key={(listName)}>
+                    <h3>{listName}</h3>
                     <hr />
                     <ol className="bigNumbers">
-                        <li>
+                        {entries.map((entry, index) => (
+                        <li key={index}>
                             <img src={entry.image} className="listImage" style= {{width: "200px", height: "300px"}} />
                             <div className="entryTitle"><b>Title:</b> {entry.title}</div>
                             <div className="entryAuthor"><b>Author:</b> {entry.author}</div>
@@ -54,6 +67,7 @@ export function List(props) {
                             </form>
                             <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
                         </li>
+                        ))}
                     </ol>
                 </li>
                 ))} 
