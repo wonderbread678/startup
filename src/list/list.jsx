@@ -14,9 +14,8 @@ export function List(props) {
         setCategory(selectedCategory);
     }
 
-    // Group entries by their list name
     const groupedEntries = entries.reduce((groups, entry) => {
-        const listName = entry.list || "Uncategorized"; // fallback if no list assigned
+        const listName = entry.list || "Uncategorized";
         if (!groups[listName]) {
             groups[listName] = [];
         }
@@ -31,7 +30,7 @@ export function List(props) {
 
     }
 
-    function handleDelete(){
+    function handleDelete(entry){
 
     }
 
@@ -65,7 +64,7 @@ export function List(props) {
                             <form method="get" action="Edit_entry.html">
                                 <button id="edit" className="btn btn-primary" type="submit">Edit</button>
                             </form>
-                            <button id ="delete" className="btn btn-secondary" type="submit">Delete</button>
+                            <button id ="delete" className="btn btn-secondary" type="submit" onClick={() => handleDelete(entry)}>Delete</button>
                         </li>
                         ))}
                     </ol>
