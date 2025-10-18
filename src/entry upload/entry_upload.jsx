@@ -31,11 +31,12 @@ export function Entry_upload() {
     }
         const handleImage = (event) => {
             const file = event.target.files[0];
-            if (!file) return;
-            
-            const reader = new FileReader();
-            reader.onload = () => {setImage(reader.result)};
-            reader.readAsDataURL(file);
+            if (!file) {setImage(DEFAULT_IMAGE);}
+            else{
+                const reader = new FileReader();
+                reader.onload = () => {setImage(reader.result)};
+                reader.readAsDataURL(file);
+            }
         }
         
     const handleSubmit = (e) => {
@@ -50,7 +51,7 @@ export function Entry_upload() {
             list,
             listRank,
             comment,
-            image: image || DEFAULT_IMAGE,
+            image,
             listName
         };
 
@@ -71,6 +72,8 @@ export function Entry_upload() {
         setImage(null);
         setListName('');
     };
+
+    const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
 
 
   return (
@@ -109,8 +112,7 @@ export function Entry_upload() {
                 <li>
                     <label htmlFor="list">List</label>
                     <select id="list" name="listSelect" value={list} onChange={(e) => setList(e.target.value)} required>
-                        <option> -- </option>
-                        {lists.map((listName, index) => (<option key={index}>{listName}</option>))}
+                        {sortedLists.map((listName, index) => (<option key={index}>{listName}</option>))}
                     </select>
                 </li>
                 <li>
