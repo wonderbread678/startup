@@ -30,8 +30,10 @@ export function List(props) {
 
     };
 
-    const handleDelete = (entry) => {
-        setEntries(entries.filter((entry) => entry !== entry.title));
+    const handleDelete = (deletedEntry) => {
+        const updatedEntries = entries.filter((entry) => entry.title !== deletedEntry);
+        setEntries(updatedEntries);
+        localStorage.setItem(entries, JSON.stringify(updatedEntries));
     };
 
 
@@ -64,7 +66,7 @@ export function List(props) {
                             <form method="get" action="Edit_entry.html">
                                 <button id="edit" className="btn btn-primary" type="submit">Edit</button>
                             </form>
-                            <button id ="delete" className="btn btn-secondary" type="submit" onClick={() => handleDelete(entry)}>Delete</button>
+                            <button id ="delete" className="btn btn-secondary" type="button" onClick={() => handleDelete(entry)}>Delete</button>
                         </li>
                         ))}
                     </ol>
