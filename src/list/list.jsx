@@ -12,7 +12,7 @@ export function List(props) {
 
     function handleCategory(selectedCategory){
         setCategory(selectedCategory);
-    }
+    };
 
     const groupedEntries = entries.reduce((groups, entry) => {
         const listName = entry.list || "Uncategorized";
@@ -28,11 +28,11 @@ export function List(props) {
     
     function handleEdit(){
 
-    }
+    };
 
-    function handleDelete(entry){
-
-    }
+    const handleDelete = (entry) => {
+        setEntries(entries.filter((entry) => entry !== entry.title));
+    };
 
 
   return (
