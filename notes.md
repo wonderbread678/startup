@@ -274,3 +274,79 @@ Other Milestones
   - 2013: JSON standardized.
   - 2012: TypeScript introduced.
   - Transpilers: Enable other languages to compile into JavaScript.
+
+## Stack
+- A technology stack is the collection of technologies used to create and deliver a web application.
+- Called a stack because the technologies are layered, each depending on the one below.
+
+| Layer                         | Description                                                | Examples                             |
+| ----------------------------- | ---------------------------------------------------------- | ------------------------------------ |
+| **Web Framework (Top Layer)** | User-facing application logic and UI                       | React, Angular, Vue, Svelte          |
+| **Web Server**                | Delivers the app to users and handles HTTP requests        | Caddy, Nginx, Apache                 |
+| **Web Services / Backend**    | Provides APIs for authentication, data, and business logic | Node.js, Express                     |
+| **Backend Services**          | Support systems for persistence, caching, and monitoring   | Databases, Logging, Monitoring tools |
+| **Hosting / Infrastructure**  | Where the app runs                                         | AWS, Google Cloud, Azure             |
+
+Example Tech Stack (Course Setup)
+  - Frontend: React (web framework)
+  - Web Server: Caddy
+  - Hosting: AWS
+  - Backend Runtime: Node.js
+  - Database: MongoDB (hosted on MongoDB Atlas)
+
+IP Addresses
+  - Every device on the Internet must have an IP address (e.g., 128.187.16.184 for BYU).
+  - IP = Internet Protocol address → unique numerical identifier for a device.
+
+Domain Names
+  - Humans prefer domain names (e.g., byu.edu) instead of numeric IPs.
+  - The Domain Name System (DNS) translates domain names → IP addresses.
+
+Routing and Connections
+  - To connect, devices find a dynamic route across multiple hops in the network.
+  - Each hop represents a router or network device forwarding data closer to its destination.
+  - Once a route is found, data flows via the transport and application layers.
+
+| Layer           | Example                | Purpose                                                |
+| --------------- | ---------------------- | ------------------------------------------------------ |
+| **Application** | HTTP, HTTPS, SMTP, FTP | Provides user-facing services (web, email, etc.)       |
+| **Transport**   | TCP, UDP               | Breaks data into packets and ensures reliable delivery |
+| **Internet**    | IP                     | Handles addressing and routing between devices         |
+| **Link**        | Ethernet, WiFi, Fiber  | Deals with the physical transmission of data           |
+
+## EC2
+
+☁️ What is EC2?
+  - Elastic Compute Cloud (EC2) = AWS’s virtual servers.
+  - Lets you rent a web server without needing your own physical machine.
+  - Servers are hosted in data centers (e.g., Virginia, Ohio, Dublin, Tokyo).
+  - Each “instance” is a small computer that you can start, stop, or delete anytime.
+
+🧱 Why Use EC2?
+- Avoids using your personal laptop as a public server.
+Provides:
+  - Constant uptime.
+  - Security isolation.
+  - Scalable power (upgrade/downgrade easily).
+  - Cheap, disposable servers for experiments.
+
+⚙️ Steps to Create an EC2 Instance
+1. Log into AWS Console.
+2. Set region → US East (N. Virginia) - us-east-1.
+3. Go to EC2 service → “Launch instance”.
+4. Name the instance (e.g., ethan-web-v1).
+5. Select AMI (custom class image):
+ami-094c4a0be0b642a24 (or ami-018f3a022e128a6b2 for backup).
+  - Includes: Ubuntu, Node.js, NVM, Caddy, and PM2.
+6. Choose instance type → t3.micro, t3.nano, or t2.micro.
+7. Create or select key pair (.pem file)
+  - Needed for SSH access.
+  - Store safely — never upload to GitHub.
+8. Configure security group:
+  - Allow SSH (22), HTTP (80), and HTTPS (443).
+9. (Optional) For T3 instances, set Credit specification → Unlimited.
+10. Launch instance.
+After launch:
+  - Wait until it shows “Running”.
+  - Copy your public IP address (e.g., 3.22.63.37).
+  - Visit http://[IP address] in a browser — you should see a default page.
