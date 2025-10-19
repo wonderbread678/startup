@@ -477,3 +477,91 @@ Proxy Comparison Table:
       1. Caddy requests a certificate for a domain.
       2. Let's Encrypt verifies domain ownership (temporary signed response on domain).
       3. Certificate is issued and served by Caddy.
+
+## 🌐 HyperText Markup Language (HTML)
+  - HTML is the foundational language of the web, used to structure content on web pages and web applications.
+    - Original purpose: Publishing static documents.
+    - Modern use: Single-page apps (SPA) or multi-page apps (MPA).
+  - HTML defines content and structure, while CSS styles it and JavaScript makes it interactive.
+
+  | Element   | Purpose            |
+| --------- | ------------------ |
+| `html`    | Page container     |
+| `head`    | Metadata           |
+| `title`   | Page title         |
+| `body`    | Content            |
+| `main`    | Main content       |
+| `header`  | Section header     |
+| `footer`  | Section footer     |
+| `nav`     | Navigation         |
+| `section` | Content section    |
+| `aside`   | Related content    |
+| `div`     | Block container    |
+| `span`    | Inline container   |
+| `h1`–`h9` | Headings           |
+| `p`       | Paragraph          |
+| `a`       | Anchor/link        |
+| `img`     | Image              |
+| `table`   | Table structure    |
+| `form`    | User input form    |
+| `input`   | Input field        |
+| `audio`   | Audio content      |
+| `video`   | Video content      |
+| `iframe`  | Embedded HTML page |
+| `svg`     | Vector graphics    |
+| `dialog`  | Interactive pop-up |
+
+Special Characters:
+| Character | Entity      |
+| --------- | ----------- |
+| `&`       | `&amp;`     |
+| `<`       | `&lt;`      |
+| `>`       | `&gt;`      |
+| `"`       | `&quot;`    |
+| `'`       | `&apos;`    |
+| 😀        | `&#128512;` |
+
+HTML versions
+| Year | Version | Notable Features                  |
+| ---- | ------- | --------------------------------- |
+| 1990 | HTML1   | Basic formatting                  |
+| 1995 | HTML2   | Tables, internationalization      |
+| 1997 | HTML3   | CSS, frames, MathML               |
+| 1999 | HTML4   | External CSS                      |
+| 2014 | HTML5   | Semantic tags, media, forms, APIs |
+
+- Webservers erve index.html by default
+
+
+Input Element Types:
+| Type           | Purpose                  |
+| -------------- | ------------------------ |
+| text           | Single line text         |
+| password       | Hidden text              |
+| email          | Email address            |
+| tel            | Phone number             |
+| url            | Website URL              |
+| number         | Numeric input            |
+| checkbox       | Multiple selection       |
+| radio          | Single selection         |
+| range          | Slider for numeric range |
+| date           | Year, month, day         |
+| datetime-local | Date and time            |
+| color          | Color picker             |
+| file           | File upload              |
+| submit         | Form submission button   |
+
+Common attributes
+| Attribute | Purpose                                  |
+| --------- | ---------------------------------------- |
+| name      | Name of the input (used in submission)   |
+| value     | Initial or selected value                |
+| required  | User must fill this input to submit form |
+| disabled  | Prevents user interaction                |
+
+
+- Best practices
+  1. Give clear labels for all inputs (<label>).
+  2. Use placeholder text for hints.
+  3. Provide early feedback for invalid entries.
+  4. Group related inputs using <fieldset> for clarity.
