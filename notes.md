@@ -227,7 +227,7 @@ Best Practices for Development:
     - ICANN – Manages IP address space & DNS (Internet “address book”).
     - 2016: Control transitioned to a global nonprofit community.
 
-HTML (HyperText Markup Language)
+## HTML (HyperText Markup Language)
   Inventor:
     - Tim Berners-Lee (CERN, 1980–1990).
   Purpose:
@@ -238,3 +238,39 @@ HTML (HyperText Markup Language)
     - 1990: First web server built on a NeXT computer.
     - 1996: HTML specification given to W3C (World Wide Web Consortium).
     - Evolution: 18 original tags → 100+ in modern HTML.
+
+## HTTP and URL
+  - Developed by Tim Berners-Lee alongside HTML.
+  - Purpose: Define how web documents are addressed and transmitted.
+
+## CSS (Cascading Style Sheets)
+- Inventor: Håkon Wium Lie (1994, CERN).
+
+Purpose
+  - Separate content (HTML) from visual design.
+  - Prevent browsers from defining all visual styles.
+
+Standardization
+  - 1996: Became an official standard.
+  - Early browser wars caused compatibility issues → fixed by CSS 2.1.
+
+## JavaScript
+- Creator: Brendan Eich (1995, Netscape).
+
+- Purpose: Add interactivity and dynamic behavior to web pages.
+
+Standardization
+  - 1996: Handed to ECMA International → officially ECMAScript.
+  - 2009: Major vendors align with ECMAScript 5.
+  - 2015: ES6 introduces modern features (classes, modules, etc.).
+  - Later versions named by release year (ES2016, ES2017, …).
+
+## JavaScript Beyond the Browser
+Node.js (2009)
+  - Ryan Dahl – allows JS to run on servers.
+  - Expanded JavaScript’s role to full-stack development.
+
+Other Milestones
+  - 2013: JSON standardized.
+  - 2012: TypeScript introduced.
+  - Transpilers: Enable other languages to compile into JavaScript.
