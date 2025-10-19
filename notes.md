@@ -442,3 +442,38 @@ Proxy Comparison Table:
 | Request direction | Client → Proxy → Server | Client → Proxy → Server  |
 
 - Key Insight: Both handle requests/responses; "reverse" refers to proxying the server instead of the client.
+
+## HTTPS, TLS, and Web Certificates
+  🔐 Why HTTPS?
+    - HTTP = non-secure; browsers warn ⚠ Not Secure.
+    - HTTP transmits plain text, so anyone on the network can intercept sensitive data.
+    - HTTPS encrypts traffic using TLS to protect privacy and integrity.
+    - Modern web apps and HTTP/3 require HTTPS.
+  
+  2. TLS (Transport Layer Security)
+    - Provides encryption for web communication.
+    - Uses handshake to negotiate a shared secret between client and server.
+    - Handshake includes:
+      1. Client hello
+      2. Server hello
+      3. Certificate exchange
+      4. Key verification
+    - Example using curl:
+      - curl -v -s https://byu.edu > /dev/null
+    - Confirms:
+      1. TLS version (e.g., TLSv1.3)
+      2. Certificate details (domain, issuer, validity)
+      3. Successful handshake
+
+  3. Web Certificates
+    - Issued by trusted Certificate Authorities (CAs).
+    - Verifies that a domain is owned by the requester.
+    - Historically expensive and needed per domain/subdomain.
+    - Let's Encrypt revolutionized this:
+      1. Free certificates.
+      2. Automatic renewal using ACME protocol.
+      3. Dynamically generates certificates for domain ownership verification.
+    - Certificate Verification Steps (via ACME/Let's Encrypt):
+      1. Caddy requests a certificate for a domain.
+      2. Let's Encrypt verifies domain ownership (temporary signed response on domain).
+      3. Certificate is issued and served by Caddy.
