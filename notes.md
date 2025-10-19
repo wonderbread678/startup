@@ -161,3 +161,53 @@ Fetch vs Pull:
   - git fetch: Retrieves info about changes (does not modify local files).
   - git pull: Retrieves and merges the changes into your working directory.
 
+Pull Requests (PRs)
+  - Used to propose changes to a repository.
+  Workflow:
+    - Fork or clone a repo.
+    - Make changes and commit.
+    - Push to your fork.
+    - Create a pull request to suggest merging your changes.
+
+Value of Commit History:
+  - Backup – Easily recover if your computer fails.
+  - Portfolio – Show your coding work to employers.
+  - Proof of Work – Demonstrates consistent authorship and progress.
+  - Exploration – Use branches to test new ideas safely.
+  - Experience – Learn the industry-standard tool for version control.
+
+Best Practices for Development:
+  - Pull latest code (git pull).
+  - Implement and test small, cohesive code changes.
+  - Commit and push frequently.
+  - Repeat regularly — consistency is key.
+  - Aim for multiple commits per workday.
+
+| Command   | Description                  |
+| --------- | ---------------------------- |
+| `echo`    | Output text or variables     |
+| `cd`      | Change directory             |
+| `mkdir`   | Create a new directory       |
+| `rmdir`   | Remove an empty directory    |
+| `rm`      | Remove files                 |
+| `mv`      | Move or rename files         |
+| `cp`      | Copy files                   |
+| `ls`      | List files                   |
+| `curl`    | Command-line web client      |
+| `grep`    | Search text using regex      |
+| `find`    | Locate files                 |
+| `top`     | Show running processes       |
+| `df`      | Show disk usage              |
+| `cat`     | Print file contents          |
+| `less`    | View files interactively     |
+| `wc`      | Count words/lines in a file  |
+| `ps`      | Show running processes       |
+| `kill`    | Stop a process               |
+| `sudo`    | Run as administrator         |
+| `ssh`     | Secure remote shell          |
+| `scp`     | Secure file transfer         |
+| `history` | Show command history         |
+| `ping`    | Check if a site is reachable |
+| `tracert` | Trace route to a host        |
+| `dig`     | Display DNS info             |
+| `man`     | View command manual          |
