@@ -97,3 +97,67 @@ Handling the toggling of the checkboxes was particularly interesting.
   ))}
 </div>
 ```
+
+## Introduction: 
+
+- Git provides two valuable functions. First, it allows you to track versions of files in a directory. Second, it allows you to clone all of those versions to a different location, usually to a different computer. We are going to focus on tracking versions in this instruction and cover cloning repositories when we talk later about GitHub.
+What is Git?
+
+- Distributed version control system.
+
+Two core functions:
+  - Track versions of files in a directory (local repo).
+  - Clone/version history to other locations/computers (covered later with GitHub).
+
+- Initialize a repo: git init → creates hidden .git directory (stores all versions).
+
+Basic Workflow: 
+  - Create file: echo hello world > hello.txt
+  - Check status: git status (shows untracked files)
+  - Stage files: git add . (the . stages all untracked/changed files)
+  - Commit staged changes: git commit -m "message"
+  - Staging purpose: choose which files will be included in the next commit.
+
+
+How commits work:
+  - Commits are snapshots of staged files at commit time — think of them as “time machine” states for the whole directory (for staged files).
+  - Committing often is good practice: helps recovery, collaboration, and shows progress.
+
+Diffing changes:
+  - Compare commits or revisions: git diff <commitA> <commitB>
+  - Common shorthand: git diff HEAD HEAD~1 (compare current HEAD with previous commit)
+  - Output shows removed (-) and added (+) lines.
+
+Branches:
+  - Create branch: git branch <branch-name>
+  - Switch to branch: git checkout <branch-name>
+  - Merge branch into current branch: git merge <branch-name>
+  - Branching allows work on features in isolation and later merging; unused branches can simply be left unmerged.
+
+Quick command reference:
+  - git --version — check Git installed
+  - git init — initialize repo
+  - git status — show repo status
+  - git add . — stage all changes
+  - git commit -m "msg" — commit staged changes
+  - git commit -am "msg" — stage tracked changes + commit
+  - git log — view commit history
+  - git diff <a> <b> — show differences
+  - git branch <name> — create branch
+  - git checkout <name|sha> — switch branch or checkout commit
+  - git merge <branch> — merge another branch into current
+
+
+Workflow:
+  - git pull – Get latest version from GitHub.
+  - Edit and save files locally.
+  - git add . – Stage your changes.
+  - git commit -m "meaningful message" – Commit changes.
+  - git push – Upload commits to GitHub.  
+
+- Pull (git pull) to sync your local version with GitHub changes.
+
+Fetch vs Pull:
+  - git fetch: Retrieves info about changes (does not modify local files).
+  - git pull: Retrieves and merges the changes into your working directory.
+
