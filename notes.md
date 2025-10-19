@@ -211,3 +211,30 @@ Best Practices for Development:
 | `tracert` | Trace route to a host        |
 | `dig`     | Display DNS info             |
 | `man`     | View command manual          |
+
+
+## The Internet
+  Origins:
+    - 1960s–70s: ARPANET created by the U.S. Department of Defense.
+    - Goal: share information between universities.
+    - Designed to survive nuclear attack via redundant network paths.
+    - 1980s: National Science Foundation expands the network.
+    - 1990s: Internet becomes publicly accessible → consumer explosion.
+    - 2000s: Rapid growth with smartphones and connected devices.
+
+  Governance:
+    - IETF – Defines technical communication standards.
+    - ICANN – Manages IP address space & DNS (Internet “address book”).
+    - 2016: Control transitioned to a global nonprofit community.
+
+HTML (HyperText Markup Language)
+  Inventor:
+    - Tim Berners-Lee (CERN, 1980–1990).
+  Purpose:
+    - Share research documents via hyperlinks over ARPANET.
+
+  Key Points:
+    - Built on ideas from SGML (Standard Generalized Markup Language).
+    - 1990: First web server built on a NeXT computer.
+    - 1996: HTML specification given to W3C (World Wide Web Consortium).
+    - Evolution: 18 original tags → 100+ in modern HTML.
