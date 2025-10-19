@@ -350,3 +350,95 @@ After launch:
   - Wait until it shows “Running”.
   - Copy your public IP address (e.g., 3.22.63.37).
   - Visit http://[IP address] in a browser — you should see a default page.
+
+🌐 Elastic IP (Permanent Address)
+- Each restart gives a new IP address, unless you:
+  1. Keep the server running, or
+  2. Assign an Elastic IP (EIP) — keeps same address permanently.
+💡 Notes:
+  - First EIP is free while attached to a running instance.
+  - Costs $0.005/hr if the instance is stopped.
+  - To assign: EC2 Console → “Elastic IPs” → “Allocate” → “Associate with instance”.
+
+## Domain
+🧩 What Is a Domain Name?
+  - A domain name is a human-readable address for an IP (e.g., google.com → 142.250.190.14).
+  - Domain names are registered in a Domain Name Registry.
+  - They follow a naming structure:
+      subdomain.domain.tld
+      e.g., blog.cs260.click
+  
+| Part                       | Example                          | Meaning                    |
+| -------------------------- | -------------------------------- | -------------------------- |
+| **Top-Level Domain (TLD)** | `.com`, `.edu`, `.org`, `.click` | Category/type of domain    |
+| **Second-Level Domain**    | `byu`, `google`, `cs260`         | Registered main name       |
+| **Subdomain**              | `travel`, `finance`, `blog`      | Optional, created by owner |
+
+👤 Whois – Domain Ownership Info
+  - Use whois to find registration info:
+    - i.e. whois byu.edu
+  Displays:
+  - Registrant: Owner (e.g., BYU)
+  - Admin Contact: For domain management
+  - Tech Contact: For technical issues
+  - Dates: Created, updated, and expiration
+
+🌍 DNS – Domain Name System
+  - The DNS maps domain names → IP addresses.
+🧱 Record Types
+  - Record	Meaning	Example
+    1. A Record	Maps domain → IP	byu.edu → 128.187.16.184
+    2. CNAME Record	Maps domain → another domain	byu.com → byu.edu
+🧭 How Lookup Works
+  - Browser checks local cache.
+  - If not found → queries a DNS server.
+  - DNS server checks its cache or asks an authoritative name server.
+  - Returns IP address or an unknown domain error.
+🕒 TTL (Time to Live):
+  - Defines how long DNS info is cached (can range from 5 minutes to several days).
+
+🧠 Summary
+| Concept          | Description                                 |
+| ---------------- | ------------------------------------------- |
+| **Domain name**  | Human-readable identifier for an IP         |
+| **DNS**          | System that maps domains to IPs             |
+| **A Record**     | Domain → IP                                 |
+| **CNAME Record** | Domain → Domain                             |
+| **TTL**          | Time before DNS cache refresh               |
+| **Whois**        | Command to see ownership info               |
+| **ICANN**        | Governs domain standards                    |
+| **Route 53**     | AWS service for domain registration and DNS |
+
+## AWS Route 53 – Notes
+  🔑 Purpose
+    - IP addresses are not user-friendly or secure (HTTPS requires a domain).
+    - Route 53: AWS service for:
+    - Purchasing/leasing domain names.
+    - Hosting domains on DNS servers.
+    - Managing DNS records (A, CNAME, etc.).
+
+## Caddy – Notes
+🔹 What is Caddy?
+  - A web server built with Go.
+  - Automatically handles TLS/HTTPS certificates via LetsEncrypt.
+  - Can serve static files or act as a reverse proxy to route requests to internal services.
+  For this course:
+    - Hosts static HTML/CSS/JS files.
+    - Routes subdomain requests (e.g., simon.yourdomain) to Node.js services.
+    - Handles HTTPS automatically.
+
+| File / Directory | Purpose                                                                                                                                                                   |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `~/Caddyfile`    | Main configuration file: defines routing of requests, static file paths, and reverse proxy rules. Usually preconfigured; rarely need to modify manually.                  |
+| `~/public_html`  | Directory for static files served by Caddy. Linked to `/usr/share/caddy` as defined in `Caddyfile`. Example: `http://yourdomain/index.html` → `~/public_html/index.html`. |
+
+Proxy Comparison Table:
+| Feature           | Forward Proxy           | Reverse Proxy            |
+| ----------------- | ----------------------- | ------------------------ |
+| Placement         | In front of clients     | In front of servers      |
+| Who it hides      | Client                  | Server                   |
+| Common use        | Anonymity, filtering    | Load balancing, security |
+| Awareness         | Client knows it         | Client unaware           |
+| Request direction | Client → Proxy → Server | Client → Proxy → Server  |
+
+- Key Insight: Both handle requests/responses; "reverse" refers to proxying the server instead of the client.
