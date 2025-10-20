@@ -908,3 +908,114 @@ How Vite works
   - React component (App.jsx) executes → generates HTML/CSS/JS.
 
   For our sakes, building something in Vite will save the output in a dist/ directory, ready for deployment
+
+React — Git-friendly Notes
+One-line summary
+  - React is a component-based UI library for building reactive web interfaces using JSX, state, and event-driven re-renders.
+
+Key resources
+  - MDN React Introduction Tutorial — quick primer
+  - React Quick Start (react.dev) — official learning path
+
+Origins / context
+  - Created by Jordan Walke at Facebook (2011). First used in Facebook news feed and Instagram. Open-sourced and widely adopted.
+  - Notable quote: “The best drug is getting little things done that have been weighing on you. Instant high.” — Jordan Walke (Twitter)
+
+Concepts (short)
+  - JSX: JavaScript + HTML-like syntax compiled to React.createElement(...).
+  - Components: Functions or classes that return JSX and encapsulate UI + behavior.
+  - State: useState (or class state) holds component-local values; updating state triggers re-render.
+  - Events: JSX uses camelCase handlers (e.g., onClick={handleClick}).
+  - Render target: ReactDOM.createRoot(el).render(<App />) mounts app to DOM.
+  - Build tools: Vite or Babel commonly used to transform JSX.
+
+Minimal Quickstart (commands)
+{mkdir reactDemo && cd reactDemo
+npm init -y
+npm install vite@latest -D
+npm install react react-dom
+npx vite
+# open http://localhost:5173}
+
+Minimal file layout (recommended)
+  - index.html — root <div id="root"></div> + <script type="module" src="/index.jsx"></script>
+  - index.jsx — main React entry (imports React, ReactDOM, defines App, mounts)
+  - package.json, node_modules/, dev tooling (Vite)
+
+Minimal index.jsx (concept)
+  - create App component
+  - use ReactDOM.createRoot(document.getElementById('root')).render(<App />)
+
+Why this matters
+  - Small state changes produce targeted DOM updates (efficient re-rendering).
+  - Composition with components improves maintainability and testability.
+
+Common pitfalls / tips
+  - Remember JSX differences: className vs class, inline style is an object.
+  - Ensure type="module" when importing .jsx from index.html.
+  - Use createRoot (React 18+) for concurrent features.
+  - Keep state minimal and lift it up when multiple components share it.
+  - Use dev server hot-reload (Vite) for fast iteration.
+
+- State is component-owned, mutable data tracked by React.
+  - useState returns [value, setter].
+  - Changing the state triggers a re-render
+
+## JavaScript Console — Git-friendly Notes
+Overview:
+  - The JavaScript console object provides tools for debugging and inspecting your program during runtime.
+  - It is not the same as the system terminal — it’s specific to the browser or JS runtime environment (like Node.js).
+
+Use console to:
+  - Log messages and variables
+  - Style and format output
+  - Track performance via timers
+  - Count function or loop executions
+📖 Reference: MDN JavaScript Console
+
+1️⃣ Logging output
+Basic
+console.log('hello');
+// OUTPUT: hello
+
+String formatting
+  - Use %s for string substitution (similar to printf).
+
+console.log('hello %s', 'world');
+// OUTPUT: hello world
+
+CSS styling
+  - Style logs visually in supported consoles (browser dev tools).
+
+console.log('%c JavaScript Demo', 'font-size:1.5em; color:green;');
+// OUTPUT: JavaScript Demo (large green text)
+
+2️⃣ Timers
+  - Measure elapsed time between two points in code.
+
+console.time('demo time');
+for (let i = 0; i < 10000000; i++) {}
+console.timeEnd('demo time');
+// OUTPUT: demo time: 12.74 ms
+
+Tips:
+  - Label must match between time() and timeEnd().
+  - Great for benchmarking or identifying performance bottlenecks.
+
+3️⃣ Counters
+
+- Track how many times code executes under a specific label.
+
+console.count('a');
+// OUTPUT: a: 1
+console.count('a');
+// OUTPUT: a: 2
+console.count('b');
+// OUTPUT: b: 1
+
+
+Useful for:
+  - Debugging recursion
+  - Tracking function calls
+  - Loop iteration diagnostics
+
