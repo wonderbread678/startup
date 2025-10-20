@@ -1080,3 +1080,108 @@ JavaScript Arrow Functions
   They are ideal for callbacks, React event handlers, and functional patterns.
 
   They simplify complex logic like debouncing and state updates.
+
+JavaScript Arrays
+
+  Arrays in JavaScript are ordered collections that can hold values of any type—numbers, strings, objects, or other arrays. Array elements are accessed using zero-based indexing, and the .length property provides the number of elements. Arrays can be created with the Array constructor or using square bracket ([]) literal syntax.
+
+  Common Array Methods
+
+  JavaScript’s Array object includes many built-in methods for adding, removing, transforming, and iterating over data.
+
+  | Method    | Purpose                                      | Example Behavior                       |
+  |-----------|----------------------------------------------|----------------------------------------|
+  | push      | Adds an element to the end of the array     | Extends array length                   |
+  | pop       | Removes and returns the last element        | Shortens array                         |
+  | slice     | Returns a shallow copy of a portion of the array | Does not modify original           |
+  | sort      | Sorts array elements (optionally using a compare function) | Changes array order            |
+  | values    | Returns an iterator for array elements      | Used in `for...of` loops               |
+  | find      | Returns the first element passing a test function | Useful for searches                  |
+  | forEach   | Executes a function for each element        | Common for side effects                |
+  | reduce    | Combines elements into a single result      | Often used for sums or totals          |
+  | map       | Transforms each element and returns a new array | Creates new data sets                |
+  | filter    | Keeps only elements meeting a condition    | Useful for selection                   |
+  | every     | Tests if all elements match a condition    | Returns a boolean                      |
+  | some      | Tests if any element matches a condition   | Returns a boolean                      |
+
+  Key Concepts
+
+  Arrays are dynamic — their size and content can change.
+
+  Most array methods accept callback functions, enabling functional programming patterns.
+
+  Methods like map, filter, and reduce create new arrays or values without modifying the original.
+
+  Arrays can hold mixed data types and even nested arrays.
+
+
+# JavaScript Objects & Classes Cheat Sheet
+
+## Objects
+- Key-value pairs; keys: string/symbol, values: any type.
+- Access: `obj.key` or `obj['key']`.
+- Object literal: `{ key: value, ... }`.
+- Dynamically add properties: `obj.newKey = value`.
+
+### Useful Object Methods
+```text
+Object.entries(obj) - Returns array of [key,value] pairs
+Object.keys(obj)    - Returns array of keys
+Object.values(obj)  - Returns array of values
+Constructors
+Functions returning objects can act as constructors.
+
+this refers to the current object.
+
+Example pattern:
+
+text
+Copy code
+function Person(name) {
+  this.name = name;
+  this.log = function() { console.log(this.name); }
+}
+const p = new Person('Eich');
+p.log();
+Classes
+Define reusable objects with constructor and methods.
+
+text
+Copy code
+class Person {
+  constructor(name) { this.name = name; }
+  log() { console.log(this.name); }
+}
+Private Members
+Prefix with # for private properties/methods.
+
+text
+Copy code
+class Person {
+  #name;
+  constructor(name) { this.#name = name; }
+}
+Inheritance
+Use extends and super() to inherit from a parent class.
+
+Override parent methods with the same name.
+
+Call parent method using super.method().
+
+text
+Copy code
+class Employee extends Person {
+  constructor(name, position) {
+    super(name);
+    this.position = position;
+  }
+  log() { console.log(`${super.log()}. I am ${this.position}`); }
+}
+Summary
+Objects: dynamic key-value storage.
+
+Classes: reusable blueprints with encapsulation.
+
+Use this for instance properties; # for private members.
+
+Inheritance: extends + super().
