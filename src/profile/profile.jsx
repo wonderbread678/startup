@@ -32,65 +32,9 @@ export function Profile() {
             </li>
         </ul>
         <form method="get" action="Profile_edit.html">
-            <button type="submit" className="btn btn-primary" id="profileEdit"><NavLink to='/profile_edit' style={{color:'white'}}>Edit</NavLink></button>
+            <button type="submit" className="btn btn-primary" id="profileEdit">Edit</button>
         </form>
         <hr />
-        <h2>Lists</h2>
-        <hr />
-        <ul className="biggerNumbers list-group">
-            <li>
-                <h3> Favorite Manga</h3>
-                <hr />
-                <ol className="bigNumbers">
-                    <li>
-                        <img src="https://m.media-amazon.com/images/I/91NxYvUNf6L._UF1000,1000_QL80_.jpg" className="listImage" alt="One Piece" style= {{width: "200px", height: "300px"}} />
-                        <div className="entryTitle"><b>Title:</b> One Piece</div>
-                        <div className="entryAuthor"><b>Author:</b> Eiichiro Oda</div>
-                        <div className="entryType"><b>Type:</b> Manga</div>
-                        <div className="entryRating"><b>Rating:</b> 10</div>
-                        <div className="entryComment">
-                            <p><b>Comment:</b> The best manga ever!</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="https://mangavagabond.com/wp-content/uploads/2025/06/vagabond-01-taschenbuch-takehiko-inoue.webp" className="listImage" alt="Vagabond" style= {{width: "200px", height: "300px"}} />
-                        <div className="entryTitle"><b>Title:</b> Vagabond</div>
-                        <div className="entryAuthor"><b>Author:</b> Takehiko Inoue</div>
-                        <div className="entryType"><b>Type:</b> Manga</div>
-                        <div className="entryRating"><b>Rating:</b> 10</div>
-                        <div className="entryComment">
-                            <p><b>Comment:</b> Really got me thinking!</p>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Kingdom_%28manga%29_1.png/250px-Kingdom_%28manga%29_1.png" className="listImage" alt="Kingdom" style= {{width: "200px", height: "300px"}} />                               
-                        <div className="entryTitle"><b>Title:</b> Kingdom</div>
-                        <div className="entryAuthor"><b>Author:</b> Yasuhisa Hara</div>
-                        <div className="entryType"><b>Type:</b> Manga</div>
-                        <div className="entryRating"><b>Rating:</b> 10</div>
-                        <div className="entryComment">
-                            <p><b>Comment:</b> None</p>
-                        </div>
-                    </li>
-                </ol>
-            </li>
-            <hr />
-            <li>
-                <h3>Favorite Books</h3>
-                <ol>
-                  <li>
-                        <img src="https://m.media-amazon.com/images/I/71ZnTIMfLBL._UF1000,1000_QL80_.jpg" className="listImage" alt="Vagabond" style= {{width: "200px", height: "300px", padding: "0.5em"}} />
-                        <div className="entryTitle"><b>Title:</b> The Book of Mormon</div>
-                        <div className="entryAuthor"><b>Author:</b> Prophets of the ancient Americas</div>
-                        <div className="entryType"><b>Type:</b> Book</div>
-                        <div className="entryRating"><b>Rating:</b> 10</div>
-                        <div className="entryComment">
-                            <p><b>Comment:</b> Really felt the Spirit while reading!</p>
-                        </div>
-                    </li>
-                </ol>
-            </li>
-        </ul>
         </div>
     </main>
   );

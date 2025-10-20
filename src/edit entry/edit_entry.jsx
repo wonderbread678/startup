@@ -1,9 +1,8 @@
 import React from 'react';
-import './entry_upload.css'
 import '../app.css'
 import { useNavigate } from 'react-router-dom';
 
-export function Entry_upload() {
+export function Edit_entry() {
     const [title, setTitle] = React.useState(entryToEdit.title || '');
     const [author, setAuthor] = React.useState(entryToEdit. author || '');
     const [type, setType] = React.useState(entryToEdit.type || '');
