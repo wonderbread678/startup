@@ -1,6 +1,7 @@
 import React from 'react';
 import './entry_upload.css'
 import '../app.css'
+import { useNavigate } from 'react-router-dom';
 
 export function Entry_upload() {
     const [title, setTitle] = React.useState(entryToEdit.title || '');
@@ -16,19 +17,10 @@ export function Entry_upload() {
         return JSON.parse(localStorage.getItem("lists") || '["--"]');
     });
 
+    const navigate = useNavigate();
+
     const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
 
-    function handleCreateList(){
-        if (!list.includes(listName)){
-            const updatedLists = [...lists, listName]
-            setLists(updatedLists);
-            localStorage.setItem("lists", JSON.stringify(updatedLists));
-            setListName(''); 
-        }
-        else {
-            console.log('list already exists');
-        }    
-    }
         const handleImage = (event) => {
             const file = event.target.files[0];
             if (!file) {setImage(DEFAULT_IMAGE);}
@@ -57,20 +49,10 @@ export function Entry_upload() {
 
         const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
 
-        const updatedEntries = [...savedEntries, newEntry];
+        const updatedEntries = savedEntries.map(entry => entry.id === entryToEdit.id ? {...entryToEdit, title, author, type, rating, list, listRank, comment, image, listName} : entry);
         
         localStorage.setItem("entries", JSON.stringify(updatedEntries));
         console.log(newEntry);
-
-        setTitle('');
-        setAuthor('');
-        setType('');
-        setRating(1);
-        setList(lists[0]);
-        setListRank(1);
-        setComment('');
-        setImage(null);
-        setListName('');
     };
 
     const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
