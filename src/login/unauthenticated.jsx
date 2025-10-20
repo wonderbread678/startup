@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css'
-import { NavLink } from 'react-router-dom';
 
 
 
@@ -17,6 +16,20 @@ export function Unauthenticated(props) {
     async function createUser(){
         localStorage.setItem('userName', userName);
         props.onLogin(userName);
+
+        const userProfile ={
+          userName,
+          profilePic,
+          entriesCount,
+          listCount,
+          accountType,
+          bio: {
+            favoriteMedia,
+            favoritePiece,
+            currentlyReading,
+            bioMessage
+          }
+        }
     }
 
   return (
