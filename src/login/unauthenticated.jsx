@@ -18,7 +18,7 @@ export function Unauthenticated(props) {
         props.onLogin(userName);
 
         const userProfile ={
-          userName: {userName},
+          userName: userName,
           profilePic: null,
           entriesCount: 0,
           listCount: 0,
@@ -30,6 +30,7 @@ export function Unauthenticated(props) {
             bioMessage: ""
           }
         }
+        localStorage.setItem("userProfile", JSON.stringify(userProfile));
     };
 
   return (
