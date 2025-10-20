@@ -1,11 +1,14 @@
 import React from 'react';
 import './list.css'
 import '../app.css'
+import { useNavigate } from 'react-router-dom';
 
 export function List(props) {
 
     const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
     const [category, setCategory]=React.useState('All');
+
+    const navigate = useNavigate();
 
 
     const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
@@ -68,7 +71,7 @@ export function List(props) {
                                 <p><b>Comment:</b> {entry.comment}</p>
                             </div>
                             <form method="get" action="Edit_entry.html">
-                                <button id="edit" className="btn btn-primary" type="submit">Edit</button>
+                                <button id="edit" className="btn btn-primary" type="submit" onClick={navigate('edit_profile')}>Edit</button>
                             </form>
                             <button id ="delete" className="btn btn-secondary" type="button" onClick={() => handleDelete(entry)}>Delete</button>
                         </li>

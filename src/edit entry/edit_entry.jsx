@@ -53,6 +53,8 @@ export function Entry_upload() {
         
         localStorage.setItem("entries", JSON.stringify(updatedEntries));
         console.log(newEntry);
+
+        navigate('/list');
     };
 
     const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
