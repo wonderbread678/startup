@@ -808,4 +808,103 @@ Display Property
 | **Bootstrap via NPM** | Download Bootstrap locally to include in your project                                                                 | `npm install bootstrap@5.3.3`                                                                            | Useful for modern JS frameworks and bundlers (React, Vue, etc.).                              |
 | **Tailwind UI**       | Component library built on Tailwind for pre-made UI elements                                                          | `<div class="w-24 h-24 md:w-48 md:h-auto ...">...</div>`                                                 | Speeds up building consistent, responsive UI; complements Tailwind CSS.                       |
 
+## JavaScript
 
+| Topic                    | Description                                                                         | Example / Notes                                               |
+| ------------------------ | ----------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Language**             | ECMAScript (JS), weakly typed, interpreter-based, widely used in browsers & servers | Runs in any browser or Node.js runtime                        |
+| **Versions**             | Evolution of JS features over time                                                  | See table below                                               |
+| **Basic syntax**         | Statements, semicolons, curly braces, functions                                     | `'Hello' + ' ' + 'world';` <br> `console.log('Hello world');` |
+| **Functions**            | Defined with `function` keyword                                                     | `function join(a, b) { return a + ' ' + b; }`                 |
+| **Comments**             | Line (`//`) and block (`/* ... */`)                                                 | `// line comment` <br> `/* block comment */`                  |
+| **Code playgrounds**     | Tools to test JS                                                                    | CodePen or browser console (`F12` → Console)                  |
+| **String concatenation** | Combine strings with `+` operator                                                   | `'Hello' + ' ' + 'world'` → `Hello world`                     |
+| **Debugging**            | Use `console.log()` to inspect values                                               | `console.log(join('Hello','world'));`                         |
+
+How JavaScript can be added to HTML
+
+| Method                     | Description                                                                         | Example                                                        |
+| -------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Script block**           | JavaScript included directly in HTML within a `<script>` element                    | `<script>function sayGoodbye() { alert("Goodbye"); }</script>` |
+| **External code**          | JavaScript stored in a separate `.js` file and referenced using the `src` attribute | `<script src="index.js"></script>`                             |
+| **Inline event attribute** | JavaScript written directly inside an HTML element attribute to respond to an event | `<button onclick="alert('Hello')">Click me</button>`           |
+
+## Node.Js
+| Topic                    | Description                                                                            | Example / Command                                            |
+| ------------------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| **What is Node.js**      | JavaScript runtime outside of the browser; uses V8 engine                              | `node index.js`                                              |
+| **Installing Node**      | Download LTS version from [nodejs.org](https://nodejs.org/en/download/package-manager) | Prebuilt installer for your OS                               |
+| **Check Node version**   | Verify Node installation                                                               | `node -v`                                                    |
+| **Run single line JS**   | Execute inline JS without a file                                                       | `node -e "console.log(1+1)"`                                 |
+| **Interactive mode**     | Start Node REPL for testing code                                                       | `node` then type `> 1+1`                                     |
+| **Run project files**    | Execute JS file                                                                        | `node index.js`                                              |
+| **NPM init**             | Initialize project for packages                                                        | `npm init -y`                                                |
+| **package.json**         | Metadata, scripts, dependencies                                                        | `"scripts": { "dev": "node index.js" }`                      |
+| **Install package**      | Add external library                                                                   | `npm install give-me-a-joke`                                 |
+| **Uninstall package**    | Remove external library                                                                | `npm uninstall give-me-a-joke`                               |
+| **Require package**      | Include package in JS file                                                             | `const giveMeAJoke = require('give-me-a-joke');`             |
+| **Use package**          | Call package functions                                                                 | `giveMeAJoke.getRandomDadJoke((joke) => console.log(joke));` |
+| **Important files**      | `package.json`, `package-lock.json`, `node_modules`                                    | `node_modules` should be in `.gitignore`                     |
+| **Alternative runtimes** | Deno and Bun are Node.js alternatives                                                  | [Deno](https://deno.land/), [Bun](https://bun.sh/)           |
+
+
+1) Metadata about your project such as its name and the default entry JavaScript file, 2) commands (scripts) that you can execute to do things like run, test, or distribute your code, and 3) packages that this project depends upon.
+
+## Web Frameworks
+
+| Framework   | File Format / Structure                                                   | Key Concept                                                    | Example Hello World                                                                                                                                                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Vue**     | Single File Component (SFC) combining `<template>`, `<script>`, `<style>` | Reactive `data()` properties, declarative binding `{{ }}`      | `html <template><p>Hello {{ name }}!</p></template> <script>export default { data() { return { name: 'world' } } }</script> <style>p { color: green; }</style> `                                                                                                         |
+| **Svelte**  | Single File Component; requires transpiler                                | Reactive variables with `{ }` syntax, no runtime virtual DOM   | `html <script>let name = 'world';</script> <style>p { color: green; }</style> <p>Hello {name}!</p> `                                                                                                                                                                     |
+| **React**   | JSX + external CSS                                                        | Components as functions or classes; HTML-like syntax inside JS | `jsx import 'hello.css'; const Hello = () => { let name = 'world'; return <p>Hello {name}</p>; }; ` CSS: `css p { color: green; } `                                                                                                                                      |
+| **Angular** | Separate files: JS/TS, HTML, CSS; grouped as a component                  | Uses `@Component` decorator; strong separation of concerns     | **JS/TS:** `ts @Component({ selector:'app-hello-world', templateUrl:'./hello-world.component.html', styleUrls:['./hello-world.component.css'] }) export class HelloWorldComponent { name = 'world'; } ` **HTML:** `<p>hello {{name}}</p>` **CSS:** `p { color: green; }` |
+
+Key Takeaways
+  - Single File Components (Vue, Svelte): Combine JS, HTML, CSS → simpler to manage small components.
+  - JSX (React): Mix JS and HTML; CSS handled externally → flexible, widely used.
+  - Angular: TypeScript-based, strongly structured → good for large-scale projects.
+  - Reactivity: All frameworks allow updating the view automatically when data changes, but the syntax differs:
+    1. Vue: {{ variable }}
+    2. Svelte: {variable}
+    3. React: {variable}
+    4. Angular: {{ variable }}
+
+| Component           | Purpose                                                                                        |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| **Code repository** | Stores code in a shared, versioned location (e.g., GitHub)                                     |
+| **Linter**          | Detects non-idiomatic or problematic code usage                                                |
+| **Prettier**        | Formats code automatically according to a consistent standard                                  |
+| **Transpiler**      | Converts code into another format (e.g., JSX → JS, TypeScript → JS, SCSS → CSS)                |
+| **Polyfill**        | Adds backward-compatible code for older browsers that lack modern standard support             |
+| **Bundler**         | Packages multiple files/modules into optimized bundles for the browser (e.g., Rollup, Webpack) |
+| **Minifier**        | Reduces file size by removing whitespace and shortening variable names                         |
+| **Testing**         | Automates code verification at multiple levels (unit, integration, end-to-end)                 |
+| **Deployment**      | Automates packaging and delivery of code to production                                         |
+
+## Vite
+  - Vite is a modern development tool that simplifies creating web applications by handling:
+    1. JSX/TS support
+    2. Bundling
+    3. Minification
+    4. Polyfills
+    5. Fast debugging with hot reload
+  - It allows you to quickly start React (or other framework) projects using a CLI.
+
+  | Directory / File | Purpose                                                         |
+| ---------------- | --------------------------------------------------------------- |
+| `index.html`     | Main HTML page with `#root` for React injection                 |
+| `package.json`   | NPM dependencies and scripts (maps `npm run dev` to start Vite) |
+| `vite.config.js` | Vite configuration (React support)                              |
+| `src/main.jsx`   | Entry point; loads the `App` component                          |
+| `src/App.jsx`    | Top-level React component                                       |
+| `src/index.css`  | Global CSS                                                      |
+| `src/App.css`    | Component-specific CSS                                          |
+| `src/assets`     | Images, logos (e.g., `react.svg`)                               |
+| `public`         | Static assets (e.g., `vite.svg`)                                |
+
+How Vite works
+  - Browser loads index.html → contains #root element.
+  - main.jsx mounts React App component into #root.
+  - React component (App.jsx) executes → generates HTML/CSS/JS.
+
+  For our sakes, building something in Vite will save the output in a dist/ directory, ready for deployment
