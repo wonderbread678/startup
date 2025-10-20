@@ -1,5 +1,6 @@
 import React from 'react';
 import './Profile.css'
+import { List } from '../list/list';
 
 export function Profile() {
   return (
@@ -34,6 +35,7 @@ export function Profile() {
             <button type="submit" className="btn btn-primary" id="profileEdit">Edit</button>
         </form>
         <hr />
+        <List></List>
         </div>
     </main>
   );
