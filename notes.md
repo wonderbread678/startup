@@ -565,3 +565,45 @@ Common attributes
   2. Use placeholder text for hints.
   3. Provide early feedback for invalid entries.
   4. Group related inputs using <fieldset> for clarity.
+
+Different Medias:
+| Element        | Purpose                  | Key Attributes                                                          | Example                                                                                                                          |
+| -------------- | ------------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| **`<img>`**    | Display an image         | `src` (URL), `alt` (description), `width`, `height`                     | `<img src="images/photo.jpg" alt="A mountain" width="300" />`                                                                    |
+| **`<audio>`**  | Play an audio file       | `src`, `controls`, `autoplay`, `loop`                                   | `<audio src="audio.mp3" controls autoplay></audio>`                                                                              |
+| **`<video>`**  | Play a video file        | `src`, `controls`, `autoplay`, `loop`, `width`, `height`, `crossorigin` | `<video src="video.mp4" controls width="400"></video>`                                                                           |
+| **`<svg>`**    | Inline vector graphics   | `viewBox`, `width`, `height`, `stroke`, `fill`                          | `<svg viewBox="0 0 300 200"><circle cx="150" cy="100" r="50" fill="red"/></svg>`                                                 |
+| **`<canvas>`** | Drawing graphics with JS | `id`, `width`, `height`, `style`                                        | `<canvas id="c" width="300" height="200"></canvas>`<br>`<script>ctx = c.getContext('2d'); ctx.fillRect(50,50,100,100);</script>` |
+
+## CSS
+
+| Concept                     | Description                                                                     | Example                                                        |
+| --------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Rule / Ruleset**          | Defines styles for selected elements                                            | `p { color: navy; font-size: 2em; }`                           |
+| **Selector**                | Targets HTML elements to style                                                  | `p` targets all `<p>` elements                                 |
+| **Declaration**             | Property-value pair applied to elements                                         | `color: red;`                                                  |
+| **Inline CSS**              | Styles applied directly in an element’s `style` attribute                       | `<p style="color:green">Text</p>`                              |
+| **Internal CSS**            | Styles defined within a `<style>` element in the HTML `<head>`                  | `<style>p { color: green; }</style>`                           |
+| **External CSS**            | Styles defined in an external `.css` file, linked via `<link>`                  | `<link rel="stylesheet" href="styles.css">`                    |
+| **Cascading / Inheritance** | Styles from higher DOM nodes can be overridden by more specific rules           | `body { color: red; } p { color: green; }`                     |
+| **Box Model**               | Every element is a rectangular box: `content` → `padding` → `border` → `margin` | `div { padding: 10px; border: 2px solid black; margin: 5px; }` |
+| **Box-sizing**              | Determines how width/height are calculated                                      | `box-sizing: border-box;`                                      |
+| **CSS Versions**            | CSS1 → CSS2 → CSS2.1 → CSS3 (modularized for modern features)                   | CSS3 adds animations, flexbox, grid, media queries             |
+
+
+CSS Selectors:
+| Selector Type                | Syntax / Example            | Meaning / Use                                                           | Notes / Special Cases                                      |
+| ---------------------------- | --------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Element**                  | `body { ... }`              | Selects all elements of the given tag name.                             | Wildcard `*` selects all elements.                         |
+| **Class**                    | `.summary { ... }`          | Selects all elements with the given class.                              | Can be combined with element: `p.summary`                  |
+| **ID**                       | `#physics { ... }`          | Selects a single element with the unique ID.                            | ID must be unique on the page.                             |
+| **Attribute**                | `[class='summary'] { ... }` | Selects elements with a specific attribute (and optionally a value).    | Wildcards: `*=` contains, `^=` starts with, `$=` ends with |
+| **Descendant combinator**    | `section h2 { ... }`        | Selects elements that are descendants of another element.               | Space between selectors.                                   |
+| **Child combinator**         | `section > p { ... }`       | Selects elements that are **direct children** of another element.       | Only immediate children.                                   |
+| **General sibling**          | `h2 ~ p { ... }`            | Selects elements that are siblings of a given element.                  | Any sibling after the element.                             |
+| **Adjacent sibling**         | `h2 + p { ... }`            | Selects the element immediately after a given element.                  | Only the **next** sibling.                                 |
+| **Pseudo-class**             | `section:hover { ... }`     | Selects elements based on state or position (hover, first-child, etc.). | Example: `:first-child`, `:nth-child()`, `:visited`        |
+| **Combined element + class** | `p.summary { ... }`         | Selects elements with a specific tag **and** class.                     | Higher specificity than just class.                        |
+| **Combined element + ID**    | `section#physics { ... }`   | Selects an element with a specific tag **and** ID.                      | Very high specificity.                                     |
+| **Wildcard selector**        | `* { ... }`                 | Selects **all elements** in the document.                               | Often used to reset or normalize styles.                   |
+
