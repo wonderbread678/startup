@@ -607,3 +607,147 @@ CSS Selectors:
 | **Combined element + ID**    | `section#physics { ... }`   | Selects an element with a specific tag **and** ID.                      | Very high specificity.                                     |
 | **Wildcard selector**        | `* { ... }`                 | Selects **all elements** in the document.                               | Often used to reset or normalize styles.                   |
 
+
+CSS Properties:
+| Property         | Values / Example                                  | Description / Use                                |
+| ---------------- | ------------------------------------------------- | ------------------------------------------------ |
+| background-color | color (`red`)                                     | Fills the background of the element              |
+| border           | color width style (`#fad solid medium`)           | Sets border using shorthand; can omit values     |
+| border-radius    | unit (`50%`)                                      | Rounds corners of element                        |
+| box-shadow       | x-offset y-offset blur color (`2px 2px 2px gray`) | Adds shadow to element                           |
+| columns          | number (`3`)                                      | Number of text columns                           |
+| column-rule      | color width style (`solid thin black`)            | Sets border between columns                      |
+| color            | color (`rgb(128,0,0)`)                            | Text color                                       |
+| cursor           | type (`grab`)                                     | Cursor when hovering over element                |
+| display          | type (`none`)                                     | Layout style (block, inline, none, etc.)         |
+| filter           | function (`grayscale(30%)`)                       | Visual filter                                    |
+| float            | direction (`left`/`right`)                        | Moves element to side                            |
+| flex             |                                                   | Enables flex layout                              |
+| font             | family size style (`Arial 1.2em bold`)            | Sets font using shorthand                        |
+| grid             |                                                   | Enables CSS grid layout                          |
+| height           | unit (`.25em`)                                    | Element height                                   |
+| margin           | unit (`5px 5px 0 0`)                              | Margin around element                            |
+| max-width/height | unit (`20%`)                                      | Maximum width or height                          |
+| min-width/height | unit (`10vh`)                                     | Minimum width or height                          |
+| opacity          | number (`0.9`)                                    | Transparency                                     |
+| overflow         | visible/hidden/scroll/auto                        | Content overflow behavior                        |
+| position         | static/relative/absolute/sticky                   | Element positioning                              |
+| padding          | unit (`1em 2em`)                                  | Inner spacing                                    |
+| left             | unit (`10rem`)                                    | Horizontal position for positioned elements      |
+| top              | unit (`50px`)                                     | Vertical position for positioned elements        |
+| text-align       | start/end/center/justify                          | Text alignment                                   |
+| transform        | function (`rotate(0.5turn)`)                      | Apply transformations (rotate, scale, translate) |
+| width            | unit (`25vmin`)                                   | Element width                                    |
+| z-index          | number (`100`)                                    | Stacking order                                   |
+
+CSS Units:
+| Unit | Description                              |
+| ---- | ---------------------------------------- |
+| px   | Pixels                                   |
+| pt   | Points (1/72 inch)                       |
+| in   | Inches                                   |
+| cm   | Centimeters                              |
+| %    | Percentage of parent element             |
+| em   | Relative to parent element font size     |
+| rem  | Relative to root element font size       |
+| ex   | Relative to x-height of font             |
+| vw   | Percentage of viewport width             |
+| vh   | Percentage of viewport height            |
+| vmin | Percentage of smaller viewport dimension |
+| vmax | Percentage of larger viewport dimension  |
+
+CSS color methods:
+
+| Method       | Example                   | Description                                                    |
+| ------------ | ------------------------- | -------------------------------------------------------------- |
+| Keyword      | `red`                     | Predefined color names (white, darkblue, cornflowerblue, etc.) |
+| Hex          | `#00FFAA22` or `#0FA2`    | RGB in hexadecimal; optional alpha                             |
+| RGB function | `rgb(128, 255, 128, 0.5)` | Red, green, blue values (0–255 or %) + optional alpha          |
+| HSL          | `hsl(180, 30%, 90%, 0.5)` | Hue (0–360°), saturation %, lightness %, optional alpha        |
+
+CSS fonts:
+| Concept       | Description                                                                  | Example                                                                                                                       |
+| ------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `font-family` | Defines an ordered list of fonts to use; the first available font is applied | `font-family: Arial, sans-serif;`                                                                                             |
+| Font Families | Four major types:                                                            |                                                                                                                               |
+| - Serif       | Fonts with small strokes at ends of characters                               | Times New Roman                                                                                                               |
+| - Sans-serif  | Fonts without strokes                                                        | Arial, Helvetica                                                                                                              |
+| - Fixed       | Monospaced fonts where all characters are the same width                     | Courier New                                                                                                                   |
+| - Symbol      | Fonts for non-language characters (arrows, emojis, icons)                    | Wingdings                                                                                                                     |
+| `@font-face`  | Loads a custom font provided with your application                           | `css @font-face { font-family: 'Quicksand'; src: url('https://cs260.click/fonts/quicksand.ttf'); }`                           |
+| Google Fonts  | Load fonts from a provider; avoids hosting font files yourself               | `css @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap'); p { font-family: 'Rubik Microbe'; }` |
+
+# CSS Animation Notes
+
+📖 **Reference**: [MDN CSS Animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations)
+
+## CSS animations make web pages feel alive by animating properties over time using **keyframes**.
+
+---
+
+## Basic Animation Setup
+
+1. Select the element.
+2. Apply the `animation-name` to refer to a `@keyframes` rule.
+3. Define `animation-duration` (time the animation lasts).
+
+```css
+p {
+  text-align: center;
+  font-size: 20vh;
+
+  animation-name: demo;
+  animation-duration: 3s;
+}
+
+Properties for Animation
+| Property                  | Description                          | Example       |
+| ------------------------- | ------------------------------------ | ------------- |
+| animation-name            | Name of the keyframes rule           | `demo`        |
+| animation-duration        | Duration of animation                | `3s`          |
+| animation-delay           | Delay before animation starts        | `1s`          |
+| animation-iteration-count | Number of times animation repeats    | `infinite`    |
+| animation-direction       | Direction of animation sequence      | `alternate`   |
+| animation-timing-function | Speed curve of the animation         | `ease-in-out` |
+| animation-fill-mode       | Style applied before/after animation | `forwards`    |
+
+## CSS Debugging Notes
+
+📖 **Reference**: [MDN Debugging CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Debugging_CSS)
+
+CSS can be tricky; sometimes pages do not render as expected. Use browser developer tools to inspect elements, visualize layout, and debug styles.
+
+---
+
+## Steps to Debug CSS
+
+1. **Open developer tools**  
+   - In Chrome, right-click on the element → `Inspect`.
+   - Shows **Elements** tab and **Styles** pane.
+   - Hovering over elements highlights padding, borders, margins.
+
+2. **Use a simple example**  
+   HTML (`index.html`):
+
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+     <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link rel="stylesheet" type="text/css" href="index.css" />
+     </head>
+     <body>
+       <p>Center text in centered element</p>
+     </body>
+   </html>
+
+Common CSS issues:
+| Problem                         | Cause                                     | Debug Tip                                       | Fix                                      |
+| ------------------------------- | ----------------------------------------- | ----------------------------------------------- | ---------------------------------------- |
+| Padding not showing             | Default margins collapse                  | Inspect element → check box model               | Set `margin: 0` on elements              |
+| Text not centered when resizing | Flex container width changes or alignment | Inspect `align-items` & `justify-content`       | Ensure flex properties remain consistent |
+| Borders/padding not as expected | Box-sizing defaults to `content-box`      | Inspect box model                               | Use `box-sizing: border-box`             |
+| Overlapping elements            | Positioning or float issues               | Inspect computed `position`, `float`, `z-index` | Adjust `position`, `z-index`, or `float` |
+
+
+
