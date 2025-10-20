@@ -749,5 +749,39 @@ Common CSS issues:
 | Borders/padding not as expected | Box-sizing defaults to `content-box`      | Inspect box model                               | Use `box-sizing: border-box`             |
 | Overlapping elements            | Positioning or float issues               | Inspect computed `position`, `float`, `z-index` | Adjust `position`, `z-index`, or `float` |
 
+## CSS Repsonsive Design
+
+Display Property
+| Value  | Meaning                                                       |
+| ------ | ------------------------------------------------------------- |
+| none   | Element exists but not rendered                               |
+| block  | Width fills parent, starts on a new line (`div`, `p` default) |
+| inline | Width fits content, no line break (`span`, `b` default)       |
+| flex   | Children displayed in flexible layout                         |
+| grid   | Children displayed in grid layout                             |
+
+- Prevents mobile browsers from auto-scaling desktop-optimized pages
+  - <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+| Feature           | Description                                                         | Example / Syntax                                                                  | Notes / Tips                                                               |
+| ----------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Display**       | Controls how an element and its children are rendered               | `.block { display: block; }` <br> `.flex { display: flex; flex-direction: row; }` | Common values: `none`, `block`, `inline`, `flex`, `grid`                   |
+| **Viewport meta** | Prevents mobile browsers from auto-scaling desktop pages            | `<meta name="viewport" content="width=device-width,initial-scale=1" />`           | Always include in `<head>` for responsive sites                            |
+| **Float**         | Moves element left or right, allowing text to wrap around           | `aside { float: right; padding: 3em; margin: 0.5em; border: thin solid black; }`  | Values: `left`, `right`, `none`                                            |
+| **Media queries** | Apply CSS rules dynamically based on device size or orientation     | `@media (orientation: portrait) { div { transform: rotate(270deg); } }`           | Combine conditions with `and`, `not`, `only`; use `max-width`, `min-width` |
+| **Hide on media** | Make elements disappear on certain device sizes or orientations     | `@media (orientation: portrait) { aside { display: none; } }`                     | Useful for responsive UI adjustments                                       |
+| **Flexbox**       | 1D responsive layout system for arranging children in row or column | `.flex { display: flex; flex-direction: row; }`                                   | Automatically adjusts items to available space                             |
+| **Grid**          | 2D responsive layout system for rows and columns                    | `.grid { display: grid; grid-template-columns: 1fr 1fr; }`                        | Great for structured layouts                                               |
+
+## Grids
+
+| Feature / Property        | Description                                                                             | Example / Syntax                                                | Notes / Tips                                                               |
+| ------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| **Display grid**          | Turns container into a grid layout, making all children grid items                      | `.container { display: grid; }`                                 | Required to activate grid layout                                           |
+| **grid-template-columns** | Defines the number and size of columns                                                  | `grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));` | `repeat()` fills container with as many columns as fit, `fr` is fractional |
+| **grid-auto-rows**        | Sets the height for automatically generated rows                                        | `grid-auto-rows: 300px;`                                        | Applies to rows not explicitly sized                                       |
+| **grid-gap / gap**        | Sets spacing between grid items                                                         | `grid-gap: 1em;`                                                | Can also use `row-gap` and `column-gap` separately                         |
+| **Responsive columns**    | Use `minmax()` and `auto-fill`/`auto-fit` to make columns responsive to container width | `minmax(300px, 1fr)`                                            | `minmax(min, max)` ensures a minimum width while stretching to fit         |
+| **Grid items**            | Child elements automatically become grid items                                          | `.card { ... }`                                                 | Can be individually styled or positioned using grid properties             |
 
 
