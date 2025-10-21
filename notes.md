@@ -691,15 +691,6 @@ CSS fonts:
 2. Apply the `animation-name` to refer to a `@keyframes` rule.
 3. Define `animation-duration` (time the animation lasts).
 
-```css
-p {
-  text-align: center;
-  font-size: 20vh;
-
-  animation-name: demo;
-  animation-duration: 3s;
-}
-
 Properties for Animation
 | Property                  | Description                          | Example       |
 | ------------------------- | ------------------------------------ | ------------- |
@@ -890,7 +881,7 @@ Key Takeaways
     5. Fast debugging with hot reload
   - It allows you to quickly start React (or other framework) projects using a CLI.
 
-  | Directory / File | Purpose                                                         |
+| Directory / File | Purpose                                                         |
 | ---------------- | --------------------------------------------------------------- |
 | `index.html`     | Main HTML page with `#root` for React injection                 |
 | `package.json`   | NPM dependencies and scripts (maps `npm run dev` to start Vite) |
@@ -1045,7 +1036,7 @@ Useful for:
 
   Inner functions help structure and isolate code.
 
-JavaScript Arrow Functions
+## JavaScript Arrow Functions
 
   Arrow functions offer a compact way to write functions in JavaScript, replacing the function keyword with the => syntax. They are especially useful for short, anonymous functions and are commonly used as callbacks. Curly braces are optional when the function body contains only a single expression.
 
@@ -1081,7 +1072,7 @@ JavaScript Arrow Functions
 
   They simplify complex logic like debouncing and state updates.
 
-JavaScript Arrays
+## JavaScript Arrays
 
   Arrays in JavaScript are ordered collections that can hold values of any type—numbers, strings, objects, or other arrays. Array elements are accessed using zero-based indexing, and the .length property provides the number of elements. Arrays can be created with the Array constructor or using square bracket ([]) literal syntax.
 
@@ -1123,7 +1114,7 @@ JavaScript Arrays
 - Object literal: `{ key: value, ... }`.
 - Dynamically add properties: `obj.newKey = value`.
 
-### Useful Object Methods
+## Useful Object Methods
 ```text
 Object.entries(obj) - Returns array of [key,value] pairs
 Object.keys(obj)    - Returns array of keys
@@ -1168,31 +1159,18 @@ Override parent methods with the same name.
 
 Call parent method using super.method().
 
-text
-Copy code
-class Employee extends Person {
-  constructor(name, position) {
-    super(name);
-    this.position = position;
-  }
-  log() { console.log(`${super.log()}. I am ${this.position}`); }
-}
+
 Summary
-Objects: dynamic key-value storage.
-
-Classes: reusable blueprints with encapsulation.
-
-Use this for instance properties; # for private members.
-
-Inheritance: extends + super().
+  - Objects: dynamic key-value storage.
+  - Classes: reusable blueprints with encapsulation.
+  - Use this for instance properties; # for private members.
+  - Inheritance: extends + super().
 
 ## JavaScript Destructuring
 
 📖 **Learn more:** [MDN Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
 
 Destructuring extracts specific values from arrays or objects into variables. It simplifies working with structured data and is heavily used in React.
-
----
 
 | Concept | Description | Example | Output / Notes |
 |----------|--------------|----------|----------------|
@@ -1205,9 +1183,8 @@ Destructuring extracts specific values from arrays or objects into variables. It
 | **React Props Destructuring** | Extract props in components | `function Clicker({ initialCount }) { ... }` | Access `initialCount` directly |
 | **React State Destructuring** | Extract values from useState | `const [count, setCount] = React.useState(0);` | `count = 0`, updater function `setCount` |
 
----
 
-### 🧠 Summary
+## 🧠 Summary
 - **Arrays:** Extract by order  
 - **Objects:** Extract by property name  
 - Use `...rest` for remaining items  
