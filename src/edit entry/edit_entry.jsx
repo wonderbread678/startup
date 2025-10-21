@@ -3,7 +3,14 @@ import '../app.css'
 import { useNavigate } from 'react-router-dom';
 
 export function Edit_entry() {
-    const entryToEdit = JSON.parse(localStorage.getItem("entries"))
+    const entryToEdit = JSON.parse(localStorage.getItem("entryToEdit"))
+    const navigate = useNavigate();
+
+    React.useEffect(() => {
+        if (!entryToEdit) {
+            navigate('/list');
+        }
+    }, [entryToEdit, navigate]);
 
     const [title, setTitle] = React.useState(entryToEdit.title || '');
     const [author, setAuthor] = React.useState(entryToEdit. author || '');
@@ -17,8 +24,6 @@ export function Edit_entry() {
     const [lists, setLists] = React.useState(() => {
         return JSON.parse(localStorage.getItem("lists") || '["--"]');
     });
-
-    const navigate = useNavigate();
 
     const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
 
