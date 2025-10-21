@@ -10,24 +10,39 @@ export function Profile_edit() {
     const [currentlyReading, setCurrentlyReading] = React.useState(storedProfile.bio.currentlyReading);
     const [bioMessage, setBioMessage] = React.useState(storedProfile.bio.bioMessage);
 
-    const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
+    const DEFAULT_IMAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStltpfa69E9JTQOf5ZcyLGR8meBbxMFJxM0w&s";
 
     const handleImage = (event) => {
         const file = event.target.files[0];
-        if (!file) {setImage(DEFAULT_IMAGE);}
+        if (!file) {setProfilePic(DEFAULT_IMAGE);}
         else{
             const reader = new FileReader();
-            reader.onload = () => {setImage(reader.result)};
+            reader.onload = () => {setProfilePic(reader.result)};
             reader.readAsDataURL(file);
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const updatedProfile = {
+            ...storedProfile,
+          profilePic,
+          accountType,
+          bio: {
+            favoriteMedia,
+            favoritePiece,
+            currentlyReading,
+            bioMessage
+          }
+        }
+    };
+
   return (
     <main className="main">
       <div>
-        <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}}>
+        <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
             <span>Choose a profile picture to upload: </span>
-            <input type="file" id="fileUpload" name="myFile" onChange={(e) => e.target.files[0]}></input>
+            <input type="file" id="fileUpload" name="myFile" onChange={handleImage}></input>
         <ul>
             <li>
                 <label for="favoriteType">Favorite type of media: </label>
