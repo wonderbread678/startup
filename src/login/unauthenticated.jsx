@@ -20,8 +20,6 @@ export function Unauthenticated(props) {
         const userProfile ={
           userName: userName,
           profilePic: null,
-          entriesCount: 0,
-          listCount: 0,
           accountType: 'Public',
           bio: {
             favoriteMedia: "",

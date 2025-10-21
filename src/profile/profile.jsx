@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 export function Profile() {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
     const navigate = useNavigate();
+
+    const entries = JSON.parse(localStorage.getItem("entries") || "[]");
+    const entryCount = entries.length;
     
 
   return (
@@ -27,10 +30,7 @@ export function Profile() {
                 <div className="bioEntry"><b>Currently reading: </b> {userProfile.bio.currentlyReading}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Number of entries: </b>{userProfile.entriesCount}</div>
-            </li>
-            <li>
-                <div className="bioEntry"><b>Number of lists: </b>{userProfile.listCount}</div>
+                <div className="bioEntry"><b>Number of entries: </b>{entryCount}</div>
             </li>
             <li>
                 <div className="bioEntry"><b>Bio Message: </b>{userProfile.bio.bioMessage}</div>

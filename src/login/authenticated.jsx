@@ -5,6 +5,7 @@ import './login.css'
 
 
 export function Authenticated(props){
+    const navigate = useNavigate();
 
     function logout(){
         localStorage.removeItem('userName')
@@ -16,9 +17,9 @@ export function Authenticated(props){
             <div className='body'>
                 <h1>Welcome to Koob Home</h1>
                 <h2>{props.userName}</h2>
-                <button><NavLink className="nav-link" style={{color:"white"}} to='list'>List</NavLink></button>
-                <button onClick={() => useNavigate('/list')}>View lists</button>
-                <button onClick={() => logout()}>Logout</button>
+                <button className="btn btn-primary" onClick={() => navigate('/entry_upload')}>Upload Entry</button>
+                <button className="btn btn-primary" onClick={() => navigate('/list')}>View lists</button>
+                <button className="btn btn-primary" onClick={() => logout()}>Logout</button>
             </div>
         </main>
     );
