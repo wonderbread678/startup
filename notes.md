@@ -1115,7 +1115,6 @@ Useful for:
 - Dynamically add properties: `obj.newKey = value`.
 
 ## Useful Object Methods
-```text
 Object.entries(obj) - Returns array of [key,value] pairs
 Object.keys(obj)    - Returns array of keys
 Object.values(obj)  - Returns array of values
@@ -1158,7 +1157,6 @@ Use extends and super() to inherit from a parent class.
 Override parent methods with the same name.
 
 Call parent method using super.method().
-
 
 Summary
   - Objects: dynamic key-value storage.
@@ -1279,8 +1277,6 @@ JSON (JavaScript Object Notation) is a lightweight data format for sharing and s
 ---
 
 ## Example JSON Document
-
-```json
 {
   "class": {
     "title": "web programming",
@@ -1324,7 +1320,6 @@ The `localStorage` API allows persistent storage of key-value data in the browse
 
 ## Example Usage
 
-```js
 let user = 'Alice';
 let myObject = { name: 'Bob', info: { favoriteClass: 'CS 260', likesCS: true } };
 let myArray = [1, 'One', true];
@@ -1361,7 +1356,6 @@ JavaScript `Promise` objects allow asynchronous execution, keeping the main rend
 
 ## Creating a Promise
 
-```js
 const myPromise = new Promise((resolve, reject) => {
   // asynchronous code here
 });
@@ -1399,7 +1393,6 @@ Async/await is syntactic sugar for working with promises, allowing asynchronous 
 
 **Promise version:**
 
-```js
 coinToss()
   .then(result => console.log(`Toss result ${result}`))
   .catch(err => console.error(`Error: ${err}`))
@@ -1442,7 +1435,6 @@ The `fetch` API allows making HTTP requests from JavaScript. It returns a promis
 
 ## Example: GET request
 
-```js
 fetch('https://quote.cs260.click')
   .then((response) => response.json())
   .then((jsonResponse) => {
