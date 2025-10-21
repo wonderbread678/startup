@@ -14,8 +14,15 @@ export function Authenticated(props){
 
     return (
         <main className='main'>
+            <h3>See what users are up to!</h3>
+            <div className='body' style={{border:"gold 10px groove"}}>
+                <h3>Uploads: </h3>
+                <span>Ethan created an entry!</span>
+                <span>Ethan created an entry!</span>
+                <span>Caseoh created an entry!</span>
+                <span>Luffy created an entry!</span>
+            </div>
             <div className='body'>
-                <h1>Welcome to Koob Home</h1>
                 <h2>{props.userName}</h2>
                 <button className="btn btn-primary" onClick={() => navigate('/entry_upload')}>Upload Entry</button>
                 <button className="btn btn-primary" onClick={() => navigate('/list')}>View lists</button>
