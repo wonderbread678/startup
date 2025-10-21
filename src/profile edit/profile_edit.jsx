@@ -38,20 +38,20 @@ export function Profile_edit() {
             }
         }
         localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
-
+        navigate('/profile');
     };
 
   return (
     <main className="main">
-    <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
+    <form encType="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
       <div>
             <span>Choose a profile picture to upload: </span>
             <input type="file" id="fileUpload" name="myFile" onChange={handleImage}></input>
         <ul>
             <li>
-                <label for="favoriteType">Favorite type of media: </label>
+                <label htmlFor="favoriteType">Favorite type of media: </label>
                 <select id="type" name="typeSelect" value={favoriteMedia} onChange={(e) => setFavoriteMedia(e.target.value)}>
-                    <option selected> -- </option>
+                    <option> -- </option>
                     <option>Book</option>
                     <option>Comic/Manga</option>
                     <option>Poem</option>
@@ -82,7 +82,7 @@ export function Profile_edit() {
             </li>
         </ul>
         </div>
-        <button type="submit" class="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", marginTop:'-400px'}}>Save</button>
+        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", marginTop:'-400px'}}>Save</button>
     </form>
     </main>
   );

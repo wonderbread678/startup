@@ -12,7 +12,7 @@ export function Profile() {
     <main className="main">
       <div className="body"><h3 id="blurb">~ Tell the world a little bit about yourself! ~</h3>
         <div>Profile Picture: </div>
-        <img src="https://preview.redd.it/say-something-about-caseoh-thats-not-about-his-weight-v0-pua93f3bijad1.jpeg?auto=webp&s=b4cb8d552ea75d1ce5449482b4de3a7eb63e3c76" alt="profile pic" id="profilePic" style={{padding:"0.5em"}}/>
+        <img src={userProfile.profilePic} alt="profile pic" id="profilePic" style={{padding:"0.5em"}}/>
         <ul id="bioDetails">
             <li>
                 <div className="bioEntry"><b>Username: </b>{userProfile.userName}</div>
