@@ -34,7 +34,7 @@ export function List(props) {
 
     
     const handleEdit = (selectedEntry) => {
-        const entryToEdit = entries.filter((entry) => entry.id === selectedEntry.id);
+        const entryToEdit = entries.find((entry) => entry.id === selectedEntry.id);
         localStorage.setItem("entryToEdit", JSON.stringify(entryToEdit));
         navigate('/edit_entry');
     };

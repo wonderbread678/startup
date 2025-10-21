@@ -3,6 +3,7 @@ import '../app.css'
 import { useNavigate } from 'react-router-dom';
 
 export function Edit_entry() {
+    console.log(JSON.parse(localStorage.getItem("entryToEdit")));
     const entryToEdit = JSON.parse(localStorage.getItem("entryToEdit"))
     const navigate = useNavigate();
 
@@ -12,18 +13,20 @@ export function Edit_entry() {
         }
     }, [entryToEdit, navigate]);
 
-    const [title, setTitle] = React.useState(entryToEdit.title || '');
-    const [author, setAuthor] = React.useState(entryToEdit. author || '');
-    const [type, setType] = React.useState(entryToEdit.type || '');
-    const [rating, setRating] = React.useState(entryToEdit.rating || 1);
-    const [list, setList] = React.useState(entryToEdit.list || '');
-    const [listRank, setListRank] = React.useState(entryToEdit.listRank || 1);
+    const [title, setTitle] = React.useState(entryToEdit.title);
+    const [author, setAuthor] = React.useState(entryToEdit.author);
+    const [type, setType] = React.useState(entryToEdit.type);
+    const [rating, setRating] = React.useState(entryToEdit.rating);
+    const [list, setList] = React.useState(entryToEdit.list);
+    const [listRank, setListRank] = React.useState(entryToEdit.listRank);
     const [comment, setComment] = React.useState(entryToEdit.comment || '');
     const [image, setImage] = React.useState(entryToEdit.image || null);
-    const [listName, setListName] = React.useState(entryToEdit.listName || '');
+    const [listName, setListName] = React.useState(entryToEdit.listName);
     const [lists, setLists] = React.useState(() => {
         return JSON.parse(localStorage.getItem("lists") || '["--"]');
     });
+
+    console.log({ title, author, type, rating, list, listRank, comment, image, listName });
 
     const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
 
