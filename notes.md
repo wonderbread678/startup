@@ -1185,3 +1185,307 @@ Classes: reusable blueprints with encapsulation.
 Use this for instance properties; # for private members.
 
 Inheritance: extends + super().
+
+## JavaScript Destructuring
+
+📖 **Learn more:** [MDN Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+
+Destructuring extracts specific values from arrays or objects into variables. It simplifies working with structured data and is heavily used in React.
+
+---
+
+| Concept | Description | Example | Output / Notes |
+|----------|--------------|----------|----------------|
+| **Array Destructuring** | Extract elements by position | `const [a, b] = [1, 2, 3];` | `a = 1`, `b = 2` |
+| **Rest Operator (`...`)** | Collect remaining items | `const [a, b, ...rest] = [1, 2, 3, 4];` | `rest = [3, 4]` |
+| **Default Values** | Use fallback when value is missing | `const [x = 10, y = 20] = [];` | `x = 10`, `y = 20` |
+| **Object Destructuring** | Extract by property name | `const { a, c } = { a: 1, b: 2, c: 3 };` | `a = 1`, `c = 3` |
+| **Rename Variables** | Assign to new variable names | `const { a: count, b: type } = { a: 1, b: 'fish' };` | `count = 1`, `type = 'fish'` |
+| **Object Defaults** | Provide default property values | `const { a, b = 22 } = {};` | `a = undefined`, `b = 22` |
+| **React Props Destructuring** | Extract props in components | `function Clicker({ initialCount }) { ... }` | Access `initialCount` directly |
+| **React State Destructuring** | Extract values from useState | `const [count, setCount] = React.useState(0);` | `count = 0`, updater function `setCount` |
+
+---
+
+### 🧠 Summary
+- **Arrays:** Extract by order  
+- **Objects:** Extract by property name  
+- Use `...rest` for remaining items  
+- Supports **renaming** and **defaults**  
+- Fundamental in **React props and hooks**
+
+# JavaScript Timeout and Interval
+
+📖 **Learn more:** [MDN setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) | [MDN setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+
+JavaScript provides two primary timing functions — `setTimeout` and `setInterval` — for executing code after a delay or at regular intervals. Both accept a callback function and a delay in milliseconds.
+
+---
+
+| Function | Description | Example Behavior |
+|-----------|--------------|------------------|
+| **setTimeout(fn, delay)** | Executes a function **once** after the specified delay. | Runs the callback after waiting the given milliseconds (e.g., 2000 ms). |
+| **clearTimeout(id)** | Cancels a pending timeout. | Stops a scheduled one-time execution. |
+| **setInterval(fn, delay)** | Executes a function **repeatedly** at the specified interval. | Calls the callback every given number of milliseconds. |
+| **clearInterval(id)** | Cancels a repeating interval. | Stops a recurring function call. |
+
+---
+
+### 🧠 Notes
+- JavaScript continues running other code **while waiting** for the delay to expire.  
+- When the delay finishes, the callback is added to the event queue and runs **after the current execution** completes.  
+- Use `clearInterval` or `clearTimeout` to stop a timer.  
+- Useful for animations, polling, and delayed user interactions.
+
+---
+
+### 💡 Example Scenarios
+- **`setTimeout`**: Show a notification 2 seconds after loading.  
+- **`setInterval`**: Update a clock display every second.  
+- **Combine both**: Run an interval for 5 seconds, then stop it using a timeout.
+
+# React Hooks
+
+📖 **Recommended reading:** [Reactjs.org - Hooks Overview](https://reactjs.org/docs/hooks-overview.html)
+
+React hooks allow function components to manage state, side effects, and lifecycle events without using classes. They are the preferred way to write modern React components.
+
+---
+
+| Hook | Purpose | Key Points / Usage |
+|------|---------|------------------|
+| **useState** | Adds state to a function component | Returns an array: `[state, setState]`. Updating state triggers a re-render. Example: `const [count, setCount] = useState(0)` |
+| **useEffect** | Handles side effects (like lifecycle methods) | Runs after render. Default: runs after every render. Can specify dependencies to control when it runs: `[dep1, dep2]` |
+| **useEffect cleanup** | Cleans up resources when a component unmounts or before the effect runs again | Return a function from `useEffect` for cleanup. Example: closing DB connections, clearing timers. |
+| **Dependencies** | Controls when `useEffect` runs | - Empty array `[]`: runs only on initial render. <br> - Array with variables `[var1, var2]`: runs when those change. |
+| **Rules** | Correct usage | Hooks must be called at the top level of the component, not inside loops, conditionals, or nested functions. |
+
+---
+
+### 🧠 Notes
+- Hooks work only in function components.  
+- `useState` updates are asynchronous; use functional updates for thread safety: `setCount(prev => prev + 1)`.  
+- `useEffect` replaces lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`.  
+- Combining multiple hooks allows managing complex state and side effects in a clean, modular way.  
+
+# JSON
+
+📖 **Deeper dive reading**: 
+- [MDN JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+- [Douglas Crockford: The JSON Saga](https://www.youtube.com/watch?v=-C-JoyNuQJs)
+
+JSON (JavaScript Object Notation) is a lightweight data format for sharing and storing structured data. It is easily convertible to and from JavaScript objects, making it highly compatible with web technologies. JSON was standardized in ECMA-404 and RFC 8259.
+
+---
+
+## JSON Data Types
+
+| Type    | Example                 | Notes |
+|---------|------------------------|-------|
+| string  | `"crockford"`           | Must use double quotes |
+| number  | `42`                    | Integer or floating point |
+| boolean | `true`                  | `true` or `false` |
+| array   | `[null, 42, "crockford"]` | Ordered list of JSON values |
+| object  | `{"a":1,"b":"crockford"}` | Collection of key-value pairs |
+| null    | `null`                  | Represents empty value |
+
+---
+
+## JSON Structure Rules
+
+- JSON documents contain a single value (object, array, string, number, boolean, or null).  
+- Objects: `{}` with key-value pairs (`key` must be a string, `value` is a JSON type).  
+- Arrays: `[]` with values separated by commas.  
+- Strings: Must be double-quoted.  
+- JSON is always encoded in UTF-8.
+
+---
+
+## Example JSON Document
+
+```json
+{
+  "class": {
+    "title": "web programming",
+    "description": "Amazing"
+  },
+  "enrollment": ["Marco", "Jana", "فَاطِمَة"],
+  "start": "2025-02-01",
+  "end": null
+}
+
+| Function              | Purpose                                                                                               |
+| --------------------- | ----------------------------------------------------------------------------------------------------- |
+| `JSON.stringify(obj)` | Converts a JavaScript object to a JSON string. Non-representable values like `undefined` are omitted. |
+| `JSON.parse(json)`    | Converts a JSON string back into a JavaScript object.                                                 |
+
+Example:
+  const obj = { a: 2, b: 'crockford', c: undefined };
+  const json = JSON.stringify(obj);
+  const objFromJson = JSON.parse(json);
+
+# Local Storage
+
+📖 **Deeper dive reading**: [MDN LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+The `localStorage` API allows persistent storage of key-value data in the browser. Data remains available across page reloads, sessions, and even browser restarts. Common uses include storing usernames, scores, or caching server data for offline use.
+
+---
+
+## Main Functions
+
+| Function             | Purpose                                         |
+|---------------------|-------------------------------------------------|
+| `setItem(name, value)` | Stores a value under the given key             |
+| `getItem(name)`        | Retrieves the value associated with the key   |
+| `removeItem(name)`     | Deletes the key and its value                  |
+| `clear()`              | Removes all keys and values from localStorage |
+
+**Note:** Values must be strings, numbers, or booleans. To store objects or arrays, convert to JSON with `JSON.stringify()` and parse back with `JSON.parse()`.
+
+---
+
+## Example Usage
+
+```js
+let user = 'Alice';
+let myObject = { name: 'Bob', info: { favoriteClass: 'CS 260', likesCS: true } };
+let myArray = [1, 'One', true];
+
+localStorage.setItem('user', user);
+localStorage.setItem('object', JSON.stringify(myObject));
+localStorage.setItem('array', JSON.stringify(myArray));
+
+console.log(localStorage.getItem('user'));
+console.log(JSON.parse(localStorage.getItem('object')));
+console.log(JSON.parse(localStorage.getItem('array')));
+
+Ouput:
+  Alice
+  {name: 'Bob', info: {favoriteClass: 'CS 260', likesCS: true}}
+  [1, 'One', true]
+
+# Promises
+
+📖 **Deeper dive reading**:
+
+- [MDN Using Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+- [MDN Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+
+JavaScript `Promise` objects allow asynchronous execution, keeping the main rendering thread free while background tasks run. Promises can be in one of three states:
+
+| State      | Meaning                     |
+|------------|-----------------------------|
+| pending    | Asynchronous operation in progress |
+| fulfilled  | Completed successfully      |
+| rejected   | Failed to complete          |
+
+---
+
+## Creating a Promise
+
+```js
+const myPromise = new Promise((resolve, reject) => {
+  // asynchronous code here
+});
+
+Handling results: 
+| Method      | When it's called                  |
+| ----------- | --------------------------------- |
+| `then()`    | Promise fulfilled                 |
+| `catch()`   | Promise rejected                  |
+| `finally()` | Always after processing completes |
+
+Key Points
+  - Promises execute asynchronously, allowing non-blocking JavaScript.
+  - The executor function may return before execution finishes.
+  - Chain then, catch, and finally to handle results.
+  - Useful for tasks like API requests, delays, or file operations.
+
+# JavaScript Async/await
+
+📖 **Deeper dive reading**: [MDN async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+Async/await is syntactic sugar for working with promises, allowing asynchronous code to be written in a more synchronous style.
+
+| Concept         | Description                                                                                  | Example |
+|-----------------|----------------------------------------------------------------------------------------------|---------|
+| `async`         | Declares that a function returns a promise. Can be used to make any function asynchronous.    | `async function cow() { return 'moo'; }` |
+| `await`         | Pauses execution until the promise is fulfilled or rejected, then returns the resolved value.| `const result = await cow();` |
+| `then/catch`    | Handles fulfilled and rejected promise states without async/await.                          | `coinToss().then(...).catch(...);` |
+| Async function return | Automatically returns a resolved promise with the function’s return value.                 | `async function f() { return 42; } // returns Promise<42>` |
+| Await limitation | Can only be used inside an `async` function or at top-level in modern JS environments.       | `const value = await asyncFunc();` |
+
+---
+
+## Example: Coin toss
+
+**Promise version:**
+
+```js
+coinToss()
+  .then(result => console.log(`Toss result ${result}`))
+  .catch(err => console.error(`Error: ${err}`))
+  .finally(() => console.log('Toss completed'));
+
+Async/await version:
+  async function tossCoin() {
+    try {
+      const result = await coinToss();
+      console.log(`Toss result ${result}`);
+    } catch (err) {
+      console.error(`Error: ${err}`);
+    } finally {
+      console.log('Toss completed');
+    }
+  }
+
+Key Points
+  - async functions always return a promise.
+  - await pauses execution until a promise is resolved or rejected.
+  - akes asynchronous code easier to read and maintain.
+  - Can replace .then() chains with more readable syntax.
+
+# JavaScript Fetch API
+
+🔑 **Recommended reading**: [MDN Using the Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+
+The `fetch` API allows making HTTP requests from JavaScript. It returns a promise that resolves when the request completes.
+
+| Concept          | Description                                                                 | Example |
+|-----------------|-----------------------------------------------------------------------------|---------|
+| `fetch(url)`     | Makes a GET request to the specified URL and returns a promise.             | `fetch('https://quote.cs260.click')` |
+| `.then(response => response.json())` | Converts the response to a JavaScript object if the content type is JSON. | `.then(res => res.json())` |
+| GET request      | Default HTTP method if none is specified.                                   | `fetch('https://quote.cs260.click')` |
+| POST request     | Use `method: 'POST'` and provide `body` and `headers` in options object.   | `fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-type':'application/json'} })` |
+| Handling response | Use `.then()` to handle a fulfilled promise, `.catch()` for errors.       | `.then(json => console.log(json))` |
+| JSON conversion  | `response.json()` returns a promise resolving to the parsed JSON object.   | `const data = await response.json();` |
+
+---
+
+## Example: GET request
+
+```js
+fetch('https://quote.cs260.click')
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
+
+Example: POST Request:
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'test title',
+    body: 'test body',
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((jsonResponse) => {
+    console.log(jsonResponse);
+  });
