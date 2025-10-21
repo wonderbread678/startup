@@ -10,13 +10,6 @@ export function Profile_list(props) {
 
     const navigate = useNavigate();
 
-
-    const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
-
-    function handleCategory(selectedCategory){
-        setCategory(selectedCategory);
-    };
-
     const groupedEntries = entries.reduce((groups, entry) => {
         const listName = entry.list || "Uncategorized";
         if (!groups[listName]) {
@@ -36,13 +29,7 @@ export function Profile_list(props) {
   return (
     <main className="main">
       <div className="body">
-        <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select id="listSelection" style={{marginBottom:"15px", float:"left"}} onChange={(e) => handleCategory(e.target.value)}>
-                <option>All</option>
-                {savedLists.map((listName, index) => (
-                    <option key={index} value={listName}>{listName}</option>
-                ))}
-            </select>
+        <h1><b>LISTS</b></h1>
             <ul className="biggerNumbers list-group">
             {Object.entries(filteredEntries).map(([listName, entries]) => (
                 <li key={(listName)}>

@@ -3,7 +3,6 @@ import '../app.css'
 import { useNavigate } from 'react-router-dom';
 
 export function Edit_entry() {
-    console.log(JSON.parse(localStorage.getItem("entryToEdit")));
     const entryToEdit = JSON.parse(localStorage.getItem("entryToEdit"))
     const navigate = useNavigate();
 

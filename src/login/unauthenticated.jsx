@@ -32,7 +32,7 @@ export function Unauthenticated(props) {
         }
         localStorage.setItem("userProfile", JSON.stringify(userProfile));
     };
-
+    
   return (
     <main className="main">
       <div className="body">

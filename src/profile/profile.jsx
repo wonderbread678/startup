@@ -1,8 +1,12 @@
 import React from 'react';
 import './Profile.css'
 import { Profile_list } from '../list/profile_list';
+import { useNavigate } from 'react-router-dom';
 
 export function Profile() {
+    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const navigate = useNavigate();
+
   return (
     <main className="main">
       <div className="body"><h3 id="blurb">~ Tell the world a little bit about yourself! ~</h3>
@@ -10,30 +14,31 @@ export function Profile() {
         <img src="https://preview.redd.it/say-something-about-caseoh-thats-not-about-his-weight-v0-pua93f3bijad1.jpeg?auto=webp&s=b4cb8d552ea75d1ce5449482b4de3a7eb63e3c76" alt="profile pic" id="profilePic" style={{padding:"0.5em"}}/>
         <ul id="bioDetails">
             <li>
-                <div className="bioEntry"><b>Username: </b>caseoh_games</div>
+                <div className="bioEntry"><b>Username: </b>{userProfile.userName}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Favorite type of media: </b>Manga</div>
+                <div className="bioEntry"><b>Favorite type of media: </b>{userProfile.bio.favoriteMedia}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Favorite piece of media: </b> One Piece</div>
+                <div className="bioEntry"><b>Favorite piece of media: </b> {userProfile.bio.favoritePiece}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Currently reading: </b> The Book of Mormon</div>
+                <div className="bioEntry"><b>Currently reading: </b> {userProfile.bio.currentlyReading}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Number of entries: </b>4</div>
+                <div className="bioEntry"><b>Number of entries: </b>{userProfile.entriesCount}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Number of lists: </b>2</div>
+                <div className="bioEntry"><b>Number of lists: </b>{userProfile.listCount}</div>
             </li>
             <li>
-                <div className="bioEntry"><b>Account type: </b>Public</div>
+                <div className="bioEntry"><b>Bio Message: </b>{userProfile.bio.bioMessage}</div>
+            </li>
+            <li>
+                <div className="bioEntry"><b>Account type: </b>{userProfile.accountType}</div>
             </li>
         </ul>
-        <form method="get" action="Profile_edit.html">
-            <button type="submit" className="btn btn-primary" id="profileEdit">Edit</button>
-        </form>
+        <button type="button" className="btn btn-primary" id="profileEdit" onClick={navigate('/profile_edit')}>Edit</button>
         <hr />
         <Profile_list></Profile_list>
         </div>
