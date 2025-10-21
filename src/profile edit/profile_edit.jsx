@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Profile_edit() {
     const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const navigate = useNavigate();
     
     const [profilePic, setProfilePic] = React.useState(storedProfile.profilePic);
     const [accountType, setAccountType] = React.useState(storedProfile.accountType);
@@ -26,27 +28,29 @@ export function Profile_edit() {
         e.preventDefault();
         const updatedProfile = {
             ...storedProfile,
-          profilePic,
-          accountType,
-          bio: {
-            favoriteMedia,
-            favoritePiece,
-            currentlyReading,
-            bioMessage
-          }
+            profilePic,
+            accountType,
+            bio: {
+                favoriteMedia,
+                favoritePiece,
+                currentlyReading,
+                bioMessage
+            }
         }
+        localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
+
     };
 
   return (
     <main className="main">
+    <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
       <div>
-        <form action="/upload" method="post" enctype="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
             <span>Choose a profile picture to upload: </span>
             <input type="file" id="fileUpload" name="myFile" onChange={handleImage}></input>
         <ul>
             <li>
                 <label for="favoriteType">Favorite type of media: </label>
-                <select id="type" name="typeSelect" onChange={(e) => setFavoriteMedia(e.target.value)}>
+                <select id="type" name="typeSelect" value={favoriteMedia} onChange={(e) => setFavoriteMedia(e.target.value)}>
                     <option selected> -- </option>
                     <option>Book</option>
                     <option>Comic/Manga</option>
@@ -58,24 +62,28 @@ export function Profile_edit() {
                 </select>
             </li>
             <li>
-                <label for="favoriteMedia">Favorite piece of media</label>
-                <input id="favoriteMedia" name="favoriteMedia" onChange={(e) => setFavoritePiece(e.target.value)}/>
+                <label htmlFor="favoriteMedia">Favorite piece of media</label>
+                <input id="favoriteMedia" name="favoriteMedia" value={favoritePiece} onChange={(e) => setFavoritePiece(e.target.value)}/>
             </li>
             <li>
-                <label for="currentRead">Currently reading: </label>
-                <input id="currentRead" name="currentRead" onChange={(e) => setCurrentlyReading(e.target.value)}/>
+                <label htmlFor="currentRead">Currently reading: </label>
+                <input id="currentRead" name="currentRead" value={currentlyReading} onChange={(e) => setCurrentlyReading(e.target.value)}/>
             </li>
             <li>
-                <label for="accountType">Account Type: </label>
-                <select id="accountType" name="accountType" onChange={(e) => setAccountType(e.target.value)}>
+                <label htmlFor="bioMessage">Bio Description: </label>
+                <input id="bioMessage" value={bioMessage} onChange={(e) => setBioMessage(e.target.value)}></input>
+            </li>
+            <li>
+                <label htmlFor="accountType">Account Type: </label>
+                <select id="accountType" name="accountType" value={accountType} onChange={(e) => setAccountType(e.target.value)}>
                     <option>Public</option>
                     <option>Private</option>
                 </select>
             </li>
         </ul>
-        </form>
         </div>
         <button type="submit" class="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", marginTop:'-400px'}}>Save</button>
+    </form>
     </main>
   );
 }
