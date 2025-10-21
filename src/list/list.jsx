@@ -33,8 +33,10 @@ export function List(props) {
      const filteredEntries = category === 'All' ? groupedEntries : { [category]: groupedEntries[category] || []};
 
     
-    function handleEdit(){
-
+    function handleEdit(selectedEntry){
+        const entryToEdit = entries.filter((entry) => entry.id === selectedEntry.id)
+        localStorage.setItem("entryToEdit", JSON.stringify(entryToEdit));
+        navigate(path);
     };
 
     const handleDelete = (deletedEntry) => {
@@ -70,7 +72,7 @@ export function List(props) {
                             <div className="entryComment">
                                 <p><b>Comment:</b> {entry.comment}</p>
                             </div>
-                            <button id="edit" className="btn btn-primary" type="button" onClick={navigate('edit_profile')}>Edit</button>
+                            <button id="edit" className="btn btn-primary" type="button" onClick={() => handleEdit('/edit_entry')}>Edit</button>
                             <button id ="delete" className="btn btn-secondary" type="button" onClick={() => handleDelete(entry)}>Delete</button>
                         </li>
                         ))}

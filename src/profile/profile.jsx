@@ -1,6 +1,6 @@
 import React from 'react';
 import './Profile.css'
-import { List } from '../list/list';
+import { Profile_list } from '../list/profile_list';
 
 export function Profile() {
   return (
@@ -35,7 +35,7 @@ export function Profile() {
             <button type="submit" className="btn btn-primary" id="profileEdit">Edit</button>
         </form>
         <hr />
-        <List></List>
+        <Profile_list></Profile_list>
         </div>
     </main>
   );

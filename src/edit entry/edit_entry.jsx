@@ -3,6 +3,8 @@ import '../app.css'
 import { useNavigate } from 'react-router-dom';
 
 export function Edit_entry() {
+    const entryToEdit = JSON.parse(localStorage.getItem("entries"))
+
     const [title, setTitle] = React.useState(entryToEdit.title || '');
     const [author, setAuthor] = React.useState(entryToEdit. author || '');
     const [type, setType] = React.useState(entryToEdit.type || '');
