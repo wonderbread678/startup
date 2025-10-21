@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export function Profile() {
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
     const navigate = useNavigate();
+    
 
   return (
     <main className="main">
@@ -38,7 +39,7 @@ export function Profile() {
                 <div className="bioEntry"><b>Account type: </b>{userProfile.accountType}</div>
             </li>
         </ul>
-        <button type="button" className="btn btn-primary" id="profileEdit" onClick={navigate('/profile_edit')}>Edit</button>
+        <button type="button" className="btn btn-primary" id="profileEdit" onClick={() => navigate('/profile_edit')}>Edit</button>
         <hr />
         <Profile_list></Profile_list>
         </div>

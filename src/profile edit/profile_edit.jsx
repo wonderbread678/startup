@@ -1,6 +1,15 @@
 import React from 'react';
 
 export function Profile_edit() {
+    const profile = localStorage.getItem("userProfile");
+    const [profilePic, setProfilePic] = React.useState(profile.profilePic);
+    const [accountType, setAccountType] = React.useState(profile.accountType);
+    const [favoriteMedia, setFavoriteMedia] = React.useState(profile.bio.favoriteMedia);
+    const [favoritePiece, setFavoritePiece] = React.useState(profile.bio.favoritePiece);
+    const [currentlyReading, setCurrentlyReading] = React.useState(profile.bio.currentlyReading);
+    const [bioMessage, setBioMessage] = React.useState(profile.bio.bioMessage);
+
+
   return (
     <main className="main">
       <div>
