@@ -14,7 +14,7 @@ export function Unauthenticated(props) {
         
         const userProfile ={
           userName: userName,
-          profilePic: "Profile Default.jpg",
+          profilePic: "/public/Profile Default.jpg",
           accountType: 'Public',
           bio: {
             favoriteMedia: "",
