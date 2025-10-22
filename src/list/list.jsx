@@ -56,6 +56,7 @@ export function List(props) {
                     <option key={index} value={listName}>{listName}</option>
                 ))}
             </select>
+            {entries.length !== 0 ? (
             <ul className="biggerNumbers list-group">
             {Object.entries(filteredEntries).map(([listName, entries]) => (
                 <li key={(listName)}>
@@ -80,6 +81,9 @@ export function List(props) {
                 </li>
                 ))} 
             </ul>
+            ) : (
+                <div>Head over to the entry upload to start making your own lists!</div>
+            )}
         </div>
     </main>
   );
