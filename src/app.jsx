@@ -26,9 +26,14 @@ export default function App() {
                 <nav>
                 <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
                     <menu className="navbar-nav">
+                        {authState === AuthState.Unauthenticated &&(                        
                         <li className="nav-item">
                             <NavLink className="nav-link" style={{color:"white"}} to='/'>Login</NavLink>
-                        </li>
+                        </li>)}
+                        {authState === AuthState.Authenticated &&(                        
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='/'>Home</NavLink>
+                        </li>)}
                         {authState === AuthState.Authenticated &&(
                             <li className="nav-item">
                                 <NavLink className="nav-link" style={{color:"white"}} to='entry_upload'>Upload</NavLink>
