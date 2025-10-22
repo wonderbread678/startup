@@ -140,7 +140,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [x] **All functionality implemented or mocked out** - Complete functionality, allowing the user to add entries, edit them, swap between lists, create lists, update their profile, and set it to public or private to show or hide their lists. Added websocket idea of having it show when people make uploads and when on the home page (hard coded for now). Everything is being committed to and pulled from the local storage. Logging out clears that storage
-- [x] **Hooks** - Extensive use of the useState hook. That was essentially the only hook that I needed.
+- [x] **Hooks** - Extensive use of the useState hook. That was essentially the only hook that I needed. There is one instance of a useEffect hook in my edit_entry jsx.
 
 ## 🚀 Service deliverable
 
