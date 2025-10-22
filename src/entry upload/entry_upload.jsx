@@ -117,7 +117,7 @@ export function Entry_upload() {
                 </li>
                 <li>
                     <label htmlFor="listRank">List Rank</label>
-                    <input type="number" name="listRank" id="listRank" value={listRank} onChange={(e) => setListRank(Number(e.target.value))} required/>
+                    <input type="number" name="listRank" id="listRank" min="1" value={listRank} onChange={(e) => setListRank(Number(e.target.value))} required/>
                 </li>
                 <li>
                     <label htmlFor="comment">Comment</label>
