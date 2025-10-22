@@ -41,7 +41,7 @@ export function Profile() {
         </ul>
         <button type="button" className="btn btn-primary" id="profileEdit" onClick={() => navigate('/profile_edit')}>Edit</button>
         <hr />
-        <Profile_list></Profile_list>
+        {userProfile.accountType === 'Public' && (<Profile_list></Profile_list>)}
         </div>
     </main>
   );
