@@ -11,6 +11,19 @@ export function Unauthenticated(props) {
     async function loginUser(){
         localStorage.setItem('userName', userName);
         props.onLogin(userName);
+        
+        const userProfile ={
+          userName: userName,
+          profilePic: "Profile Default.jpg",
+          accountType: 'Public',
+          bio: {
+            favoriteMedia: "",
+            favoritePiece: "",
+            currentlyReading: "",
+            bioMessage: ""
+          }
+        }
+        localStorage.setItem("userProfile", JSON.stringify(userProfile));
     }
 
     async function createUser(){
@@ -19,7 +32,7 @@ export function Unauthenticated(props) {
 
         const userProfile ={
           userName: userName,
-          profilePic: "public/Profile Default.jpg",
+          profilePic: "Profile Default.jpg",
           accountType: 'Public',
           bio: {
             favoriteMedia: "",

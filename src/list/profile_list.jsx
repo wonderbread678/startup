@@ -30,6 +30,7 @@ export function Profile_list(props) {
     <main className="main">
       <div className="body">
         <h1><b>LISTS</b></h1>
+            {entries.length !== 0 ? (
             <ul className="biggerNumbers list-group">
             {Object.entries(filteredEntries).map(([listName, entries]) => (
                 <li key={(listName)}>
@@ -52,6 +53,7 @@ export function Profile_list(props) {
                 </li>
                 ))} 
             </ul>
+            ) : (<span>User has no lists</span>)}
         </div>
     </main>
   );
