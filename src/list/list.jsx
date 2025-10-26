@@ -50,7 +50,7 @@ export function List(props) {
     <main className="main">
       <div className="body">
         {entries.length !== 0 ? (
-        <div>
+        <div className="listBody">
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
             <select id="listSelection" style={{marginBottom:"15px"}} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>

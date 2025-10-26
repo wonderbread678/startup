@@ -8,6 +8,15 @@
     font-weight: bold;
 }
 
+.listBody {
+  border:gold 1px, outset;
+  padding: 20px 150px;
+  margin: 10px;
+  border-radius: 20px;
+  border-width: 5px;
+  background: linear-gradient(to right, #e9eaea, #07473a);
+}
+
 #edit {
     padding: 0.5em;
     margin: 3px;

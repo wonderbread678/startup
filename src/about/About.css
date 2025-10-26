@@ -1,28 +1,22 @@
 .aboutImg {
-    display: flex;
-    width: 1325px;
-    height: 500px;
-    flex-direction: column;
-    align-items: center;
+    width: 750px;
     border: 5px gold groove;
     padding: 0.5em;
     margin-bottom: 20px;
-    justify-content: center;
     max-width: 100%;
+    min-width: 33%;
     height: auto;
-    display: block;
-
 }
 
 .aboutMain {
     margin: 10px;
-    padding: 1 50px;
-    border: 5px #00674F groove;
-    border-width: 125px;
-    background-color: #00674F;
+    padding: 50px;
+    border: 1px gold groove;
+    border-width: 5px;
     color: lightgray;
     font-size: large;
     padding-bottom: 50px;
+    background: linear-gradient(to right, #034d3c, #10b795);
 }
 
 h2 {
