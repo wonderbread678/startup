@@ -51,11 +51,11 @@ h1 {
     /* The top layer shadow */
     0 3px 1px rgba(0,0,0,0.15),
     /* The second layer */
-    0 15px 0 -5px #00674F,
+    0 14px 0 -5px #00674F,
     /* The second layer shadow */
     0 17px 1px -4px rgba(0,0,0,0.15),
      /* The third layer */
-    0 28px 0 -10px #00674F,
+    0 29px 0 -10px #00674F,
     /* The third layer shadow */
     0 30px 1px -9px rgba(0,0,0,0.3);
     /* Padding for demo purposes */

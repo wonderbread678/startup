@@ -49,14 +49,16 @@ export function List(props) {
   return (
     <main className="main">
       <div className="body">
+        {entries.length !== 0 ? (
+        <div>
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select id="listSelection" style={{marginBottom:"15px", float:"left"}} onChange={(e) => handleCategory(e.target.value)}>
+            <select id="listSelection" style={{marginBottom:"15px"}} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
                 {savedLists.map((listName, index) => (
                     <option key={index} value={listName}>{listName}</option>
                 ))}
             </select>
-            {entries.length !== 0 ? (
+            
             <ul className="biggerNumbers list-group">
             {Object.entries(filteredEntries).map(([listName, entries]) => (
                 <li key={(listName)}>
@@ -81,8 +83,9 @@ export function List(props) {
                 </li>
                 ))} 
             </ul>
+            </div>
             ) : (
-                <div>Head over to the entry upload to start making your own lists!</div>
+                <h1>Head over to the entry upload to start making your own lists!</h1>
             )}
         </div>
     </main>
