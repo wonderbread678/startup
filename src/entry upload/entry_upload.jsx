@@ -124,7 +124,7 @@ export function Entry_upload() {
                     <input type="text" name="comment" id="comment" placeholder="Optional" value={comment} onChange={(e) => setComment(e.target.value)}/>
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}>Create Entry</button>
+            <button type="submit" className="btn btn-primary" id="submitButton" style={{marginTop:'1px'}}>Create Entry</button>
             <hr style={{color:"#00674F"}}/>
             </form>
             
