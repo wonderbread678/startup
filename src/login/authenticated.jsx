@@ -15,7 +15,7 @@ export function Authenticated(props){
     return (
         <main className='main'>
             <div className='body'>
-                <h2>{props.userName}</h2>
+                <h2 id="userDisplay">{props.userName}</h2>
                 <button className="btn btn-primary" id="primaryButton" onClick={() => navigate('/entry_upload')}>Upload Entry</button>
                 <button className="btn btn-primary" id="primaryButton" onClick={() => navigate('/list')}>View lists</button>
                 <button className="btn btn-primary" id="secondaryButton" onClick={() => logout()}>Logout</button>

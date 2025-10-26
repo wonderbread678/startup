@@ -20,9 +20,15 @@
 }
 
 #partyBox{
-
+    margin-bottom: 15px
 }
 
 #thirdPartyTitle{
-    
+    margin-top: -45px;
+}
+
+#userDisplay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
