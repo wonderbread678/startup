@@ -1,0 +1,28 @@
+#primaryButton {
+  background-color: #00674F;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: white;
+}
+
+#secondaryButton {
+    background-color: darkgrey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #00674F;
+}
+
+#description {
+    padding: 10px;
+    margin-top: 15px
+}
+
+#partyBox{
+
+}
+
+#thirdPartyTitle{
+    
+}
