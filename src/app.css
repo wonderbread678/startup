@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
+/* For this one:
+  font-family: "Uncial Antiqua", system-ui;
+  font-weight: 400;
+  font-style: normal;
+   */
+
 .body {
   flex: 1 calc(100vh - 110px);
   display: flex;
@@ -18,14 +25,14 @@ main {
 }
 
 h1 {
-    color: #00674F !important;
-    background-color: lightgray;
+  color: #00674F !important;
+  background-color: lightgray;
 }
 
 .navbar-nav {
   display: flex;
   flex-direction: row !important;
-  background: linear-gradient(to right, #00674F, #00B894);
+  background: linear-gradient(to right, #00674F, #0e8b72);
   list-style: none;
    box-shadow:
     /* The top layer shadow */
