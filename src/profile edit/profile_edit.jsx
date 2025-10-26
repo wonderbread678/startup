@@ -43,6 +43,7 @@ export function Profile_edit() {
 
   return (
     <main className="main">
+    <div className="body">
     <form encType="multipart/form-data" style={{marginBottom:'75px'}} onSubmit={handleSubmit}>
       <div>
             <span>Choose a profile picture to upload: </span>
@@ -82,8 +83,9 @@ export function Profile_edit() {
             </li>
         </ul>
         </div>
-        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", marginTop:'-400px'}}>Save</button>
+        <button type="submit" className="btn btn-primary" id="submit" style={{backgroundColor:"#00674F", color:"lightgray", width:"105%"}}>Save</button>
     </form>
+    </div>
     </main>
   );
 }

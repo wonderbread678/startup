@@ -31,3 +31,7 @@
   justify-content: center !important;
 }
 
+input {
+    border-radius: 50px;
+    padding: 10px 20px;
+}
