@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap');
-/* For this one:
-  font-family: "Uncial Antiqua", system-ui;
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+/* KEEP FOR TITLE
+  font-family: "Rock Salt", cursive;
   font-weight: 400;
-  font-style: normal;
-   */
+  font-style: normal; */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
 
 .body {
   flex: 1 calc(100vh - 110px);
@@ -13,6 +14,9 @@
   align-items: center;
   justify-content: space-around;
   background-color: lightgray;
+    font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 main {
@@ -22,6 +26,15 @@ main {
   align-items: center;
   justify-content: space-around;
   background-color: lightgray;
+    font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#titleWord{
+  font-family: "Rock Salt", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 h1 {
@@ -92,6 +105,9 @@ footer {
   color: #00674F;
   border:2px gold solid;
   padding: 0.3em;
+    font-family: "Delius", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .body {

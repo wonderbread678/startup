@@ -24,7 +24,7 @@ export default function App() {
         <div className="body">
             <header className="container-fluid">
                 <nav>
-                <a className="navbar-brand" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
+                <a className="navbar-brand" id="titleWord" href="#"><h1>Koob<sup>&reg;</sup></h1></a>
                     <menu className="navbar-nav">
                         {authState === AuthState.Unauthenticated &&(                        
                         <li className="nav-item">
