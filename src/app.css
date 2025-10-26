@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-around;
   background-color: lightgray;
-    font-family: "Delius", cursive;
+  font-family: "Delius", cursive;
   font-weight: 400;
   font-style: normal;
 }
@@ -102,10 +102,10 @@ menu .nav-item {
 footer {
   flex: 0 100px;
   background-color: #00674F;
-  color: #00674F;
+  color: linear-gradient(to right, #00674F, #0e8b72);
   border:2px gold solid;
   padding: 0.3em;
-    font-family: "Delius", cursive;
+  font-family: "Delius", cursive;
   font-weight: 400;
   font-style: normal;
 }

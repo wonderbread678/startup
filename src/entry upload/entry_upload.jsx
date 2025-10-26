@@ -79,6 +79,7 @@ export function Entry_upload() {
   return (
     <main className="main">
       <div className="body">
+        <div className='submitPart'>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
             <span>Choose a photo to upload: </span>
             <input type="file" id="fileUpload" name="myFile" onChange={handleImage}></input>
@@ -127,8 +128,9 @@ export function Entry_upload() {
             <button type="submit" className="btn btn-primary" id="submitButton" style={{marginTop:'1px'}}>Create Entry</button>
             <hr style={{color:"#00674F"}}/>
             </form>
+            </div>
             
-            <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+            <div id="createList" style={{display:'flex', flexDirection:'column', alignItems:'center', marginTop: '90px'}}>
                 <h3 id="newListBlurb"> Don't have a list or want to make a new one?</h3>
                 <label htmlFor='listTitle'></label>
                 <input type='text' name='listTitle' id='listTitle' placeholder='List Title' style={{marginTop:'10px'}} value={listName} onChange={(e) => setListName(e.target.value)}></input>
