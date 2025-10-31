@@ -1,0 +1,5 @@
+{
+  "hostname": "cs260.abcdefg.mongodb.net",
+  "userName": "myMongoUserName",
+  "password": "toomanysecrets"
+}
