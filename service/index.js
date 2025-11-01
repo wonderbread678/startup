@@ -80,6 +80,19 @@ apiRouter.post('/list', verifyAuth, (req, res) => {
     res.send(entries);
 });
 
+// Delete entry
+apiRouter.delete('/list/:id', verifyAuth, (req, res) => {
+  const id = Number(req.params.id);
+  const index = entries.findIndex(entry => entry.id === id);
+  if (index !== -1) {
+    entries.splice(index, 1);
+    res.status(200).json(entries);
+  } else {
+    res.status(404).json({ msg: 'Entry not found' });
+  }
+});
+
+
 // Default error handler
 app.use(function (err, req, res, next) {
   res.status(500).send({ type: err.name, message: err.message });
@@ -121,10 +134,6 @@ function setAuthCookie(res, authToken) {
 function updateEntries(newEntry) {
   entries.push(newEntry);
   return entries;
-}
-
-function deleteEntry(){
-  
 }
 
 
