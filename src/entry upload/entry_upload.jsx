@@ -55,6 +55,7 @@ export function Entry_upload() {
             listName
         };
 
+
         const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
 
         const updatedEntries = [...savedEntries, newEntry];
@@ -71,6 +72,27 @@ export function Entry_upload() {
         setComment('');
         setImage(null);
         setListName('');
+    };
+
+    async function createEntry() {
+        const response = await fetch('/api/list', 
+            {method: 'post', 
+                body: JSON.stringify({
+                    id: Date.now(),
+                    title: title,
+                    author: author,
+                    type: type,
+                    rating: rating,
+                    list: list,
+                    listRank: listRank,
+                    comment: comment,
+                    image: image,
+                    listName: listName
+                })
+            });
+            if (!response.ok){
+                throw new Error("Invalid entry");
+            }
     };
 
     const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
@@ -104,9 +126,6 @@ export function Entry_upload() {
                         <option>Poem</option>
                         <option>E-book</option>
                         <option>Fanfic</option>
-                        <option>TV Show</option>
-                        <option>Movie</option>
-                        <option>Video Game</option>
                         <option>Other</option>
                     </select>
                 </li>

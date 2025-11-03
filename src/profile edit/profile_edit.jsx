@@ -61,9 +61,6 @@ export function Profile_edit() {
                     <option>Poem</option>
                     <option>E-book</option>
                     <option>Fanfic</option>
-                    <option>TV Show</option>
-                    <option>Movie</option>
-                    <option>Video Game</option>
                     <option>Other</option>
                 </select>
             </li>
