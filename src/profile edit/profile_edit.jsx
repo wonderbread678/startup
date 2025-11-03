@@ -54,11 +54,16 @@ export function Profile_edit() {
                 <select id="type" name="typeSelect" value={favoriteMedia} onChange={(e) => setFavoriteMedia(e.target.value)}>
                     <option> -- </option>
                     <option>Book</option>
-                    <option>Comic/Manga</option>
+                    <option>Comic</option>
+                    <option>Manga</option>
+                    <option>Manhwa</option>
+                    <option>Manhua</option>
                     <option>Poem</option>
                     <option>E-book</option>
-                    <option>Blog/Online article</option>
-                    <option>Academic paper/Journal</option>
+                    <option>Fanfic</option>
+                    <option>TV Show</option>
+                    <option>Movie</option>
+                    <option>Video Game</option>
                     <option>Other</option>
                 </select>
             </li>

@@ -96,14 +96,18 @@ export function Entry_upload() {
                     <label htmlFor="type">Type</label>
                     <select id="type" name="typeSelect" value={type} onChange={(e) => setType(e.target.value)} required>
                         <option> -- </option>
-                        <option className="dropdown">Book</option>
-                        <option className="dropdown">Comic/Manga</option>
-                        <option className="dropdown">Poem</option>
-                        <option className="dropdown">Fanfic</option>
-                        <option className="dropdown">E-book</option>
-                        <option className="dropdown">Blog/Online article</option>
-                        <option className="dropdown">Academic paper/Journal</option>
-                        <option className="dropdown">Other</option>
+                        <option>Book</option>
+                        <option>Comic</option>
+                        <option>Manga</option>
+                        <option>Manhwa</option>
+                        <option>Manhua</option>
+                        <option>Poem</option>
+                        <option>E-book</option>
+                        <option>Fanfic</option>
+                        <option>TV Show</option>
+                        <option>Movie</option>
+                        <option>Video Game</option>
+                        <option>Other</option>
                     </select>
                 </li>
                 <li>

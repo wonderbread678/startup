@@ -8,41 +8,40 @@ export function Unauthenticated(props) {
     const [userName, setUsername]= React.useState();
     const [password, setPassword]= React.useState();
 
-    async function loginUser(){
-        localStorage.setItem('userName', userName);
-        props.onLogin(userName);
-        
-        const userProfile ={
-          userName: userName,
-          profilePic: "/public/Profile Default.jpg",
-          accountType: 'Public',
-          bio: {
-            favoriteMedia: "",
-            favoritePiece: "",
-            currentlyReading: "",
-            bioMessage: ""
-          }
-        }
-        localStorage.setItem("userProfile", JSON.stringify(userProfile));
+      async function loginOrCreate(endpoint, profile = null) {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: userName,
+          password,
+          profile,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem('userName', data.username);
+        localStorage.setItem('userProfile', JSON.stringify(data.profile));
+        props.onLogin(data.username);
+        setDisplayError('');
+      } else {
+        const body = await response.json();
+        setDisplayError(`⚠ Error: ${body.msg}`);
+      }
+    } catch (err) {
+      setDisplayError(`⚠ Network error: ${err.message}`);
     }
+  }
 
-    async function createUser(){
-        localStorage.setItem('userName', userName);
-        props.onLogin(userName);
+  const handleLogin = async () => {
+    await loginOrCreate('/api/auth/login');
+  };
 
-        const userProfile ={
-          userName: userName,
-          profilePic: "Profile Default.jpg",
-          accountType: 'Public',
-          bio: {
-            favoriteMedia: "",
-            favoritePiece: "",
-            currentlyReading: "",
-            bioMessage: ""
-          }
-        }
-        localStorage.setItem("userProfile", JSON.stringify(userProfile));
-    };
+  const handleCreate = async () => {
+    await loginOrCreate('/api/auth/create', defaultProfile);
+  };
     
   return (
     <main className="main">
