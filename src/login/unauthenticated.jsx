@@ -8,31 +8,31 @@ export function Unauthenticated(props) {
     const [userName, setUsername]= React.useState();
     const [password, setPassword]= React.useState();
 
-      async function loginOrCreate(endpoint, profile = null) {
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: userName,
-          password,
-          profile,
-        }),
-      });
+    async function loginOrCreate(endpoint, profile = null) {
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: userName,
+            password,
+            profile,
+          }),
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        localStorage.setItem('userName', data.username);
-        localStorage.setItem('userProfile', JSON.stringify(data.profile));
-        props.onLogin(data.username);
-        setDisplayError('');
-      } else {
-        const body = await response.json();
-        setDisplayError(`⚠ Error: ${body.msg}`);
+        if (response.ok) {
+          const data = await response.json();
+          localStorage.setItem('userName', data.username);
+          localStorage.setItem('userProfile', JSON.stringify(data.profile));
+          props.onLogin(data.username);
+          setDisplayError('');
+        } else {
+          const body = await response.json();
+          setDisplayError(`⚠ Error: ${body.msg}`);
+        }
+      } catch (err) {
+        setDisplayError(`⚠ Network error: ${err.message}`);
       }
-    } catch (err) {
-      setDisplayError(`⚠ Network error: ${err.message}`);
-    }
   }
 
   const handleLogin = async () => {
@@ -57,8 +57,8 @@ export function Unauthenticated(props) {
                 <span className="inputText">Password: </span>
                 <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} placeholder="Password"></input>
             </div>
-            <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}} onClick={() => loginUser()} disabled={!userName || !password}>Login</button>
-            <button type="submit" className="btn btn-secondary" style={{width:"500px"}} onClick={() => createUser()} disabled={!userName || !password}>Create User</button>
+            <button type="submit" className="btn btn-primary" id="primaryButton" style={{width:"500px"}} onClick={() => handleLogin()} disabled={!userName || !password}>Login</button>
+            <button type="submit" className="btn btn-secondary" style={{width:"500px"}} onClick={() => handleCreate()} disabled={!userName || !password}>Create User</button>
         </div>
       </div>
     </main>
