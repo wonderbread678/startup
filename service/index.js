@@ -75,8 +75,20 @@ apiRouter.get('/list', verifyAuth, (_req, res) => {
 });
 
 // Submit entry
-apiRouter.post('/list', verifyAuth, (req, res) => {
-    entries = updateEntries(req.body);
+apiRouter.post('/entries', verifyAuth, async (req, res) => {
+    const newEntry = {
+        id: req.body.id,
+        title: req.body.title,
+        author: req.body.author,
+        type: req.body.type,
+        rating: req.body.rating,
+        list: req.body.list,
+        listRank: req.body.listRank,
+        comment: req.body.comment,
+        image: req.body.image,
+        listName: req.body.listName
+    }
+    entries = updateEntries(newEntry);
     res.send(entries);
 });
 
