@@ -9,12 +9,12 @@ React.useEffect(() => {
   async function fetchManga() {
       try {
         const response = await fetch(
-          'https://api.jikan.moe/v4/manga?q=&rating:g&order_by=score&sort=desc&limit=10'
+          'https://api.jikan.moe/v4/manga?rating=g&limit=25'
         );
         if (!response.ok) throw new Error('Failed to fetch manga');
         const data = await response.json();
-        const randomIndex = Math.floor(Math.random() * data.data.length);
-        setManga(data.data[randomIndex]); // pick a random manga
+        const randomIndex = Math.floor(Math.random() * 25);
+        setManga(data.data[randomIndex]);
       } catch (err) {
         console.error(err);
       }
