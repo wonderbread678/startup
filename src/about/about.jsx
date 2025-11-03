@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import './about.css';
+import React from 'react';
+import './about.css'
 
 export function About() {
-  const [manga, setManga] = useState(null);
 
-  useEffect(() => {
-    async function fetchManga() {
+const [manga, setManga] = React.useState(null);
+
+React.useEffect(() => {
+  async function fetchManga() {
       try {
         const response = await fetch(
-          'https://api.jikan.moe/v4/manga?q=&rating:g,pg&order_by=score&sort=desc&limit=20'
-
+          'https://api.jikan.moe/v4/manga?q=&rating:g&order_by=score&sort=desc&limit=10'
         );
         if (!response.ok) throw new Error('Failed to fetch manga');
         const data = await response.json();
@@ -22,33 +22,28 @@ export function About() {
     fetchManga();
   }, []);
 
+
   return (
     <main className="aboutMain">
       <div>
-        <img
-          className="aboutImg"
-          src="https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?cs=srgb&dl=pexels-caio-46274.jpg&fm=jpg"
-          alt="aboutBanner"
-        />
-        <div id="about">
-          <h2>~ About us ~</h2>
-          Koob is a fresh, innovative take on media rating site, allowing the user essentially complete freedom to upload titles and works and compile them into lists, whether books, poetry, comics, and more. The ease of upload allows any user to create and rate entries immediately after reading them, as well as compile a comprehensive list of anything they might have already read, giving users a hub for their literature and a way to track and rate their literary journey. Unlike traditional review sites that limit what can be submitted or emphasize only popular titles, Koob offers complete freedom for uploads, ensuring that every piece of literature has a place, no matter how niche.
+        <img className="aboutImg" src="https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?cs=srgb&dl=pexels-caio-46274.jpg&fm=jpg" alt="aboutBanner" />
+            <div id="about">
+                <h2>~ About us ~</h2>
+                Koob is a fresh, innovative take on media rating site, allowing the user essentially complete freedom to upload titles and works and compile them into lists, whether books, poetry, comics, and more. The ease of upload allows any user to create and rate entries immediately after reading them, as well as compile a comprehensive list of anything they might have already read, giving users a hub for their literature and a way to track and rate their literary journey. Unlike traditional review sites that limit what can be submitted or emphasize only popular titles, Koob offers complete freedom for uploads, ensuring that every piece of literature has a place, no matter how niche.
 
-          Koob also allows users to search for others' profiles, opening up a way for readers to be exposed to new literature and writers, as well as see others' thoughts on those titles. The comment feature gives a more immersive experience to the user, in addition to the numerical rating system, further giving freedom to the user to create the lists and rankings that might only be inside of their heads.
-        </div>
-        <hr />
-        <p>
-          For taking the time to see what Koob is all about, here is a book recommendation for you to try!
-        </p>
-        <div className="manga-recommendation">
+                Koob also allows users to search for others' profiles, opening up a way for readers to be exposed to new literature and writers, as well as see others' thoughts on those titles. The comment feature gives a more immersive experience to the user, in addition to the numerical rating system, further giving freedom to the user to create the lists and rankings that might only be inside of their heads.
+            </div>
+        <hr/>
+        <p>For taking the time to see what Koob is all about, here is a book recommendation for you to try! </p>
+        <div className="mangaRec">
           {manga && (
-            <div className="manga-card">
-              <img src={manga.images.jpg.image_url} alt={manga.title} className="manga-cover" />
-              <h3>{manga.title}</h3>
+            <div>
+          <img src={manga.images.jpg.image_url} alt={manga.title} className="manga-cover" />
+          <h3>{manga.title}</h3>
             </div>
           )}
         </div>
-      </div>
+        </div>
     </main>
   );
 }
