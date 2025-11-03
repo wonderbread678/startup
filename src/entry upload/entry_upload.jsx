@@ -55,7 +55,7 @@ export function Entry_upload() {
             listName
         };
 
-
+        createEntry();
         const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
 
         const updatedEntries = [...savedEntries, newEntry];
@@ -75,24 +75,26 @@ export function Entry_upload() {
     };
 
     async function createEntry() {
-        const response = await fetch('/api/list', 
-            {method: 'post', 
-                body: JSON.stringify({
-                    id: Date.now(),
-                    title: title,
-                    author: author,
-                    type: type,
-                    rating: rating,
-                    list: list,
-                    listRank: listRank,
-                    comment: comment,
-                    image: image,
-                    listName: listName
-                })
+        const response = await fetch('/api/entries', {
+            method: 'post', 
+            body: JSON.stringify({
+                id: Date.now(),
+                title: title,
+                author: author,
+                type: type,
+                rating: rating,
+                list: list,
+                listRank: listRank,
+                comment: comment,
+                image: image,
+                listName: listName
+                }),
             });
             if (!response.ok){
                 throw new Error("Invalid entry");
             }
+            const result = response.json();
+            console.log('Entry created: ', {result});
     };
 
     const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
