@@ -22,6 +22,7 @@ app.listen(port, () => {
 });
 
 let entries = [];
+let lists =[];
 let users = [];
 
 // CreateAuth a new user
@@ -70,13 +71,13 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
-// Get entry
+// Get entries
 apiRouter.get('/list', verifyAuth, (_req, res) => {
     res.send(entries);
 });
 
 // Submit entry
-apiRouter.post('/entries', async (req, res) => {
+apiRouter.post('/entries', verifyAuth, async (req, res) => {
     console.log("Incoming /api/entries body:", req.body);
     const newEntry = {
         id: req.body.id,
@@ -91,7 +92,7 @@ apiRouter.post('/entries', async (req, res) => {
         listName: req.body.listName
     }
     entries = updateEntries(newEntry);
-    res.send({entryName: newEntry.title});
+    res.send({entries});
     return;
 });
 
@@ -148,6 +149,7 @@ function setAuthCookie(res, authToken) {
 
 function updateEntries(newEntry) {
   entries.push(newEntry);
+  console.log({entries});
   return entries;
 }
 
