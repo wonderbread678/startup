@@ -10,6 +10,12 @@ export function List(props) {
 
     const navigate = useNavigate();
 
+    React.useEffect(() =>{
+        fetch('/api/list')
+            .then(response => response.json())
+            .then((entries) => {setEntries(entries)})
+    }, []);
+
 
     const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
 
