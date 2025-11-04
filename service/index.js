@@ -5,14 +5,12 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 
-app.use(express.json());
-
 const authCookieName = 'token';
 app.use(cookieParser());
 
+app.use(express.json());
 
-let entries = [];
-let users = [];
+app.use(express.static('public'));
 
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
@@ -22,6 +20,9 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+let entries = [];
+let users = [];
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -76,6 +77,7 @@ apiRouter.get('/list', verifyAuth, (_req, res) => {
 
 // Submit entry
 apiRouter.post('/entries', async (req, res) => {
+    console.log("Incoming /api/entries body:", req.body);
     const newEntry = {
         id: req.body.id,
         title: req.body.title,
