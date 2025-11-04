@@ -8,39 +8,28 @@ export function Unauthenticated(props) {
     const [userName, setUsername]= React.useState();
     const [password, setPassword]= React.useState();
 
-    async function loginOrCreate(endpoint, profile = null) {
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            username: userName,
-            password,
-            profile,
-          }),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          localStorage.setItem('userName', data.username);
-          localStorage.setItem('userProfile', JSON.stringify(data.profile));
-          props.onLogin(data.username);
-          setDisplayError('');
-        } else {
-          const body = await response.json();
-          setDisplayError(`⚠ Error: ${body.msg}`);
-        }
-      } catch (err) {
-        setDisplayError(`⚠ Network error: ${err.message}`);
+    async function loginOrCreate(endpoint) {
+      const response = await fetch(endpoint, {
+        method: 'post',
+        body: JSON.stringify({ email: userName, password: password }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      });
+      if (response?.status === 200) {
+        localStorage.setItem('userName', userName);
+        props.onLogin(userName);
+      } else {
+        alert("UNAUTHORIZED")
       }
-  }
+    }
 
   const handleLogin = async () => {
     await loginOrCreate('/api/auth/login');
   };
 
   const handleCreate = async () => {
-    await loginOrCreate('/api/auth/create', defaultProfile);
+    await loginOrCreate('/api/auth/create');
   };
     
   return (

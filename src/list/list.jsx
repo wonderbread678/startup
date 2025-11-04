@@ -5,24 +5,42 @@ import { useNavigate } from 'react-router-dom';
 
 export function List(props) {
 
-    const [entries, setEntries]=React.useState("[]");
+    const [entries, setEntries]=React.useState([]);
     const [category, setCategory]=React.useState('All');
 
     const navigate = useNavigate();
 
+    // Get the list names
+    async function createList() {
+        try {
+            const response = await fetch('/api/listName', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ listName: listName }) // stringify the object
+            });
+
+            console.log("Response status:", response.status);
+            const data = await response.json();
+            console.log("Updated lists from backend:", data);
+        } catch (error) {
+            console.error('Error in createList:', error);
+        }
+    }
+
+
+
+    // Get the entries
     React.useEffect(() =>{
-        fetch('/api/lists')
-            .then(response => response.json())
-            .then((entries) => {setEntries(entries)})
+        fetchEntries();
     }, []);
 
-    React.useEffect(() =>{
-        fetch('/api/entryList')
-            .then(response => response.json())
-            .then((entries) => {setEntries(entries)})
-    }, []);
-
-    const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
+    async function fetchEntries(){
+        const response = await fetch('/api/entryList')
+        const body = await response.json();
+        setEntries(body);
+    }
 
     function handleCategory(selectedCategory){
         setCategory(selectedCategory);
@@ -65,7 +83,7 @@ export function List(props) {
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
             <select id="listSelection" style={{marginBottom:"15px"}} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
-                {savedLists.map((listName, index) => (
+                {entries.map((listName, index) => (
                     <option key={index} value={listName}>{listName}</option>
                 ))}
             </select>

@@ -22,6 +22,7 @@ export function Entry_upload() {
         if (!list.includes(listName)){
             const updatedLists = [...lists, listName]
             setLists(updatedLists);
+            createList();
             // localStorage.setItem("lists", JSON.stringify(updatedLists));
             setListName(''); 
         }
@@ -30,16 +31,39 @@ export function Entry_upload() {
         }    
     }
 
-    async function createList(){
-        try{
-            const response = await fetch('/api/lists', {
-                listName
+    async function createList() {
+        try {
+            // Send the request to the backend with JSON body and cookies
+            const response = await fetch('/api/listName', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ listName: listName }),
+                credentials: 'include',  // <-- ensures cookies are sent
             });
-        }
-        catch(error){
-            console.error('Error in createEntry:', error);
+
+            // Log the status to debug
+            console.log("Response status:", response.status);
+
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`Backend error: ${response.status}, ${errorText}`);
+            }
+
+            const data = await response.json();
+            console.log("Updated lists from backend:", data);
+
+            // Optionally update local state with backend response
+            setLists(data);
+            setListName('');
+
+        } catch (error) {
+            console.error('Error in createList:', error);
+            alert(`Failed to create list: ${error.message}`);
         }
     }
+
 
         const handleImage = (event) => {
             const file = event.target.files[0];
