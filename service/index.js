@@ -71,14 +71,20 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
+// get lists
 apiRouter.get('/lists', verifyAuth, (_req, res) => {
   res.send(lists);
 })
 
+// create list
 apiRouter.post('/listName', verifyAuth, async (req, res) => {
+    console.log("starting the post")
+    console.log("Incoming listName:", req.body.listName)
     const newList = req.body.listName;
+    console.log("going to update")
     updateLists(newList);
-    res.send({lists});
+    console.log("sending it back")
+    res.send(lists);
 })
 
 // Get entries
