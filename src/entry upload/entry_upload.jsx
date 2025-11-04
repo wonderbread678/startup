@@ -56,12 +56,12 @@ export function Entry_upload() {
         };
 
         createEntry();
-        const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
+        // const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
 
-        const updatedEntries = [...savedEntries, newEntry];
+        // const updatedEntries = [...savedEntries, newEntry];
         
-        localStorage.setItem("entries", JSON.stringify(updatedEntries));
-        console.log(newEntry);
+        // localStorage.setItem("entries", JSON.stringify(updatedEntries));
+        // console.log(newEntry);
 
         setTitle('');
         setAuthor('');
