@@ -75,27 +75,41 @@ export function Entry_upload() {
     };
 
     async function createEntry() {
-        const response = await fetch(`/api/entries`, {
-            method: 'post', 
+        try {
+            const response = await fetch('/api/entries', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
                 id: Date.now(),
-                title: title,
-                author: author,
-                type: type,
-                rating: rating,
-                list: list,
-                listRank: listRank,
-                comment: comment,
-                image: image,
-                listName: listName
-                }),
+                title,
+                author,
+                type,
+                rating,
+                list,
+                listRank,
+                comment,
+                image,
+                listName,
+            }),
             });
-            if (!response.ok){
-                throw new Error("Invalid entry");
+
+            console.log("Response status:", response.status);
+            const text = await response.text();
+            console.log("Raw server response:", text);
+
+            if (!response.ok) {
+            throw new Error(`Invalid entry (status ${response.status})`);
             }
-            const result = await response.json();
-            console.log('Entry created: ', {result});
-    };
+
+            const result = JSON.parse(text);
+            console.log('Entry created:', result);
+        } catch (error) {
+            console.error('Error in createEntry:', error);
+        }
+    }
+
 
     const sortedLists = [...lists].sort((a, b) => a.localeCompare(b));
 
