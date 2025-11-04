@@ -22,13 +22,25 @@ export function Entry_upload() {
         if (!list.includes(listName)){
             const updatedLists = [...lists, listName]
             setLists(updatedLists);
-            localStorage.setItem("lists", JSON.stringify(updatedLists));
+            // localStorage.setItem("lists", JSON.stringify(updatedLists));
             setListName(''); 
         }
         else {
             console.log('list already exists');
         }    
     }
+
+    async function createList(){
+        try{
+            const response = await fetch('/api/lists', {
+                listName
+            });
+        }
+        catch(error){
+            console.error('Error in createEntry:', error);
+        }
+    }
+
         const handleImage = (event) => {
             const file = event.target.files[0];
             if (!file) {setImage(DEFAULT_IMAGE);}

@@ -22,7 +22,7 @@ app.listen(port, () => {
 });
 
 let entries = [];
-let lists =[];
+let lists = [];
 let users = [];
 
 // CreateAuth a new user
@@ -71,8 +71,18 @@ const verifyAuth = async (req, res, next) => {
   }
 };
 
+apiRouter.get('/lists', verifyAuth, (_req, res) => {
+  res.send(lists);
+})
+
+apiRouter.post('/listName', verifyAuth, async (req, res) => {
+    const newList = req.body.listName;
+    updateLists(newList);
+    res.send({lists});
+})
+
 // Get entries
-apiRouter.get('/list', verifyAuth, (_req, res) => {
+apiRouter.get('/entryList', verifyAuth, (_req, res) => {
     res.send(entries);
 });
 
@@ -151,6 +161,12 @@ function updateEntries(newEntry) {
   entries.push(newEntry);
   console.log({entries});
   return entries;
+}
+
+function updateLists(newList) {
+  lists.push(newList);
+  console.log(lists);
+  return lists
 }
 
 

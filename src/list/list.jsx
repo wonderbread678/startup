@@ -5,17 +5,22 @@ import { useNavigate } from 'react-router-dom';
 
 export function List(props) {
 
-    const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
+    const [entries, setEntries]=React.useState("[]");
     const [category, setCategory]=React.useState('All');
 
     const navigate = useNavigate();
 
     React.useEffect(() =>{
-        fetch('/api/list')
+        fetch('/api/lists')
             .then(response => response.json())
             .then((entries) => {setEntries(entries)})
     }, []);
 
+    React.useEffect(() =>{
+        fetch('/api/entryList')
+            .then(response => response.json())
+            .then((entries) => {setEntries(entries)})
+    }, []);
 
     const savedLists = JSON.parse(localStorage.getItem("lists") || "[]");
 
