@@ -75,7 +75,7 @@ export function Entry_upload() {
     };
 
     async function createEntry() {
-        const response = await fetch('/api/entries', {
+        const response = await fetch(`/api/entries`, {
             method: 'post', 
             body: JSON.stringify({
                 id: Date.now(),
@@ -93,7 +93,7 @@ export function Entry_upload() {
             if (!response.ok){
                 throw new Error("Invalid entry");
             }
-            const result = response.json();
+            const result = await response.json();
             console.log('Entry created: ', {result});
     };
 
