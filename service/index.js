@@ -113,7 +113,7 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
 });
 
 // Delete entry
-apiRouter.delete('/list/:id', verifyAuth, (req, res) => {
+apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
   const id = Number(req.params.id);
   const index = entries.findIndex(entry => entry.id === id);
   if (index !== -1) {
