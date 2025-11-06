@@ -35,18 +35,22 @@ export function List(props) {
     React.useEffect(() => {
         async function getLists(){
             try{
-                const response = await fetch('/api/lists', {credentials: 'include'});
+                const response = await fetch('/api/lists', {credentials: 'include'})
                 if (!response.ok){
-                    alert("UH OH");
+                    alert("YOU GOOFY");
                 }
-                const body = response.json();
-                setLists(body);
+                const body = await response.json();
+                setLists(body.length ? body : ['--']);
+                if (body.length) setList(body[0]);
             }
-            catch (err){
-                console.log(err);
+            catch(err){
+                console.log(err)
             }
         }
-    }, [])
+
+        getLists();
+    }, []);
+
 
     // Get the entries
     React.useEffect(() =>{
