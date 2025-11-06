@@ -21,7 +21,7 @@ export function List(props) {
                 }
                 const body = await response.json();
                 setLists(body.length ? body : ['--']);
-                if (body.length) setList(body[0]);
+                if (body.length) setCategory(body[0]);
             }
             catch(err){
                 console.log(err)
