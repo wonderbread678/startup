@@ -25,12 +25,16 @@ export function Entry_upload() {
                 }
                 const body = await response.json();
                 setLists(body.length ? body : ['--']);
+                if (body.length) setList(body[0]);
             }
             catch(err){
                 console.log(err)
             }
         }
-    });
+
+        getLists();
+    }, []);
+
 
 
     async function handleCreateList(){
@@ -38,13 +42,11 @@ export function Entry_upload() {
             const updatedLists = [...lists, listName]
             setLists(updatedLists);
             createList();
-            // localStorage.setItem("lists", JSON.stringify(updatedLists));
             setListName(''); 
         }
         else {
             console.log('list already exists');
         }    
-        await createList();
         setListName('');
     }
 
@@ -61,13 +63,8 @@ export function Entry_upload() {
 
             console.log("Response status:", response.status);
 
-            if (!response.ok) {
-                const errorText = await response.text();
-                throw new Error(`Backend error: ${response.status}, ${errorText}`);
-            }
-
             const body = await response.json();
-            console.log("Updated lists from backend:", data);
+            console.log("Updated lists from backend:", body);
 
             setLists(body);
             setListName('');
@@ -106,12 +103,6 @@ export function Entry_upload() {
         };
 
         createEntry();
-        // const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
-
-        // const updatedEntries = [...savedEntries, newEntry];
-        
-        // localStorage.setItem("entries", JSON.stringify(updatedEntries));
-        // console.log(newEntry);
 
         setTitle('');
         setAuthor('');
