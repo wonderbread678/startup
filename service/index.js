@@ -87,6 +87,17 @@ apiRouter.post('/listName', verifyAuth, async (req, res) => {
     res.send(lists);
 })
 
+// Update list
+apiRouter.put('/updateEntry/:id', (req, res) => {
+  const entryID = Number(req.params.id);
+  const index = entries.findIndex(entry => entry.id === entryID);
+  if (index === -1){
+    res.status(404).send({ msg: "Invalid entry"});  
+  }
+  entries[index] = {...entries, ...req.body};
+  res.send(entries[index]);
+})
+
 // Get entries
 apiRouter.get('/entryList', verifyAuth, (_req, res) => {
     res.send(entries);
