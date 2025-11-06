@@ -35,8 +35,6 @@ export function Entry_upload() {
         getLists();
     }, []);
 
-
-
     async function handleCreateList(){
         if (!list.includes(listName)){
             const updatedLists = [...lists, listName]

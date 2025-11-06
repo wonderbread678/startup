@@ -11,26 +11,6 @@ export function List(props) {
 
     const navigate = useNavigate();
 
-    // Get the list names
-    async function createList() {
-        try {
-            const response = await fetch('/api/listName', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ listName: listName }) // stringify the object
-            });
-
-            console.log("Response status:", response.status);
-            const data = await response.json();
-            console.log("Updated lists from backend:", data);
-        } catch (error) {
-            console.error('Error in createList:', error);
-        }
-    }
-
-
     // Get lists
     React.useEffect(() => {
         async function getLists(){
@@ -89,11 +69,25 @@ export function List(props) {
         navigate('/edit_entry');
     };
 
-    const handleDelete = (deletedEntry) => {
-        const updatedEntries = entries.filter((entry) => entry.id !== deletedEntry.id);
-        setEntries(updatedEntries);
-        localStorage.setItem("entries", JSON.stringify(updatedEntries));
-    };
+    const handleDelete = async (entry) => {
+        try{
+            const response = await fetch(`/api/deleteEntry/${entry.id}`, {method: 'delete', credentials: 'include'});
+            if (!response.ok){
+                alert("OOGABOOGA");
+            }
+            const updatedEntries = await response.json();
+            setEntries(updatedEntries);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
+    // const handleDelete = (deletedEntry) => {
+    //     const updatedEntries = entries.filter((entry) => entry.id !== deletedEntry.id);
+    //     setEntries(updatedEntries);
+    //     localStorage.setItem("entries", JSON.stringify(updatedEntries));
+    // };
 
 
   return (
