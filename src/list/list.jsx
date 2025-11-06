@@ -7,6 +7,7 @@ export function List(props) {
 
     const [entries, setEntries]=React.useState([]);
     const [category, setCategory]=React.useState('All');
+    const [lists, setLists]=React.useState([]);
 
     const navigate = useNavigate();
 
@@ -30,6 +31,22 @@ export function List(props) {
     }
 
 
+    // Get lists
+    React.useEffect(() => {
+        async function getLists(){
+            try{
+                const response = await fetch('/api/lists', {credentials: 'include'});
+                if (!response.ok){
+                    alert("UH OH");
+                }
+                const body = response.json();
+                setLists(body);
+            }
+            catch (err){
+                console.log(err);
+            }
+        }
+    }, [])
 
     // Get the entries
     React.useEffect(() =>{
@@ -37,7 +54,7 @@ export function List(props) {
     }, []);
 
     async function fetchEntries(){
-        const response = await fetch('/api/entryList')
+        const response = await fetch('/api/entryList', {credentials: 'include'})
         const body = await response.json();
         setEntries(body);
     }
@@ -83,7 +100,7 @@ export function List(props) {
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
             <select id="listSelection" style={{marginBottom:"15px"}} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
-                {entries.map((listName, index) => (
+                {lists.map((listName, index) => (
                     <option key={index} value={listName}>{listName}</option>
                 ))}
             </select>

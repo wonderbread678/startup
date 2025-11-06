@@ -12,13 +12,28 @@ export function Entry_upload() {
     const [comment, setComment] = React.useState('');
     const [image, setImage] = React.useState("public/defbookcover-min.jpg");
     const [listName, setListName] = React.useState('');
-    const [lists, setLists] = React.useState(() => {
-        return JSON.parse(localStorage.getItem("lists") || '["--"]');
-    });
+    const [lists, setLists] = React.useState(["--"]);
 
     const DEFAULT_IMAGE = "defbookcover-min.jpg"
 
-    function handleCreateList(){
+    React.useEffect(() => {
+        async function getLists(){
+            try{
+                const response = await fetch('/api/lists', {credentials: 'include'})
+                if (!response.ok){
+                    alert("YOU GOOFY");
+                }
+                const body = await response.json();
+                setLists(body.length ? body : ['--']);
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
+    });
+
+
+    async function handleCreateList(){
         if (!list.includes(listName)){
             const updatedLists = [...lists, listName]
             setLists(updatedLists);
@@ -29,21 +44,21 @@ export function Entry_upload() {
         else {
             console.log('list already exists');
         }    
+        await createList();
+        setListName('');
     }
 
     async function createList() {
         try {
-            // Send the request to the backend with JSON body and cookies
             const response = await fetch('/api/listName', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ listName: listName }),
-                credentials: 'include',  // <-- ensures cookies are sent
+                credentials: 'include',
             });
 
-            // Log the status to debug
             console.log("Response status:", response.status);
 
             if (!response.ok) {
@@ -51,11 +66,10 @@ export function Entry_upload() {
                 throw new Error(`Backend error: ${response.status}, ${errorText}`);
             }
 
-            const data = await response.json();
+            const body = await response.json();
             console.log("Updated lists from backend:", data);
 
-            // Optionally update local state with backend response
-            setLists(data);
+            setLists(body);
             setListName('');
 
         } catch (error) {
@@ -114,6 +128,7 @@ export function Entry_upload() {
         try {
             const response = await fetch('/api/entries', {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
