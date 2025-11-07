@@ -21,14 +21,31 @@ export function Edit_entry() {
     const [comment, setComment] = React.useState(entryToEdit.comment || '');
     const [image, setImage] = React.useState(entryToEdit.image || null);
     const [listName, setListName] = React.useState(entryToEdit.listName);
-    const [lists, setLists] = React.useState(() => {
-        return JSON.parse(localStorage.getItem("lists") || '["--"]');
-    });
+    const [lists, setLists] = React.useState(entryToEdit.listName);
+
+        React.useEffect(() => {
+            async function getLists(){
+                try{
+                    const response = await fetch('/api/lists', {credentials: 'include'})
+                    if (!response.ok){
+                        alert("YOU GOOFY");
+                    }
+                    const body = await response.json();
+                    setLists(body.length ? body : ['--']);
+                    if (body.length) setList(body[0]);
+                }
+                catch(err){
+                    console.log(err)
+                }
+            }
+    
+            getLists();
+        }, []);
 
     console.log({ title, author, type, rating, list, listRank, comment, image, listName });
 
     const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
-
+    
         const handleImage = (event) => {
             const file = event.target.files[0];
             if (!file) {setImage(DEFAULT_IMAGE);}
