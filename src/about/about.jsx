@@ -13,7 +13,7 @@ React.useEffect(() => {
         );
         if (!response.ok) throw new Error('Failed to fetch manga');
         const data = await response.json();
-        const randomIndex = Math.floor(Math.random() * 25);
+        const randomIndex = Math.floor(Math.random() * 50);
         setManga(data.data[randomIndex]);
       } catch (err) {
         console.error(err);

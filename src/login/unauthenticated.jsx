@@ -8,6 +8,32 @@ export function Unauthenticated(props) {
     const [userName, setUsername]= React.useState();
     const [password, setPassword]= React.useState();
 
+
+    async function newProfile(userName){
+      try{
+        const response = await fetch('/api/createProfile', {
+          method:'post',
+          credentials:'include', 
+          headers: {'Content-type': 'application/json; charset=UTF-8'},
+          body: JSON.stringify({
+            userName,
+            profilePic: null,
+            accountType: 'Public',
+            bio: {
+                favoriteMedia: '',
+                favoritePiece: '',
+                currentlyReading: '',
+                bioMessage: ''
+            }
+          })
+        })
+
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
     async function loginOrCreate(endpoint) {
       const response = await fetch(endpoint, {
         method: 'post',
@@ -30,6 +56,7 @@ export function Unauthenticated(props) {
 
   const handleCreate = async () => {
     await loginOrCreate('/api/auth/create');
+    await newProfile(userName);
   };
     
   return (
