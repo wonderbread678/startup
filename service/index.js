@@ -138,15 +138,15 @@ apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
 });
 
 // Get profile
-apiRouter.get('/getProfile', (req, res) => {
-
+apiRouter.get('/getProfile', verifyAuth, (req, res) => {
+  res.send(profiles)
 });
 
 // Create profile
 apiRouter.post('/createProfile', (req, res) => {
-  const { username } = req.body;
+  const { userName } = req.body;
   const newProfile =  {
-    username,
+    userName,
     profilePic: null,
     accountType: 'Public',
     bio: {
