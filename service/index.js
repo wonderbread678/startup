@@ -24,6 +24,7 @@ app.listen(port, () => {
 let entries = [];
 let lists = [];
 let users = [];
+let profiles =[];
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -136,6 +137,33 @@ apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
   }
 });
 
+// Get profile
+apiRouter.get('/getProfile', (req, res) => {
+
+});
+
+// Create profile
+apiRouter.post('/createProfile', (req, res) => {
+  const { username } = req.body;
+  const newProfile =  {
+    username,
+    profilePic: null,
+    accountType: 'Public',
+    bio: {
+        favoriteMedia: '',
+        favoritePiece: '',
+        currentlyReading: '',
+        bioMessage: ''
+    }
+  }
+  profiles.push(newProfile);
+  return res.status(201).json(newProfile);
+});
+
+// Update profile
+apiRouter.put('/updateProfile', verifyAuth, (req, res) => {
+
+});
 
 // Default error handler
 app.use(function (err, req, res, next) {
