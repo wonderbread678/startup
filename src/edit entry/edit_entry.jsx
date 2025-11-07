@@ -46,16 +46,48 @@ export function Edit_entry() {
 
     const DEFAULT_IMAGE = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdhmckee.com%2Farchives%2F2018%2F11%2Fpodcast-book-cover-design-tips-with-stuart-bache%2F&psig=AOvVaw2p_fOqAAo9rFQPK6WB5Lkx&ust=1760909196920000&source=images&cd=vfe&opi=89978449&ved=0CBYQjRxqFwoTCOj3yY3YrpADFQAAAAAdAAAAABAE";
     
-        const handleImage = (event) => {
-            const file = event.target.files[0];
-            if (!file) {setImage(DEFAULT_IMAGE);}
-            else{
-                const reader = new FileReader();
-                reader.onload = () => {setImage(reader.result)};
-                reader.readAsDataURL(file);
-            }
+    const handleImage = (event) => {
+        const file = event.target.files[0];
+        if (!file) {setImage(DEFAULT_IMAGE);}
+        else{
+            const reader = new FileReader();
+            reader.onload = () => {setImage(reader.result)};
+            reader.readAsDataURL(file);
         }
-        
+    }
+
+    async function updateEntry(){
+        try{
+            const response = await fetch(`/api/updateEntry/${entry.id}`, {
+                method:'put', 
+                credentials:'include',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    id: entry.id,
+                    title,
+                    author,
+                    type,
+                    rating,
+                    list,
+                    listRank,
+                    comment,
+                    image,
+                    listName,
+            })
+            });
+
+            if (!response.ok){
+                console.log("Failed to update");
+                return;
+            }
+            const updatedEntry = await response.json();
+            console.log(updatedEntry);
+        }
+        catch(err){
+            console.log(err);
+        }
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
