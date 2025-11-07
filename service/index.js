@@ -92,9 +92,10 @@ apiRouter.put('/updateEntry/:id', (req, res) => {
   const entryID = Number(req.params.id);
   const index = entries.findIndex(entry => entry.id === entryID);
   if (index === -1){
-    res.status(404).send({ msg: "Invalid entry"});  
+    res.status(404).send({ msg: "Invalid entry"});
+    return;  
   }
-  entries[index] = {...entries, ...req.body};
+  entries[index] = {...entries[index], ...req.body};
   res.send(entries[index]);
 })
 
