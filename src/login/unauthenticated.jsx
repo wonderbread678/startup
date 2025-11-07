@@ -15,19 +15,10 @@ export function Unauthenticated(props) {
           method:'post',
           credentials:'include', 
           headers: {'Content-type': 'application/json; charset=UTF-8'},
-          body: JSON.stringify({
-            userName,
-            profilePic: null,
-            accountType: 'Public',
-            bio: {
-                favoriteMedia: '',
-                favoritePiece: '',
-                currentlyReading: '',
-                bioMessage: ''
-            }
-          })
+          body: JSON.stringify({ userName })
         })
-
+        const profile = await response.json();
+        console.log(profile);
       }
       catch(err){
         console.log(err);
