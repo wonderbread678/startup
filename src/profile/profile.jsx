@@ -2,13 +2,35 @@ import React from 'react';
 import './Profile.css'
 import { Profile_list } from '../list/profile_list';
 import { useNavigate } from 'react-router-dom';
+import { resolveConfig } from 'vite';
 
 export function Profile() {
-    const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-    const navigate = useNavigate();
+    // const userProfile = JSON.parse(localStorage.getItem("userProfile"));
+    // const navigate = useNavigate();
 
-    const entries = JSON.parse(localStorage.getItem("entries") || "[]");
-    const entryCount = entries.length;
+    // const entries = JSON.parse(localStorage.getItem("entries") || "[]");
+    // const entryCount = entries.length;
+
+    const userName = localStorage.getItem('userName');
+    React.useEffect(() => {
+        async function getProfile(username) {
+            try{
+                const response = await fetch(`/api/getProfile?userName=${encodeURIComponent(userName)}`, {credentials:'include'})
+                if (!response.ok){
+                    alert("OH NO");
+                }
+                const profile = await response.json();
+                console.log("Fetched profile:", profile);
+                return profile;
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+        getProfile(userName);
+    }, []);
+
+    
     
 
   return (
