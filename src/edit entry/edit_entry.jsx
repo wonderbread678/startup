@@ -21,7 +21,7 @@ export function Edit_entry() {
     const [comment, setComment] = React.useState(entryToEdit.comment || '');
     const [image, setImage] = React.useState(entryToEdit.image || null);
     const [listName, setListName] = React.useState(entryToEdit.listName);
-    const [lists, setLists] = React.useState(entryToEdit.listName);
+    const [lists, setLists] = React.useState([]);
 
         React.useEffect(() => {
             async function getLists(){
@@ -31,8 +31,11 @@ export function Edit_entry() {
                         alert("YOU GOOFY");
                     }
                     const body = await response.json();
-                    setLists(body.length ? body : ['--']);
-                    if (body.length) setList(body[0]);
+                    const allLists = body.length ? body : ['--'];
+                    setLists(allLists);
+                    if (body.length && !list) {
+                        setList(body[0]);
+                    }
                 }
                 catch(err){
                     console.log(err)
@@ -58,12 +61,12 @@ export function Edit_entry() {
 
     async function updateEntry(){
         try{
-            const response = await fetch(`/api/updateEntry/${entry.id}`, {
+            const response = await fetch(`/api/updateEntry/${entryToEdit.id}`, {
                 method:'put', 
                 credentials:'include',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    id: entry.id,
+                    id: entryToEdit.id,
                     title,
                     author,
                     type,
@@ -88,29 +91,9 @@ export function Edit_entry() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const newEntry ={
-            id: Date.now(),
-            title,
-            author,
-            type,
-            rating,
-            list,
-            listRank,
-            comment,
-            image,
-            listName
-        };
-
-        const savedEntries = JSON.parse(localStorage.getItem("entries") || "[]");
-
-        const updatedEntries = savedEntries.map(entry => entry.id === entryToEdit.id ? {...entryToEdit, title, author, type, rating, list, listRank, comment, image, listName} : entry);
-        
-        localStorage.setItem("entries", JSON.stringify(updatedEntries));
-        console.log(newEntry);
-
+        await updateEntry();
         navigate('/list');
     };
 

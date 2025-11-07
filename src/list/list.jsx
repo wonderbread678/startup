@@ -21,7 +21,6 @@ export function List(props) {
                 }
                 const body = await response.json();
                 setLists(body.length ? body : ['--']);
-                if (body.length) setCategory(body[0]);
             }
             catch(err){
                 console.log(err)
@@ -83,20 +82,13 @@ export function List(props) {
         }
     }
 
-    // const handleDelete = (deletedEntry) => {
-    //     const updatedEntries = entries.filter((entry) => entry.id !== deletedEntry.id);
-    //     setEntries(updatedEntries);
-    //     localStorage.setItem("entries", JSON.stringify(updatedEntries));
-    // };
-
-
   return (
     <main className="main">
       <div className="body">
         {entries.length !== 0 ? (
         <div className="listBody">
         <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select id="listSelection" style={{marginBottom:"15px"}} onChange={(e) => handleCategory(e.target.value)}>
+            <select id="listSelection" style={{marginBottom:"15px"}} value={category} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
                 {lists.map((listName, index) => (
                     <option key={index} value={listName}>{listName}</option>
