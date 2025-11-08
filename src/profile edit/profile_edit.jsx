@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function Profile_edit() {
     const storedProfile = JSON.parse(localStorage.getItem("userProfile"));
+    const userName = localStorage.getItem("userName");
     const navigate = useNavigate();
     
     const [profilePic, setProfilePic] = React.useState(storedProfile.profilePic);
@@ -14,6 +15,7 @@ export function Profile_edit() {
 
     const DEFAULT_IMAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStltpfa69E9JTQOf5ZcyLGR8meBbxMFJxM0w&s";
 
+
     const handleImage = (event) => {
         const file = event.target.files[0];
         if (!file) {setProfilePic(DEFAULT_IMAGE);}
@@ -21,6 +23,19 @@ export function Profile_edit() {
             const reader = new FileReader();
             reader.onload = () => {setProfilePic(reader.result)};
             reader.readAsDataURL(file);
+        }
+    }
+
+    async function updateProfile(){
+        try{
+            const response = await fetch(`/api/updateProfile/${userName}`, {
+                method:'put', 
+                credentials:'include',
+                headers: {'Content-Type': 'application/json'}
+            })
+        }
+        catch(err){
+            console.log(err);
         }
     }
 

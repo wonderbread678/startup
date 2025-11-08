@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export function Profile() {
 
-
     const [userProfile, setUserProfile] = React.useState(null);
     const [entryCount, setEntryCount] = React.useState(0);
     const navigate = useNavigate();
@@ -21,6 +20,7 @@ export function Profile() {
                 }
                 const profile = await response.json();
                 setUserProfile(profile);
+                localStorage.setItem("userProfile", JSON.stringify(profile))
             }
             catch(err){
                 console.log(err);
