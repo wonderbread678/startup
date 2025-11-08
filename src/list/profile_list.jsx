@@ -8,27 +8,6 @@ export function Profile_list(props) {
     const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
     const [category, setCategory]=React.useState('All');
 
-    const navigate = useNavigate();
-    
-    React.useEffect(() => {
-        async function getLists(){
-            try{
-                const response = await fetch('/api/lists', {credentials: 'include'})
-                if (!response.ok){
-                    alert("YOU GOOFY");
-                }
-                const body = await response.json();
-                setLists(body.length ? body : ['--']);
-            }
-            catch(err){
-                console.log(err)
-            }
-        }
-
-        getLists();
-    }, []);
-
-
     React.useEffect(() =>{
         fetchEntries();
     }, []);
@@ -38,10 +17,6 @@ export function Profile_list(props) {
         const body = await response.json();
         setEntries(body);
     }
-
-    function handleCategory(selectedCategory){
-        setCategory(selectedCategory);
-    };
 
     const groupedEntries = entries.reduce((groups, entry) => {
         const listName = entry.list || "Uncategorized";
