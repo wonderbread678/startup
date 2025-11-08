@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 export function Profile() {
 
-    // const entries = JSON.parse(localStorage.getItem("entries") || "[]");
-    // const entryCount = entries.length;
 
     const [userProfile, setUserProfile] = React.useState(null);
     const [entryCount, setEntryCount] = React.useState(0);
@@ -31,10 +29,15 @@ export function Profile() {
         getProfile(userName);
     }, []);
 
-    React.useEffct(() => {
+    React.useEffect(() => {
         async function getCounts(userName){
             try{
                 const response = await fetch(`/api/entryCount/${userName}`, {credentials:'include'})
+                if (!response.ok){
+                    alert("OH NO")
+                }
+                const count = await response.json();
+                setEntryCount(count);
             }
             catch(err){
                 console.log(err);
