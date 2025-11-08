@@ -8,12 +8,14 @@ export function Profile_list(props) {
     const [entries, setEntries]=React.useState(() => JSON.parse(localStorage.getItem("entries") || "[]"));
     const [category, setCategory]=React.useState('All');
 
+    const userName = localStorage.getItem("userName");
+
     React.useEffect(() =>{
         fetchEntries();
     }, []);
 
     async function fetchEntries(){
-        const response = await fetch('/api/entryList', {credentials: 'include'})
+        const response = await fetch(`/api/entryList/${userName}`, {credentials: 'include'})
         const body = await response.json();
         setEntries(body);
     }

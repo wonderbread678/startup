@@ -9,12 +9,14 @@ export function List(props) {
     const [category, setCategory]=React.useState('All');
     const [lists, setLists]=React.useState([]);
 
+    const userName = localStorage.getItem("userName");
+
     const navigate = useNavigate();
 
     React.useEffect(() => {
         async function getLists(){
             try{
-                const response = await fetch('/api/lists', {credentials: 'include'})
+                const response = await fetch(`/api/lists/${userName}`, {credentials: 'include'})
                 if (!response.ok){
                     alert("YOU GOOFY");
                 }
@@ -35,7 +37,7 @@ export function List(props) {
     }, []);
 
     async function fetchEntries(){
-        const response = await fetch('/api/entryList', {credentials: 'include'})
+        const response = await fetch(`/api/entryList/${userName}`, {credentials: 'include'})
         const body = await response.json();
         setEntries(body);
     }

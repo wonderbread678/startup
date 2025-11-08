@@ -27,7 +27,7 @@ export function Edit_entry() {
         React.useEffect(() => {
             async function getLists(){
                 try{
-                    const response = await fetch('/api/lists', {credentials: 'include'})
+                    const response = await fetch(`/api/lists/${userName}`, {credentials: 'include'})
                     if (!response.ok){
                         alert("YOU GOOFY");
                     }
