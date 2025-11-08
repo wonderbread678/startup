@@ -31,28 +31,34 @@ export function Profile_edit() {
             const response = await fetch(`/api/updateProfile/${userName}`, {
                 method:'put', 
                 credentials:'include',
-                headers: {'Content-Type': 'application/json'}
-            })
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    userName,
+                    profilePic,
+                    accountType,
+                    bio: {
+                        favoriteMedia,
+                        favoritePiece,
+                        currentlyReading,
+                        bioMessage
+                    }
+                })
+            });
+            if (!response.ok){
+                console.log("Failed to update");
+                return;
+            }
+            const updatedProfile = await response.json();
+            console.log(updatedProfile);
         }
         catch(err){
             console.log(err);
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const updatedProfile = {
-            ...storedProfile,
-            profilePic,
-            accountType,
-            bio: {
-                favoriteMedia,
-                favoritePiece,
-                currentlyReading,
-                bioMessage
-            }
-        }
-        localStorage.setItem("userProfile", JSON.stringify(updatedProfile));
+        await updateProfile();
         navigate('/profile');
     };
 
