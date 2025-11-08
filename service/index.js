@@ -74,8 +74,10 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // get lists
-apiRouter.get('/lists', verifyAuth, (_req, res) => {
-  res.send(lists);
+apiRouter.get('/lists/:userName', verifyAuth, (req, res) => {
+  const userName = req.params.userName;
+  const userLists = lists.filter(list => list.userName === userName);
+  res.send(userLists);
 })
 
 // create list
@@ -86,8 +88,10 @@ apiRouter.post('/listName', verifyAuth, async (req, res) => {
 })
 
 // Get entries
-apiRouter.get('/entryList', verifyAuth, (_req, res) => {
-    res.send(entries);
+apiRouter.get('/entryList/:userName', verifyAuth, (req, res) => {
+    const userName = req.params.userName;
+    const userEntries = entries.filter(entry => entry.userName === userName);
+    res.send(userEntries);
 });
 
 // Submit entry
