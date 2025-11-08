@@ -2,26 +2,27 @@ import React from 'react';
 import './Profile.css'
 import { Profile_list } from '../list/profile_list';
 import { useNavigate } from 'react-router-dom';
-import { resolveConfig } from 'vite';
 
 export function Profile() {
-    // const userProfile = JSON.parse(localStorage.getItem("userProfile"));
-    // const navigate = useNavigate();
 
     // const entries = JSON.parse(localStorage.getItem("entries") || "[]");
     // const entryCount = entries.length;
 
+    const [userProfile, setUserProfile] = React.useState(null);
+    const [entryCount, setEntryCount] = React.useState(0);
+    const navigate = useNavigate();
+
     const userName = localStorage.getItem('userName');
+
     React.useEffect(() => {
-        async function getProfile(username) {
+        async function getProfile(userName) {
             try{
-                const response = await fetch(`/api/getProfile?userName=${encodeURIComponent(userName)}`, {credentials:'include'})
+                const response = await fetch(`/api/getProfile/${userName}`, {credentials:'include'})
                 if (!response.ok){
                     alert("OH NO");
                 }
                 const profile = await response.json();
-                console.log("Fetched profile:", profile);
-                return profile;
+                setUserProfile(profile);
             }
             catch(err){
                 console.log(err);
@@ -30,8 +31,23 @@ export function Profile() {
         getProfile(userName);
     }, []);
 
+    React.useEffct(() => {
+        async function getCounts(userName){
+            try{
+                const response = await fetch(`/api/entryCount/${userName}`, {credentials:'include'})
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+
+        getCounts(userName);
+    }, [])
+
     
-    
+  if (!userProfile) {
+    return <main className="main"><div className="body">Loading profile...</div></main>;
+  }
 
   return (
     <main className="main">

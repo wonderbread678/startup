@@ -15,6 +15,7 @@ export function Entry_upload() {
     const [lists, setLists] = React.useState(["--"]);
 
     const DEFAULT_IMAGE = "defbookcover-min.jpg"
+    const userName = localStorage.getItem('userName');
 
     React.useEffect(() => {
         async function getLists(){
@@ -55,7 +56,10 @@ export function Entry_upload() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ listName: listName }),
+                body: JSON.stringify({ 
+                    listName: listName,
+                    userName: userName
+                 }),
                 credentials: 'include',
             });
 
@@ -89,6 +93,7 @@ export function Entry_upload() {
 
         const newEntry ={
             id: Date.now(),
+            userName: userName,
             title,
             author,
             type,
@@ -123,6 +128,7 @@ export function Entry_upload() {
             },
             body: JSON.stringify({
                 id: Date.now(),
+                userName: userName,
                 title,
                 author,
                 type,
