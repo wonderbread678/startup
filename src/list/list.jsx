@@ -11,7 +11,6 @@ export function List(props) {
 
     const navigate = useNavigate();
 
-    // Get lists
     React.useEffect(() => {
         async function getLists(){
             try{
@@ -31,7 +30,6 @@ export function List(props) {
     }, []);
 
 
-    // Get the entries
     React.useEffect(() =>{
         fetchEntries();
     }, []);
