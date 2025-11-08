@@ -40,13 +40,12 @@ export function Entry_upload() {
         if (!list.includes(listName)){
             const updatedLists = [...lists, listName]
             setLists(updatedLists);
-            createList();
+            await createList();
             setListName(''); 
         }
         else {
             console.log('list already exists');
         }    
-        setListName('');
     }
 
     async function createList() {

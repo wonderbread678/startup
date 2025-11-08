@@ -24,27 +24,24 @@ export function Edit_entry() {
     const [listName, setListName] = React.useState(entryToEdit.listName);
     const [lists, setLists] = React.useState([]);
 
-        React.useEffect(() => {
-            async function getLists(){
-                try{
-                    const response = await fetch(`/api/lists/${userName}`, {credentials: 'include'})
-                    if (!response.ok){
-                        alert("YOU GOOFY");
-                    }
-                    const body = await response.json();
-                    const allLists = body.length ? body : ['--'];
-                    setLists(allLists);
-                    if (body.length && !list) {
-                        setList(body[0]);
-                    }
+    React.useEffect(() => {
+        async function getLists(){
+            try{
+                const response = await fetch(`/api/lists/${userName}`, {credentials: 'include'})
+                if (!response.ok){
+                    alert("YOU GOOFY");
                 }
-                catch(err){
-                    console.log(err)
-                }
+                const body = await response.json();
+                setLists(body.length ? body : ['--']);
+                if (body.length) setList(body[0]);
             }
-    
-            getLists();
-        }, []);
+            catch(err){
+                console.log(err)
+            }
+        }
+
+        getLists();
+    }, []);
 
     console.log({ title, author, type, rating, list, listRank, comment, image, listName });
 
