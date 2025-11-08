@@ -28,24 +28,24 @@ let profiles =[];
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
-  if (await findUser('username', req.body.username)) {
+  if (await findUser('userName', req.body.userName)) {
     res.status(409).send({ msg: 'Existing user' });
   } else {
-    const user = await createUser(req.body.username, req.body.password);
+    const user = await createUser(req.body.userName, req.body.password);
 
     setAuthCookie(res, user.token);
-    res.send({ username: user.username });
+    res.send({ userName: user.userName });
   }
 });
 
 // GetAuth login an existing user
 apiRouter.post('/auth/login', async (req, res) => {
-  const user = await findUser('username', req.body.username);
+  const user = await findUser('userName', req.body.userName);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
       setAuthCookie(res, user.token);
-      res.send({ username: user.username });
+      res.send({ userName: user.userName });
       return;
     }
   }
@@ -193,11 +193,11 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
 
-async function createUser(username, password) {
+async function createUser(userName, password) {
   const passwordHash = await bcrypt.hash(password, 10);
 
   const user = {
-    username: username,
+    userName: userName,
     password: passwordHash,
     token: uuid.v4(),
   };
