@@ -34,6 +34,7 @@ apiRouter.post('/auth/create', async (req, res) => {
     const user = await createUser(req.body.userName, req.body.password);
 
     setAuthCookie(res, user.token);
+    console.log(users);
     res.send({ userName: user.userName });
   }
 });
