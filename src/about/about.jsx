@@ -34,7 +34,7 @@ React.useEffect(() => {
                 The comment feature gives a more immersive experience to the user, in addition to the numerical rating system, further giving freedom to the user to create the lists and rankings that might only be inside of their heads.
             </div>
         <hr/>
-        <p>For taking the time to see what Koob is all about, here is a book recommendation for you to try! </p>
+        <p>For taking the time to see what Koob is all about, here is a manga recommendation for you to try! </p>
         <div className="mangaRec">
           {manga && (
             <div>

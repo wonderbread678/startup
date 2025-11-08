@@ -49,11 +49,9 @@ export default function App() {
                                 <NavLink className="nav-link" style={{color:"white"}} to='profile'>Profile</NavLink>
                             </li>
                         )}
-                        {authState === AuthState.Authenticated &&(
-                            <li className="nav-item">
-                                <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
-                            </li>
-                        )}
+                        <li className="nav-item">
+                            <NavLink className="nav-link" style={{color:"white"}} to='about'>About</NavLink>
+                        </li>
 
                     </menu>
                 </nav>
