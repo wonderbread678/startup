@@ -171,8 +171,16 @@ apiRouter.post('/createProfile', (req, res) => {
 });
 
 // Update profile
-apiRouter.put('/updateProfile', verifyAuth, (req, res) => {
+apiRouter.put('/updateProfile/:userName', verifyAuth, (req, res) => {
+  const userName = req.params.userName;
+  const index = profiles.findIndex(profile => profile.userName === userName);
+  if (index === -1){
+    res.status(404).send({ msg: "Profile does not exist" });
+    return;
+  }
+  profiles[index] = {...profiles[index], bio: { ...profiles[index].bio, ...req.body.bio }, ...req.body};
 
+  res.send(profiles[index]);
 });
 
 // Default error handler
