@@ -25,6 +25,25 @@ export function Unauthenticated(props) {
       }
     }
 
+    async function createDefaultList(userName){
+      try{
+        const response = await fetch('/api/listName', {
+          method: 'post',
+          credentials:'include',
+          headers: {'Content-type': 'application/json; charset=UTF-8'},
+          body: JSON.stringify({
+            userName: userName,
+            listName: '--'
+          })
+        })
+        const body = await response.json();
+        console.log("Updated lists from backend:", body);
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
     async function loginOrCreate(endpoint) {
       const response = await fetch(endpoint, {
         method: 'post',
@@ -48,6 +67,7 @@ export function Unauthenticated(props) {
   const handleCreate = async () => {
     await loginOrCreate('/api/auth/create');
     await newProfile(userName);
+    await createDefaultList(userName);
   };
     
   return (
