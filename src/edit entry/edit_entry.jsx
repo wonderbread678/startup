@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export function Edit_entry() {
     const entryToEdit = JSON.parse(localStorage.getItem("entryToEdit"))
-    const userName = localStorage.getItem("usesName");
+    const userName = localStorage.getItem("userName");
     const navigate = useNavigate();
 
     React.useEffect(() => {
