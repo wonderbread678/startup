@@ -79,25 +79,9 @@ apiRouter.get('/lists', verifyAuth, (_req, res) => {
 
 // create list
 apiRouter.post('/listName', verifyAuth, async (req, res) => {
-    console.log("starting the post")
-    console.log("Incoming listName:", req.body.listName)
-    const newList = req.body.listName;
-    console.log("going to update")
-    updateLists(newList);
-    console.log("sending it back")
+    const {listName, userName} = req.body;
+    updateLists(listName);
     res.send(lists);
-})
-
-// Update list
-apiRouter.put('/updateEntry/:id', (req, res) => {
-  const entryID = Number(req.params.id);
-  const index = entries.findIndex(entry => entry.id === entryID);
-  if (index === -1){
-    res.status(404).send({ msg: "Invalid entry"});
-    return;  
-  }
-  entries[index] = {...entries[index], ...req.body};
-  res.send(entries[index]);
 })
 
 // Get entries
@@ -110,6 +94,7 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
     console.log("Incoming /api/entries body:", req.body);
     const newEntry = {
         id: req.body.id,
+        userName: req.body.userName,
         title: req.body.title,
         author: req.body.author,
         type: req.body.type,
@@ -125,6 +110,18 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
     return;
 });
 
+// Update entry
+apiRouter.put('/updateEntry/:id', (req, res) => {
+  const entryID = Number(req.params.id);
+  const index = entries.findIndex(entry => entry.id === entryID);
+  if (index === -1){
+    res.status(404).send({ msg: "Invalid entry"});
+    return;  
+  }
+  entries[index] = {...entries[index], ...req.body};
+  res.send(entries[index]);
+})
+
 // Delete entry
 apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
   const id = Number(req.params.id);
@@ -137,9 +134,22 @@ apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
   }
 });
 
+// Get entry count
+apiRouter.get('/entryCount/:userName', verifyAuth, (req, res) => {
+  const user = req.params.userName;
+  const entryCount = entries.length;
+  res.send(entryCount);
+})
+
 // Get profile
-apiRouter.get('/getProfile', verifyAuth, (req, res) => {
-  res.send(profiles)
+apiRouter.get('/getProfile/:userName', verifyAuth, (req, res) => {
+  const userName = req.params.userName;
+  const index = profiles.findIndex(profile => profile.userName === userName);
+  if (index === -1){
+    res.status(404).send({ msg: "Profile does not exist"});
+    return;  
+  }
+  res.send(profiles[index]);
 });
 
 // Create profile
