@@ -148,7 +148,7 @@ export function Edit_entry() {
                     <input type="text" name="comment" id="comment" placeholder="Optional" value={comment} onChange={(e) => setComment(e.target.value)}/>
                 </li>
             </ul>
-            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px'}}>Update</button>
+            <button type="submit" className="btn btn-primary" id="submit" style={{marginTop:'1px', backgroundColor:'#00674F', width:'100%'}}>Update</button>
             <hr style={{color:"#00674F"}}/>
             </form>
         </div>

@@ -27,6 +27,9 @@ export function Entry_upload() {
                 const body = await response.json();
                 setLists(body.length ? body : ['--']);
                 if (body.length) setList(body[0]);
+                if (!body.length){
+                    
+                }
             }
             catch(err){
                 console.log(err)
