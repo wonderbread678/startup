@@ -77,15 +77,24 @@ const verifyAuth = async (req, res, next) => {
 apiRouter.get('/lists/:userName', verifyAuth, (req, res) => {
   const userName = req.params.userName;
   const userLists = lists.filter(list => list.userName === userName);
-  res.send(userLists);
+  res.send(userLists.map(l => l.listName));
 })
 
 // create list
 apiRouter.post('/listName', verifyAuth, async (req, res) => {
-    const {listName, userName} = req.body;
-    updateLists(listName);
-    res.send(lists);
-})
+    const { listName, userName } = req.body;
+    const existing = lists.find(list => list.userName === userName && list.listName === listName);
+    if (existing) {
+        return res.status(400).send({ msg: 'List already exists' });
+    }
+    const newList = { userName, listName };
+    lists.push(newList);
+
+    console.log("All lists:", lists);
+    const userLists = lists.filter(list => list.userName === userName);
+    res.send(userLists.map(l => l.listName));
+});
+
 
 // Get entries
 apiRouter.get('/entryList/:userName', verifyAuth, (req, res) => {
@@ -230,12 +239,6 @@ function updateEntries(newEntry) {
   entries.push(newEntry);
   console.log({entries});
   return entries;
-}
-
-function updateLists(newList) {
-  lists.push(newList);
-  console.log(lists);
-  return lists
 }
 
 
