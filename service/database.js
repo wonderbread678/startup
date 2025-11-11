@@ -47,16 +47,17 @@ async function createEntry(entry){
     return await entriesCollection.insertOne(entry)
 }
 
-async function getEntry(){
-    return await entriesCollection.findOne({})
+async function getEntry(userName, entryID){
+    return await entriesCollection.findOne({userName, id: entryID})
 }
 
-async function updateEntry(){
-
+async function updateEntry(userName, entryID, updateFields){
+    await entriesCollection.updateOne({ userName, id: entryID}, {$set: updateFields});
+    return await entriesCollection.findOne({ userName, id: entryID });
 }
 
-async function deleteEntry(){
-
+async function deleteEntry(userName, entryID){
+    return await entriesCollection.deleteOne({ userName, id: entryID });
 }
 
 async function createProfile(){
