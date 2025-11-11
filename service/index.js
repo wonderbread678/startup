@@ -106,6 +106,7 @@ apiRouter.get('/entryList/:userName', verifyAuth, async (req, res) => {
 // Submit entry
 apiRouter.post('/entries', verifyAuth, async (req, res) => {
     console.log("Incoming /api/entries body:", req.body);
+    const userName = req.body.userName;
     const newEntry = {
         id: req.body.id,
         userName: req.body.userName,
@@ -119,8 +120,9 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
         image: req.body.image,
         listName: req.body.listName
     }
-    entries = updateEntries(newEntry);
-    res.send({entries});
+    await DB.createEntry(newEntry);
+    const userEntries = await DB.getEntries(userName);
+    res.send(userEntries);
     return;
 });
 
@@ -147,21 +149,21 @@ apiRouter.delete('/deleteEntry/:id', verifyAuth, async (req, res) => {
 });
 
 // Get entry count
-apiRouter.get('/entryCount/:userName', verifyAuth, (req, res) => {
-  const user = req.params.userName;
-  const entryCount = entries.length;
+apiRouter.get('/entryCount/:userName', verifyAuth, async (req, res) => {
+  const userName = req.params.userName;
+  const entryCount = await DB.getEntryCount(userName);
   res.send(entryCount);
 })
 
 // Get profile
 apiRouter.get('/getProfile/:userName', verifyAuth, async (req, res) => {
   const userName = req.params.userName;
-  const index = await DB.getProfile(userName)
-  if (index === -1){
+  const profile = await DB.getProfile(userName)
+  if (!profile){
     res.status(404).send({ msg: "Profile does not exist"});
     return;  
   }
-  res.send(profiles[index]);
+  res.send(profile);
 });
 
 // Create profile
