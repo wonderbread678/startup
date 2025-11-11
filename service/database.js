@@ -68,6 +68,10 @@ async function deleteEntry(userName, entryID){
     return await entriesCollection.deleteOne({ userName, id: entryID });
 }
 
+async function getEntryCount(userName) {
+  return await entriesCollection.countDocuments({ userName });
+}
+
 async function createProfile(profile){
     return await profilesCollection.insertOne(profile);
 }
@@ -94,6 +98,7 @@ module.exports = {
   getEntries,
   updateEntry,
   deleteEntry,
+  getEntryCount,
   createProfile,
   getProfile,
   updateProfile,

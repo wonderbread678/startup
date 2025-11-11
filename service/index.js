@@ -125,27 +125,25 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
 });
 
 // Update entry
-apiRouter.put('/updateEntry/:id', (req, res) => {
+apiRouter.put('/updateEntry/:id', async (req, res) => {
   const entryID = Number(req.params.id);
-  const index = entries.findIndex(entry => entry.id === entryID);
-  if (index === -1){
-    res.status(404).send({ msg: "Invalid entry"});
-    return;  
+  const userName = req.body.userName;
+  const updated = await DB.updateEntry(userName, entryID, req.body);
+  if (!updated){
+    return res.status(404).send({ msg: "Invalid entry" });
   }
-  entries[index] = {...entries[index], ...req.body};
-  res.send(entries[index]);
+  res.send(updated);
 })
 
 // Delete entry
-apiRouter.delete('/deleteEntry/:id', verifyAuth, (req, res) => {
+apiRouter.delete('/deleteEntry/:id', verifyAuth, async (req, res) => {
   const id = Number(req.params.id);
-  const index = entries.findIndex(entry => entry.id === id);
-  if (index !== -1) {
-    entries.splice(index, 1);
-    res.status(200).json(entries);
-  } else {
-    res.status(404).json({ msg: 'Entry not found' });
+  const userName = req.body.userName;
+  const result = await DB. deleteEntry(userName, id);
+  if (result.deletedCount === 0){
+    return res.status(404).send({ msg: "Entry not found" });
   }
+  res.status(200).send({ msg: "Entry deleted" });
 });
 
 // Get entry count
