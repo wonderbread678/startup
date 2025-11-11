@@ -43,12 +43,20 @@ async function getList(userName, listName){
     return await listsCollection.findOne({ userName, listName });
 }
 
+async function getLists(userName){
+    return await listsCollection.find({ userName }).toArray();
+}
+
 async function createEntry(entry){
     return await entriesCollection.insertOne(entry)
 }
 
 async function getEntry(userName, entryID){
     return await entriesCollection.findOne({userName, id: entryID})
+}
+
+async function getEntries(userName){
+    return await entriesCollection.find({ userName }).toArray();
 }
 
 async function updateEntry(userName, entryID, updateFields){
@@ -80,8 +88,10 @@ module.exports = {
   updateUser,
   createList,
   getList,
+  getLists,
   createEntry,
   getEntry,
+  getEntries,
   updateEntry,
   deleteEntry,
   createProfile,

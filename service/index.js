@@ -22,10 +22,10 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-let entries = [];
-let lists = [];
-let users = [];
-let profiles =[];
+// let entries = [];
+// let lists = [];
+// let users = [];
+// let profiles =[];
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -35,7 +35,6 @@ apiRouter.post('/auth/create', async (req, res) => {
     const user = await createUser(req.body.userName, req.body.password);
 
     setAuthCookie(res, user.token);
-    console.log(users);
     res.send({ userName: user.userName });
   }
 });
@@ -77,32 +76,30 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // get lists
-apiRouter.get('/lists/:userName', verifyAuth, (req, res) => {
+apiRouter.get('/lists/:userName', verifyAuth, async (req, res) => {
   const userName = req.params.userName;
-  const userLists = lists.filter(list => list.userName === userName);
+  const userLists = await DB.getLists(userName);
   res.send(userLists.map(l => l.listName));
 })
 
 // create list
 apiRouter.post('/listName', verifyAuth, async (req, res) => {
     const { listName, userName } = req.body;
-    const existing = lists.find(list => list.userName === userName && list.listName === listName);
+    const existing = await DB.getList(userName, listName);
     if (existing) {
         return res.status(400).send({ msg: 'List already exists' });
     }
-    const newList = { userName, listName };
-    lists.push(newList);
-
-    console.log("All lists:", lists);
-    const userLists = lists.filter(list => list.userName === userName);
+    
+    await DB.createList({ userName, listName})
+    const userLists = await DB.getLists(userName);
     res.send(userLists.map(l => l.listName));
 });
 
 
 // Get entries
-apiRouter.get('/entryList/:userName', verifyAuth, (req, res) => {
+apiRouter.get('/entryList/:userName', verifyAuth, async (req, res) => {
     const userName = req.params.userName;
-    const userEntries = entries.filter(entry => entry.userName === userName);
+    const userEntries = await DB.getEntries(userName);
     res.send(userEntries);
 });
 
@@ -159,9 +156,9 @@ apiRouter.get('/entryCount/:userName', verifyAuth, (req, res) => {
 })
 
 // Get profile
-apiRouter.get('/getProfile/:userName', verifyAuth, (req, res) => {
+apiRouter.get('/getProfile/:userName', verifyAuth, async (req, res) => {
   const userName = req.params.userName;
-  const index = profiles.findIndex(profile => profile.userName === userName);
+  const index = await DB.getProfile(userName)
   if (index === -1){
     res.status(404).send({ msg: "Profile does not exist"});
     return;  
@@ -170,8 +167,12 @@ apiRouter.get('/getProfile/:userName', verifyAuth, (req, res) => {
 });
 
 // Create profile
-apiRouter.post('/createProfile', (req, res) => {
+apiRouter.post('/createProfile', async (req, res) => {
   const { userName } = req.body;
+  const existing = await DB.getProfile(userName);
+  if (existing){
+    return res.status(400).send({msg: "profile already exists"});
+  }
   const newProfile =  {
     userName,
     profilePic: null,
@@ -183,22 +184,20 @@ apiRouter.post('/createProfile', (req, res) => {
         bioMessage: ''
     }
   }
-  profiles.push(newProfile);
+  await DB.createProfile(newProfile);
   return res.status(201).json(newProfile);
 });
 
 // Update profile
-apiRouter.put('/updateProfile/:userName', verifyAuth, (req, res) => {
+apiRouter.put('/updateProfile/:userName', verifyAuth, async (req, res) => {
   const userName = req.params.userName;
-  const index = profiles.findIndex(profile => profile.userName === userName);
-  if (index === -1){
-    res.status(404).send({ msg: "Profile does not exist" });
-    return;
+  const updatedProfile = await DB.updateProfile(userName, req.body);
+  if (!updatedProfile) {
+    return res.status(404).send({ msg: "Profile does not exist" });
   }
-  profiles[index] = {...profiles[index], bio: { ...profiles[index].bio, ...req.body.bio }, ...req.body};
-
-  res.send(profiles[index]);
+  res.send(updatedProfile);
 });
+
 
 // Default error handler
 app.use(function (err, req, res, next) {
