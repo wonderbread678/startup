@@ -35,20 +35,20 @@ async function updateUser(user) {
   await userCollection.updateOne({ userName: user.userName }, { $set: user });
 }
 
-async function createList(){
-
+async function createList(list){
+    return listsCollection.insertOne(list)
 }
 
-async function getList(){
-
+async function getList(userName, listName){
+    return await listsCollection.findOne({ userName, listName });
 }
 
-async function createEntry(){
-
+async function createEntry(entry){
+    return await entriesCollection.insertOne(entry)
 }
 
 async function getEntry(){
-    
+    return await entriesCollection.findOne({})
 }
 
 async function updateEntry(){
