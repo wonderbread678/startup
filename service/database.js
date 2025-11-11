@@ -69,7 +69,8 @@ async function getProfile(userName){
 }
 
 async function updateProfile(userName, updatedFields){
-    return await profilesCollection.updateOne({userName: userName}, {$set: updatedFields})
+    await profilesCollection.updateOne({userName: userName}, {$set: updatedFields})
+    return await profilesCollection.findOne({ userName: userName});
 }
 
 module.exports = {
