@@ -19,7 +19,7 @@ const profilesCollection = db.collection('profiles');
   }
 })();
 
-function getUser(email) {
+function getUser(userName) {
   return userCollection.findOne({ userName: userName });
 }
 
@@ -35,10 +35,54 @@ async function updateUser(user) {
   await userCollection.updateOne({ userName: user.userName }, { $set: user });
 }
 
+async function createList(){
+
+}
+
+async function getList(){
+
+}
+
+async function createEntry(){
+
+}
+
+async function getEntry(){
+    
+}
+
+async function updateEntry(){
+
+}
+
+async function deleteEntry(){
+
+}
+
+async function createProfile(){
+
+}
+
+async function getProfile(){
+
+}
+
+async function updateProfile(){
+
+}
 
 module.exports = {
   getUser,
   getUserByToken,
   addUser,
   updateUser,
+  createList,
+  getList,
+  createEntry,
+  getEntry,
+  updateEntry,
+  deleteEntry,
+  createProfile,
+  getProfile,
+  updateProfile,
 };
