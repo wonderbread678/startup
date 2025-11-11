@@ -20,7 +20,7 @@ const profilesCollection = db.collection('profiles');
 })();
 
 function getUser(email) {
-  return userCollection.findOne({ email: email });
+  return userCollection.findOne({ userName: userName });
 }
 
 function getUserByToken(token) {
@@ -32,10 +32,13 @@ async function addUser(user) {
 }
 
 async function updateUser(user) {
-  await userCollection.updateOne({ email: user.email }, { $set: user });
+  await userCollection.updateOne({ userName: user.userName }, { $set: user });
 }
 
 
-
-
-main();
+module.exports = {
+  getUser,
+  getUserByToken,
+  addUser,
+  updateUser,
+};
