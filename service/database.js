@@ -60,16 +60,16 @@ async function deleteEntry(userName, entryID){
     return await entriesCollection.deleteOne({ userName, id: entryID });
 }
 
-async function createProfile(){
-
+async function createProfile(profile){
+    return await profilesCollection.insertOne(profile);
 }
 
-async function getProfile(){
-
+async function getProfile(userName){
+    return await profilesCollection.findOne({ userName: userName})
 }
 
-async function updateProfile(){
-
+async function updateProfile(userName, updatedFields){
+    return await profilesCollection.updateOne({userName: userName}, {$set: updatedFields})
 }
 
 module.exports = {
