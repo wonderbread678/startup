@@ -22,11 +22,6 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// let entries = [];
-// let lists = [];
-// let users = [];
-// let profiles =[];
-
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
   if (await findUser('userName', req.body.userName)) {
