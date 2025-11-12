@@ -138,14 +138,16 @@ apiRouter.put('/updateEntry/:id', async (req, res) => {
 })
 
 // Delete entry
-apiRouter.delete('/deleteEntry/:id', verifyAuth, async (req, res) => {
+apiRouter.delete('/deleteEntry/:id/:userName', verifyAuth, async (req, res) => {
   const id = Number(req.params.id);
-  const userName = req.body.userName;
-  const result = await DB. deleteEntry(userName, id);
+  const userName = req.params.userName;
+  const result = await DB.deleteEntry(userName, id);
   if (result.deletedCount === 0){
     return res.status(404).send({ msg: "Entry not found" });
   }
-  res.status(200).send({ msg: "Entry deleted" });
+
+  const updatedEntries = await DB.getEntries(userName);
+  res.status(200).json(updatedEntries);
 });
 
 // Get entry count
