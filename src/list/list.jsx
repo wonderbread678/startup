@@ -39,7 +39,10 @@ export function List(props) {
     async function fetchEntries(){
         const response = await fetch(`/api/entryList/${userName}`, {credentials: 'include'})
         const body = await response.json();
+        console.log(body);
         setEntries(body);
+        console.log(Array.isArray(entries));
+        console.log(entries);
     }
 
     function handleCategory(selectedCategory){
@@ -69,18 +72,27 @@ export function List(props) {
     };
 
     const handleDelete = async (entry) => {
-        try{
-            const response = await fetch(`/api/deleteEntry/${entry.id}`, {method: 'delete', credentials: 'include'});
-            if (!response.ok){
-                alert("OOGABOOGA");
+        try {
+            const response = await fetch(`/api/deleteEntry/${entry.id}/${entry.userName}`, {
+                method: 'DELETE',
+                credentials: 'include'
+            });
+            if (!response.ok) {
+                const errMsg = await response.text();
+                alert(`Error deleting entry: ${errMsg}`);
+                return;
             }
+
             const updatedEntries = await response.json();
             setEntries(updatedEntries);
+
+        } catch (err) {
+            console.error("Error deleting entry:", err);
+            alert("Something went wrong while deleting the entry.");
         }
-        catch(err){
-            console.log(err);
-        }
-    }
+    };
+
+
 
   return (
     <main className="main">
