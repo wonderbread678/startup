@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const uuid = require('uuid');
 const DB = require('./database.js');
+const { peerProxy, uploadMessenger } = require('./uploadMessenger.js');
 
 const authCookieName = 'token';
 app.use(cookieParser());
@@ -117,6 +118,7 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
     }
     await DB.createEntry(newEntry);
     const userEntries = await DB.getEntries(userName);
+    uploadMessenger(userName, entry.title);
     res.send(userEntries);
     return;
 });
@@ -243,3 +245,5 @@ function updateEntries(newEntry) {
   console.log({entries});
   return entries;
 }
+
+peerProxy(httpService);

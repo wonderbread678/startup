@@ -17,6 +17,11 @@
   background: linear-gradient(to right, #e9eaea, #00674F);
 }
 
+.rank {
+  font-size: 30px;
+
+}
+
 #edit {
     padding: 0.5em;
     margin: 3px;
@@ -59,6 +64,24 @@ ol {
   padding-left: 0;
   margin-left: 0;
 }
+
+.biggerNumbers, .bigNumbers {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 25px;
+
+    justify-items: center;
+    width: fit-content;
+}
+
+.rank{
+    font-size: clamp(25px, 2vw, 20px);
+}
+
 
 li {
   list-style-position: inside;

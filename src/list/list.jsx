@@ -99,8 +99,8 @@ export function List(props) {
       <div className="body">
         {entries.length !== 0 ? (
         <div className="listBody">
-        <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px"}}>List selection: </label>
-            <select id="listSelection" style={{marginBottom:"15px"}} value={category} onChange={(e) => handleCategory(e.target.value)}>
+        <label htmlFor="listSelection" style={{marginTop:"10px", marginBottom:"3px", justifyContent:"center"}}>List selection: </label>
+            <select id="listSelection" style={{marginBottom:"15px", justifyContent:"center"}} value={category} onChange={(e) => handleCategory(e.target.value)}>
                 <option>All</option>
                 {lists.map((listName, index) => (
                     <option key={index} value={listName}>{listName}</option>
@@ -115,8 +115,8 @@ export function List(props) {
                     <ol className="bigNumbers">
                         {entries.map((entry, index) => (
                         <li key={index}>
+                            <div className="rank">{index + 1}. {entry.title}</div>
                             <img src={entry.image} className="listImage" style= {{width: "200px", height: "300px"}} />
-                            <div className="entryTitle"><b>Title:</b> {entry.title}</div>
                             <div className="entryAuthor"><b>Author:</b> {entry.author}</div>
                             <div className="entryType"><b>Type:</b> {entry.type}</div>
                             <div className="entryRating"><b>Rating:</b> {entry.rating}</div>
