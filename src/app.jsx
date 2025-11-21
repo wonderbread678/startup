@@ -17,6 +17,8 @@ export default function App() {
     const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
     const [authState, setAuthState] = React.useState(currentAuthState);
 
+    const [toggleState, setToggleState] = React.useState(true);
+
 
 
   return (
@@ -58,9 +60,16 @@ export default function App() {
             </header>
 
             <div className="uploads-box">
-                <h5>Uploads: </h5>
-                <div className="uploads-content">
-                    {/* Empty space for WebSocket updates */}
+                <div onClick={() => setToggleState(!toggleState)}>
+                    <h5>Uploads: </h5>
+                    <button className="toggle-btn">
+                        {toggleState ? "hide" : "open"}
+                    </button>
+                    {toggleState && (
+                    <div className="uploads-content">
+                        {/* Empty space for WebSocket updates */}
+                    </div>
+                    )}
                 </div>
             </div>
 

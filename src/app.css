@@ -150,7 +150,7 @@ input {
     top: 100px;             /* adjust to below your header */
     right: 20px;            /* distance from the right edge */
     width: 200px;           /* width of the box */
-    min-height: 150px;      /* some empty space */
+    min-height: 50px;      /* some empty space */
     background-color: #f8f9fa;  /* light gray */
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -163,4 +163,13 @@ input {
     margin-top: 10px;
     height: 100px;          /* reserve space for WebSocket updates */
     overflow-y: auto;       /* scroll if content exceeds */
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+    cursor: pointer;
 }
