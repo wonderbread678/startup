@@ -57,6 +57,13 @@ export default function App() {
                 </nav>
             </header>
 
+            <div className="uploads-box">
+                <h5>Uploads: </h5>
+                <div className="uploads-content">
+                    {/* Empty space for WebSocket updates */}
+                </div>
+            </div>
+
             <Routes>
                 <Route path='/' element={
                     <Login 
@@ -78,6 +85,7 @@ export default function App() {
                 <Route path='*' element={<NotFound />} />
             </Routes>
         </div>
+
         <footer style={{color: "lightgray"}} className="main">
             <div className="container-fluid" id="footerDiv">
                 <span className="text-reset">Author: Ethan Nielsen</span>
