@@ -19,6 +19,10 @@ export default function App() {
 
     const [toggleState, setToggleState] = React.useState(true);
 
+    const [wsClient] = React.useState(() => {
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        return new WebSocket(`${protocol}://${window.location.host}/ws`);
+    });
 
 
   return (
@@ -59,6 +63,7 @@ export default function App() {
                 </nav>
             </header>
 
+                        
             <div className="uploads-box">
                 <div onClick={() => setToggleState(!toggleState)}>
                     <h5>Uploads: </h5>
