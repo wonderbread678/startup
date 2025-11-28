@@ -19,10 +19,20 @@ export default function App() {
 
     const [toggleState, setToggleState] = React.useState(true);
 
+    // Websocket Stuff
     const [wsClient] = React.useState(() => {
         const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
         return new WebSocket(`${protocol}://${window.location.host}/ws`);
     });
+
+    const [notifications, setNotifications] = React.useState([]);
+
+    React.useEffect(() => {
+    wsClient.onmessage = (event) => {
+        const message = JSON.parse(event.data);
+        setNotifications((prev) => [...prev, message]);
+        };
+    }, [wsClient]);
 
 
   return (

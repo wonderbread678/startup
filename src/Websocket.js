@@ -49,7 +49,7 @@ class ChatClient {
 function Message ({webSocket}){
 
     function sendMsg(){
-        webSocket.sendMesssage(userName, message);
+        webSocket.sendMesssage(userName, {});
         set
     }
 }
@@ -58,7 +58,7 @@ function Uploads({ webSocket }){
     const[uploads, setUploads] = React.useState([]);
     React.useEffect(() => {
         webSocket.addObserver((upload) => {
-            setChats((prevUploads) => [...prevUploads, upload]);
+            setUploads((prevUploads) => [...prevUploads, upload]);
         });
     }, [webSocket])
 
