@@ -89,9 +89,9 @@ export default function App() {
                             </div>
                         )}
 
-                        {notifications.map((upload, i) => (
-                            <div key={i} className="upload-entry">
-                            <strong>{upload.user}</strong> uploaded: <em>{upload.title}</em>
+                        {notifications.map((upload, index) => (
+                            <div key={index} className="upload-entry">
+                            <strong>{iindex}{upload.user}</strong> uploaded: <em>{upload.title}</em>
                             <br />
                             <small>{new Date(upload.date).toLocaleString()}</small>
                             <hr />
