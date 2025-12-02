@@ -83,7 +83,10 @@ export default function App() {
                     {toggleState && (
                     <div className="uploads-content">
                         {notifications.length === 0 && (
-                            <div style={{ color: "gray" }}>No uploads yet</div>
+                            <div style={{ color: "gray" }}>
+                                No uploads yet
+                                <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3NrbGEyenJzZW82ZmRrN3hhOXkwNTZtaDRlMzZ6cXk2dTE2bHAzaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gpXfKa9xLAR56/giphy.gif" alt="GIF" style={{height:"75%", width:"75%"}}></img>
+                            </div>
                         )}
 
                         {notifications.map((upload, i) => (
