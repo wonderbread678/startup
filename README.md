@@ -165,8 +165,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - Backend is managed in service/webSocket.js and aided by uploadMessenger.js.
+- [x] **Frontend makes WebSocket connection** - The connection is made in app.jsx so that it can be present in all areas of the website.
+- [x] **Data sent over WebSocket connection** - Username, title of upload, and date of upload are displayed as the data.
+- [x] **WebSocket data displayed** - Websocket data is displayed on any page of the website.
+- [x] **Application is fully functional** - IT WORKS!!!!!
