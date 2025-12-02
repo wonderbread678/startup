@@ -1,15 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-class EventMessage {
-  constructor(from, type, value) {
-    this.from = from;
-    this.type = type;
-    this.value = value;
-  }
-}
-
-class ChatClient {
+class UploadClient {
   observers = [];
   connected = false;
 
@@ -26,9 +15,21 @@ class ChatClient {
 
     // Display messages we receive from our friends
     this.socket.onmessage = async (event) => {
-      const text = await event.data.text();
-      const chat = JSON.parse(text);
-      this.notifyObservers('received', chat.name, chat.msg);
+        try{
+            const text = JSON.parse(event.data);
+
+            if (data.type === "upload"){
+                this.notifyObservers({
+                    event: "upload",
+                    user: data.user,
+                    title: data.title,
+                    date: data.date
+                });
+            }
+        }
+        catch(err){
+            console.error("Invalid Websocket Message:", err);
+        }
     };
 
     // If the webSocket is closed then disable the interface
@@ -38,41 +39,7 @@ class ChatClient {
     };
   }
 
-  // Send a message over the webSocket
-  sendMessage(name, msg) {
-    this.notifyObservers('sent', 'me', msg);
-    this.socket.send(JSON.stringify({ name, msg }));
-  }
-
   addObserver(observer) {
     this.observers.push(observer);
   }
-
-  notifyObservers(event, from, msg) {
-    this.observers.forEach((h) => h({ event, from, msg }));
-  }
 }
-
-function Message ({webSocket}){
-
-    function sendMsg(){
-        webSocket.sendMesssage(userName, {});
-        set
-    }
-}
-
-function Uploads({ webSocket }){
-    const[uploads, setUploads] = React.useState([]);
-    React.useEffect(() => {
-        webSocket.addObserver((upload) => {
-            setUploads((prevUploads) => [...prevUploads, upload]);
-        });
-    }, [webSocket])
-
-    const uploadEls = uploads.map((upload, index) => (
-        <div key={index}>
-            <span className={upload.event}></span>
-        </div>
-    ));
-}
-
