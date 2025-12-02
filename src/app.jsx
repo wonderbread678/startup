@@ -73,7 +73,7 @@ export default function App() {
                 </nav>
             </header>
 
-                        
+            {authState === AuthState.Authenticated && (
             <div className="uploads-box">
                 <div onClick={() => setToggleState(!toggleState)}>
                     <h5>Uploads: </h5>
@@ -86,11 +86,11 @@ export default function App() {
                             <div style={{ color: "gray" }}>No uploads yet</div>
                         )}
 
-                        {notifications.map((u, i) => (
+                        {notifications.map((upload, i) => (
                             <div key={i} className="upload-entry">
-                            <strong>{u.user}</strong> uploaded: <em>{u.title}</em>
+                            <strong>{upload.user}</strong> uploaded: <em>{upload.title}</em>
                             <br />
-                            <small>{new Date(u.date).toLocaleString()}</small>
+                            <small>{new Date(upload.date).toLocaleString()}</small>
                             <hr />
                             </div>
                         ))}
@@ -98,6 +98,7 @@ export default function App() {
                     )}
                 </div>
             </div>
+            )}
 
             <Routes>
                 <Route path='/' element={
