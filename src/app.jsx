@@ -82,7 +82,18 @@ export default function App() {
                     </button>
                     {toggleState && (
                     <div className="uploads-content">
-                        {/* Empty space for WebSocket updates */}
+                        {notifications.length === 0 && (
+                            <div style={{ color: "gray" }}>No uploads yet</div>
+                        )}
+
+                        {notifications.map((u, i) => (
+                            <div key={i} className="upload-entry">
+                            <strong>{u.user}</strong> uploaded: <em>{u.title}</em>
+                            <br />
+                            <small>{new Date(u.date).toLocaleString()}</small>
+                            <hr />
+                            </div>
+                        ))}
                     </div>
                     )}
                 </div>

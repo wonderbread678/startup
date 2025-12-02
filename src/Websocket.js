@@ -17,16 +17,8 @@ class UploadClient {
     this.socket.onmessage = async (event) => {
         try{
             const text = JSON.parse(event.data);
-
-            if (data.type === "upload"){
-                this.notifyObservers({
-                    event: "upload",
-                    user: data.user,
-                    title: data.title,
-                    date: data.date
-                });
+            this.notifyObservers({text});
             }
-        }
         catch(err){
             console.error("Invalid Websocket Message:", err);
         }

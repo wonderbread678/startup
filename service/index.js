@@ -19,9 +19,6 @@ app.use(`/api`, apiRouter);
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
 
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
@@ -118,7 +115,7 @@ apiRouter.post('/entries', verifyAuth, async (req, res) => {
     }
     await DB.createEntry(newEntry);
     const userEntries = await DB.getEntries(userName);
-    uploadMessenger(userName, entry.title);
+    uploadMessenger(userName, newEntry.title);
     res.send(userEntries);
     return;
 });
@@ -245,5 +242,11 @@ function updateEntries(newEntry) {
   console.log({entries});
   return entries;
 }
+
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+
+
 
 peerProxy(httpService);
