@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+class EventMessage {
+  constructor(from, type, value) {
+    this.from = from;
+    this.type = type;
+    this.value = value;
+  }
+}
 
 class ChatClient {
   observers = [];
